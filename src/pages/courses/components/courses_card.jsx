@@ -10,7 +10,7 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import AddIcon from '@mui/icons-material/Add';
-import { Button } from '../styled-components/courses_list';
+import { Button, CardContainer } from '../styled-components/courses_list';
 
 const theme = createTheme({
   components: {
@@ -34,25 +34,28 @@ export default function CoursesCard({ course }) {
 
   return (
     <ThemeProvider theme={theme}>
-      <Card sx={{ maxWidth: 345, position: 'relative'}} >
-        <CardHeader title={course.name} />        
-        <CardMedia style={{position: "relative"}} component="img" height="194" image={course.image} alt={course.name + " imagem"} />
-          <Button>
-            <IconButton
-              onClick={handleExpandClick}
-              aria-expanded={expanded}
-              aria-label="show more"
-            >
-              <AddIcon />
-            </IconButton>
-          </Button>
-        <Collapse in={expanded} timeout="auto" unmountOnExit>
-          <CardContent>
-            <Typography paragraph>Coordinator: {course.coordinator}</Typography>
-            <Typography>{course.description}</Typography>
-          </CardContent>
-        </Collapse>
-      </Card>
+      <CardContainer>
+
+        <Card>
+          <CardHeader title={course.name} />        
+          <CardMedia style={{position: "relative"}} component="img" height="194" image={course.image} alt={course.name + " imagem"} />
+            <Button>
+              <IconButton
+                onClick={handleExpandClick}
+                aria-expanded={expanded}
+                aria-label="show more"
+              >
+                <AddIcon />
+              </IconButton>
+            </Button>
+          <Collapse in={expanded} timeout="auto" unmountOnExit>
+            <CardContent>
+              <Typography paragraph>Coordinator: {course.coordinator}</Typography>
+              <Typography>{course.description}</Typography>
+            </CardContent>
+          </Collapse>
+        </Card>
+      </CardContainer>
     </ThemeProvider>
   );
 }
