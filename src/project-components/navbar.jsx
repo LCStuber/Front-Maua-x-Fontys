@@ -37,9 +37,11 @@ export default function Navbar({openDrawer}){
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <Image src={Logo} alt="Logo Print Mauá"/>
-          </Typography>
+          <a href="/homepage">
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              <Image src={Logo} alt="Logo Print Mauá"/>
+            </Typography>
+          </a>
         </Toolbar>
       </AppBar>
     </Box>
