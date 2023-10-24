@@ -33,6 +33,10 @@ const Image = styled.img`
     height: auto;
     z-index: -1;
     margin-top: -30px;
+    @media (min-width: 880px){
+        height: min(65vh, 600px);
+        object-fit: cover;
+    }
 `;
 
 

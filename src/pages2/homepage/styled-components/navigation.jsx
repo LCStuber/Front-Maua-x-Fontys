@@ -19,7 +19,6 @@ const Activities = styled.div`
 
 const Header = styled.h3`
     color: #f6f6f6;
-    font-size: 140%;
     font-weight: normal;
     margin-left: 10px;
 `;
@@ -56,5 +55,23 @@ const Anchor = styled.a`
     color: #f6f6f6;
 `;
 
+const Group = styled.div`
+    font-size: 65%;
+    @media (min-width: 880px){
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        margin: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        position: relative;
+    }
+    @media (max-width: 880px) {
+        flex-direction: column;
+        align-items: center;
+    }
+`;
 
-export {Activities, Header, Card, CardText, Anchor}
+
+export {Activities, Header, Card, CardText, Anchor, Group}

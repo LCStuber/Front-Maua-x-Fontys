@@ -14,10 +14,10 @@ export default function HomePage(){
 
     return(
         <>        
-        <Navbar openDrawer={toggleDrawer}></Navbar>
-        <WelcomeComponent></WelcomeComponent>
-        <NavigationComponent></NavigationComponent>
-        <InstagramComponent></InstagramComponent>
+        <Navbar openDrawer={toggleDrawer}/>
+        <WelcomeComponent/>
+        <NavigationComponent/>
+        <InstagramComponent/>
         </>
     )
 }
