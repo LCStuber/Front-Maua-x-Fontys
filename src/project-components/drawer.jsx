@@ -6,8 +6,8 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+import LocalActivityIcon from '@mui/icons-material/LocalActivity';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 export default function Drawer({ anchor, open, onClose, onOpen }) {
   const [state, setState] = React.useState({
@@ -41,7 +41,7 @@ export default function Drawer({ anchor, open, onClose, onOpen }) {
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                {index % 2 === 0 ? <LocalActivityIcon /> : <LogoutIcon />}
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItemButton>
