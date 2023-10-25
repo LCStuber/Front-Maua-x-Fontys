@@ -1,38 +1,70 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&family=Roboto:wght@400;500;700&display=swap');
+
+* {
+  border: none;
+  margin: 0;
+  padding: 0;
+  font-family: 'Lexend', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: none; /* for iOS Safari */
+  text-size-adjust: none; /* for other mobile browsers */
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  html {
+      scroll-behavior: smooth;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+:focus:not(:focus-visible) {
+  outline: none;
 }
 
-.App-link {
-  color: #61dafb;
+menu:not(article menu),
+ol:not(article ol),
+ul:not(article ul) {
+  list-style: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+menu,
+ol,
+ul {
+  padding-left: 0;
+}
+
+article ol,
+article ul {
+  list-style-position: inside;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-underline-position: under;
+  text-decoration-thickness: 8px;
+}
+
+label,
+button,
+select,
+summary,
+[type=radio],
+[type=submit],
+[type=checkbox] {
+  cursor: pointer;
+}
+
+body {
+  background-color: #00396A;
 }
