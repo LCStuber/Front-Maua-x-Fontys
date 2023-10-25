@@ -10,6 +10,7 @@ const ActivityDetail = ({ match }) => {
   return (
     <div>
       <h2>Activity Detail</h2>
+      <button className="subscribeButton">Subscribe</button>
       {/* Display detailed activity information here */}
     </div>
   );

@@ -16,6 +16,12 @@ const Activities = () => {
       room: 'H204',
       time: '2:30 PM',
     },
+    {
+      id: '3',
+      title: 'Activity 3',
+      room: 'D01',
+      time: '4:30 PM',
+    },
     // Add more activity objects as needed
   ];
 
