@@ -24,38 +24,18 @@ const Button = styled.div`
 `;
 
 const Container = styled.div`
-  @media (max-width: 768px){
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  
-  }
-  @media (max-width: 879px){
-    display: flex;
-    flex-direction: column;
-
-  }
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 `;
+
+const CardBox = styled.div`
+  `;
 
 const CardContainer = styled.div`
   position: relative;
-  @media (max-width: 768px){
-    width: 90%;
-    margin: auto;
-    margin-bottom: 40px;
-  }
-  @media (max-width: 880px){
-    width: 60%;
-    margin-bottom: 40px;
-  }
-  @media (min-width: 881px){
-    width: 20%;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 40px;
-  }
+  
 `;
 
 
-export {Header, Button, Container, CardContainer}
+export {Header, Button, Container, CardContainer, CardBox}

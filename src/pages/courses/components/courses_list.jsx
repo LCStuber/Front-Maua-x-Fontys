@@ -1,9 +1,10 @@
-import React from 'react';
+import React     from 'react';
 import axios from 'axios';
-import {Header, Container} from '../styled-components/courses_list';
+import {Header} from '../styled-components/courses_list';
 import CoursesCard from './courses_card';
 import ComputerScienceImage from '../imgs/csi-img.jpg';
 import SystemsInformationImage from '../imgs/sys-img.jpg';
+import Grid from '@mui/material/Unstable_Grid2';
 
 export default function CoursesList() {
 
@@ -44,7 +45,7 @@ export default function CoursesList() {
             name: "Systems Information",
             coordinator: "Dr. Jane Doe",
             description: "This is a systems information course."
-        }
+        },
         //Later we'll connect this with DynamoDB
     ];
 
@@ -55,14 +56,16 @@ export default function CoursesList() {
     return (
         <>
             <Header>Courses: </Header>
-            <Container>
+            <Grid container spacing={4} style={{marginLeft: "20px", marginRight: "20px"}}>
                 {courses.map((course) => (
+                    <Grid xs={12} sm={6} md={4} lg={3}>
                         <CoursesCard
                             key={course.id}
-                            course={course} 
+                            course={course}
                         />
+                    </Grid>
                 ))}
-            </Container>
+            </Grid>
         </>
     );
 }
