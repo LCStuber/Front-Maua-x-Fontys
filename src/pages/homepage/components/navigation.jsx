@@ -20,7 +20,7 @@ export default function NavigationComponent() {
                     <SchoolIcon sx={{ fontSize: 72 }} style={{marginRight: "20px"}} ></SchoolIcon>
                 </Card>
             </Anchor>
-            <Anchor href="#">
+            <Anchor href="/courses">
                 <Card>
                     <CollectionsBookmarkIcon sx={{ fontSize: 72 }} style={{marginLeft: "35px"}} ></CollectionsBookmarkIcon>
                     <CardText style={{marginLeft: "60px"}}>
