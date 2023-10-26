@@ -13,7 +13,6 @@ export default function Courses(){
 
     return(
         <>
-        <Navbar openDrawer={toggleDrawer}/>
         <CoursesList/>
         </>
     )
