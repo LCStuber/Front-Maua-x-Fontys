@@ -1,18 +1,15 @@
 import React from 'react';
 import './ActivityDetail.css';
+import { useParams } from 'react-router-dom';
 
-const ActivityDetail = ({ match }) => {
-  const { id } = match.params;
+const ActivityDetail = () => {
+  const { id } = useParams();
 
-  // Fetch detailed activity information based on the ID (you'll need to implement this)
-  // const detailedActivity = fetchDetailedActivity(id);
+  console.log(id);
 
   return (
-    <div>
-      <h2>Activity Detail</h2>
-      {/* Display detailed activity information here */}
-    </div>
-  );
-};
+    <div style={{color: "red"}}>ActivityDetail</div>
+  )
+}
 
-export default ActivityDetail;
+export default ActivityDetail
