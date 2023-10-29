@@ -1,11 +1,11 @@
 import React from 'react';
 import './ActivityDetail.css';
+import { useParams } from 'react-router-dom';
 
-const ActivityDetail = ({ match }) => {
-  const { id } = match.params;
+const ActivityDetail = () => {
+  const { id } = useParams();
 
-  // Fetch detailed activity information based on the ID (you'll need to implement this)
-  // const detailedActivity = fetchDetailedActivity(id);
+  console.log(id);
 
   return (
     <div>
@@ -16,4 +16,4 @@ const ActivityDetail = ({ match }) => {
   );
 };
 
-export default ActivityDetail;
+export default ActivityDetail
