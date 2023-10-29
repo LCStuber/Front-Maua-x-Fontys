@@ -8,8 +8,12 @@ const ActivityDetail = () => {
   console.log(id);
 
   return (
-    <div style={{color: "red"}}>ActivityDetail</div>
-  )
-}
+    <div>
+      <h2>Activity Detail</h2>
+      <button className="subscribeButton">Subscribe</button>
+      {/* Display detailed activity information here */}
+    </div>
+  );
+};
 
 export default ActivityDetail
