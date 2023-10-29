@@ -21,7 +21,7 @@ function App() {
         <Navbar openDrawer={toggleDrawer}/>
         <Routes>
           <Route path="/activities" element={<Activities />} />
-          <Route path="/activity/:id" component={ActivityDetail} />
+          <Route path="/activity/:id" element={<ActivityDetail />} />
           <Route path="/homepage" element={<HomePage />} />
           <Route path="/courses" element={<Courses />} />
         </Routes>
