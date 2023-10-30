@@ -6,12 +6,12 @@
     font-size: 24px;
 }
 
-.subscribeButton.green {
+.subscribeButton.subscribe {
     background-color: #009406;
     color: white;
-  }
+}
   
-  .subscribeButton.red {
+.subscribeButton.unsubscribe {
     background-color: #C6192D;
     color: white;
-  }
+}

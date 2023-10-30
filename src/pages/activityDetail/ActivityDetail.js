@@ -5,21 +5,23 @@ import { useParams } from 'react-router-dom';
 const ActivityDetail = () => {
   const { id } = useParams();
 
-  const [isRed, setIsRed] = useState(false);
+  const [isSubscribed, setIsSubscribed] = useState(false);
 
-  const toggleColor = () => {
-    setIsRed(!isRed);
+  const toggleSubscribeButton = () => {
+    setIsSubscribed(!isSubscribed);
   }
+  const buttonText = isSubscribed ? 'Unsubscribe' : 'Subscribe';
+
   console.log(id);
 
   return (
     <div>
       <h2>Activity Detail</h2>
       <button
-        className={`subscribeButton ${isRed ? 'red' : 'green'}`}
-        onClick={toggleColor}
+        className={`subscribeButton ${isSubscribed ? 'unsubscribe' : 'subscribe'}`}
+        onClick={toggleSubscribeButton}
       >
-        Subscribe
+        {buttonText}
       </button>
       {/* Display detailed activity information here */}
     </div>
