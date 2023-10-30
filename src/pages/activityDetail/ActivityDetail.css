@@ -2,7 +2,16 @@
     height: 50px;
     width: 50%;
     border-radius: 8px;
-    background-color: #009406;
     color: white;
     font-size: 24px;
+}
+
+.subscribeButton.subscribe {
+    background-color: #009406;
+    color: white;
+}
+  
+.subscribeButton.unsubscribe {
+    background-color: #C6192D;
+    color: white;
 }
