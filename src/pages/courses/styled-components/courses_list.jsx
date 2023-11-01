@@ -1,14 +1,5 @@
 import styled from "styled-components";
 
-const Header = styled.h1`
-  font-size: 200%;
-  color: #f6f6f6;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  margin-left: 20px;
-  font-weight: normal;
-`;
-
 const Button = styled.div`
   position: absolute;
   bottom: 10px;
@@ -38,4 +29,4 @@ const CardContainer = styled.div`
 `;
 
 
-export {Header, Button, Container, CardContainer, CardBox}
+export { Button, Container, CardContainer, CardBox}
