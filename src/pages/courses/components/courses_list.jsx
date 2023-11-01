@@ -1,6 +1,6 @@
-import React     from 'react';
+import React from 'react';
 import axios from 'axios';
-import {Header} from '../styled-components/courses_list';
+import {Header} from '../../../styled-components/Header';
 import CoursesCard from './courses_card';
 import ComputerScienceImage from '../imgs/csi-img.jpg';
 import SystemsInformationImage from '../imgs/sys-img.jpg';
@@ -56,7 +56,7 @@ export default function CoursesList() {
     return (
         <>
             <Header>Courses: </Header>
-            <Grid container spacing={4} style={{marginLeft: "20px", marginRight: "20px"}}>
+            <Grid container style={{marginLeft: "20px", marginRight: "20px"}}>
                 {courses.map((course) => (
                     <Grid xs={12} sm={6} md={4} lg={3}>
                         <CoursesCard
