@@ -9,8 +9,10 @@ import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 export default function NavigationComponent() {
     return(
         <>
-        <Activities>See all activities</Activities>
-        <Header>College Information: </Header>
+        <Anchor href="/activities">
+            <Activities>See all activities</Activities>
+        </Anchor>
+        <Header style={{marginTop: "12px", marginBottom: "12px"}}>College Information: </Header>
         <Group>
             <Anchor href="#">
                 <Card>
@@ -28,7 +30,7 @@ export default function NavigationComponent() {
                     </CardText>
                 </Card>
             </Anchor>
-            <Anchor href="#">
+            <Anchor href="/stuorgs">
                 <Card>
                     <CardText>
                         Students Organizations
