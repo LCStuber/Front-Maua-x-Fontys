@@ -1,4 +1,67 @@
+.main-container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #336C9D;
+}
+
+.top-container{
+    width: 100%;
+    height: 40%;
+    background-color: #00396A;
+    border-radius: 0 0 20px 20px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-text{
+    padding: 15px;
+    position: absolute;
+    color: white;
+    font-size: 30px;
+}
+
+.time-and-room-container{
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.time-container,
+.room-container,
+.lector-container,
+.capacity-container{
+    margin-top: 15px;
+    width: 45%;
+    padding: 5px;
+    text-align: center;
+    border-radius: 30px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.time-container{
+    border: 1px solid #FD9D23;
+}
+
+.room-container{
+    border: 1px solid #DD001B;
+}
+
+.lector-container{
+    width: 100%;
+    border: 1px solid #199CC6;
+}
+
 .subscribeButton{
+    margin-top: 15px;
     height: 50px;
     width: 50%;
     border-radius: 8px;
@@ -14,4 +77,30 @@
 .subscribeButton.unsubscribe {
     background-color: #C6192D;
     color: white;
+}
+
+.capacity-container{
+    border: 1px solid #009406;
+}
+
+.icon{
+    margin-right: 10px;
+}
+
+.bottom-container{
+    width: 100%;
+    height: 60%;
+    background-color: #336C9D;
+    padding: 15px;
+}
+
+.description-title{
+    color: white;
+    font-size: 28px;
+}
+
+.description-text{
+    margin-top: 10px;
+    color: white;
+    line-height: 1.5;
 }
