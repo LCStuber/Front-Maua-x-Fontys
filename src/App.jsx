@@ -5,9 +5,11 @@ import ActivityDetail from './pages/activityDetail/ActivityDetail';
 import HomePage from './pages/homepage/homepage';
 import Courses from './pages/courses/courses';
 import StuOrgs from './pages/stu-orgs/stuorgs'
+import MauaLocation from "./pages/maua-location/MauaLocation";
 import React, {useState} from 'react';
 import Navbar from './project-components/navbar';
 import InteractiveMap from './pages/interactiveMap/InteractiveMap';
+
 
 function App() {
 
@@ -28,6 +30,7 @@ function App() {
           <Route path="/courses" element={<Courses />} />
           <Route path="/stuorgs" element={<StuOrgs />} />
           <Route path="/interactive-map" element={<InteractiveMap />} />
+          <Route path="/maua-location" element = {<MauaLocation />} />
         </Routes>
       </main>
     </Router>

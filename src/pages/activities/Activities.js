@@ -4,6 +4,9 @@ import './Activities.css'
 import { Link } from 'react-router-dom';
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 8115a1e (Getting the list of activities from the API.)
 // export const activities = [
 //   {
 //     id: '1',
@@ -37,6 +40,7 @@ import { Link } from 'react-router-dom';
 //   },
 //   // Add more activity objects as needed
 // ];
+<<<<<<< HEAD
 
 const Activities = () => {
   const [activities, setActivities] = useState([]);
@@ -91,6 +95,25 @@ export const activities = [
 
 const Activities = () => {
 >>>>>>> 92a63ce (UI for a specific activity page)
+=======
+
+const Activities = () => {
+  const [activities, setActivities] = useState([]);
+
+  const getActivities = async () => {
+    try {
+      const response = await api.get('/api/v1/activities');
+      console.log(response.data);
+      setActivities(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    getActivities();
+  }, [])
+>>>>>>> 8115a1e (Getting the list of activities from the API.)
 
   return (
     <div className="activity-list">
