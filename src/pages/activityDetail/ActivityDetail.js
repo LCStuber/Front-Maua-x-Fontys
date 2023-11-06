@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './ActivityDetail.css';
 import { useParams } from 'react-router-dom';
-import { activities } from '../activities/Activities';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faUser, faUsers } from '@fortawesome/free-solid-svg-icons';
@@ -12,12 +11,21 @@ library.add(faUser, faClock, faBuilding, faUsers);
 const ActivityDetail = () => {
   const { id } = useParams();
 
-  const [activity, setActivity] = useState(null);
+  const [activity, setActivity] = useState({
+    id: '',
+    title: '',
+    room: '',
+    time: '',
+    lector: '',
+    max_capacity: '',
+    used_capacity: '',
+    description: '',
+  });
 
-  useEffect(() => {
-    const findActivityById = activities.find((item) => item.id === id);
-    setActivity(findActivityById);
-  }, [id]);
+  // useEffect(() => {
+  //   const findActivityById = activities.find((item) => item.id === id);
+  //   setActivity(findActivityById);
+  // }, [id]);
 
   const [isSubscribed, setIsSubscribed] = useState(false);
 
