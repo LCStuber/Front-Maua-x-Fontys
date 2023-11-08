@@ -4,7 +4,7 @@ import "./MauaLocation.css";
 
 const MauaLocation = () => {
     const { isLoaded, loadError } = useLoadScript({
-        googleMapsApiKey: "AIzaSyDNxjbfEj7qqrgZ8NqJW-CgJsaPqZaUFV4",
+        googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     });
 
     const center = {
