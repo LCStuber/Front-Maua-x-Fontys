@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './ActivityDetail.css';
 import { useParams } from 'react-router-dom';
-import { activities } from '../activities/Activities';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faUser, faUsers } from '@fortawesome/free-solid-svg-icons';
