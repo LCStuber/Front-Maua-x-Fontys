@@ -7,6 +7,7 @@ import Courses from './pages/courses/courses';
 import StuOrgs from './pages/stu-orgs/stuorgs'
 import React, {useState} from 'react';
 import Navbar from './project-components/navbar';
+import InteractiveMap from './pages/interactiveMap/InteractiveMap';
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
           <Route path="/homepage" element={<HomePage />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="/stuorgs" element={<StuOrgs />} />
+          <Route path="/interactive-map" element={<InteractiveMap />} />
         </Routes>
       </main>
     </Router>

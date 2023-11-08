@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './ActivityDetail.css';
 import { useParams } from 'react-router-dom';
+<<<<<<< HEAD
+=======
+import { activities } from '../activities/Activities';
+>>>>>>> 92a63ce (UI for a specific activity page)
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faUser, faUsers } from '@fortawesome/free-solid-svg-icons';
@@ -11,6 +15,7 @@ library.add(faUser, faClock, faBuilding, faUsers);
 const ActivityDetail = () => {
   const { id } = useParams();
 
+<<<<<<< HEAD
   const [activity, setActivity] = useState({
     id: '',
     title: '',
@@ -26,6 +31,14 @@ const ActivityDetail = () => {
   //   const findActivityById = activities.find((item) => item.id === id);
   //   setActivity(findActivityById);
   // }, [id]);
+=======
+  const [activity, setActivity] = useState(null);
+
+  useEffect(() => {
+    const findActivityById = activities.find((item) => item.id === id);
+    setActivity(findActivityById);
+  }, [id]);
+>>>>>>> 92a63ce (UI for a specific activity page)
 
   const [isSubscribed, setIsSubscribed] = useState(false);
 
