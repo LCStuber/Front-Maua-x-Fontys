@@ -11,16 +11,7 @@ library.add(faUser, faClock, faBuilding, faUsers);
 const ActivityDetail = () => {
   const { id } = useParams();
 
-  const [activity, setActivity] = useState({
-    id: '',
-    title: '',
-    room: '',
-    time: '',
-    lector: '',
-    max_capacity: '',
-    used_capacity: '',
-    description: '',
-  });
+  const [activity, setActivity] = useState(null);
 
   // useEffect(() => {
   //   const findActivityById = activities.find((item) => item.id === id);

@@ -1,0 +1,67 @@
+.dropdown {
+    position: relative;
+    display: inline-block;
+    flex-shrink: 0;
+
+}
+
+.dropdown-button {
+    border-radius: 20px;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    border-radius: 12px;
+    background: #336C9D;
+    gap: 10px;
+}
+
+.arrow {
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+
+.arrow.up {
+    transform: rotate(180deg);
+}
+
+.options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.dropdown.open .options {
+    opacity: 1;
+    visibility: visible;
+}
+
+.option {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: #f1f1f1;
+    }
+}
+.polygonIcon{
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    fill: #FFF;
+}
