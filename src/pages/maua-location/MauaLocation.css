@@ -1,0 +1,60 @@
+.google-maps{
+    height:80vh;
+}
+
+.map-container {
+    height: 100%;
+    width: 100%;
+    margin-left:70px;
+}
+
+.google-maps h1{
+    color:white;
+    margin: 20px 100px;
+}
+
+.location-container{
+    height: 95%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    grid-gap: 1.5rem;
+    align-items: center;
+    padding: 20px;
+}
+
+.address-box{
+    background-color: #002B50;
+    color: white;
+    border-radius: 10px;
+    width: 60%;
+    padding: 30px 40px;
+    margin-left: 180px;
+    box-shadow: 5px 5px 5px #000E1B;
+}
+
+.address-box h2{
+    padding-bottom: 5px;
+}
+
+@media (max-width: 768px) {
+    .location-container {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .address-box {
+      width: 100%; 
+      margin-left: 0;
+    }
+  
+    .map-container {
+      width: 100%; 
+      height: 300px; 
+      margin-left: 0; 
+    }
+  
+    .google-maps h1 {
+      margin: 20px 20px;
+    }
+  }
