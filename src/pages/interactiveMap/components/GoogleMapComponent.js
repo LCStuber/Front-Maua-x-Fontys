@@ -1,6 +1,7 @@
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+// import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import React, { useEffect } from 'react';
 import jsonData from './JSON.json'
+import "./GoogleMapComponent.css"
 
 // const mapContainerStyle = {
 //   width: '100%',
@@ -25,8 +26,13 @@ const GoogleMapComponent = () => {
 
          
         },
+        mapTypeId: 'terrain', // Set the map type to roadmap (normal 2D map)
+        disableDefaultUI: true, // Disable default UI components
+        zoomControl: true, // Enable zoom control
+        gestureHandling: 'cooperative', // Enable smooth zoom gestures
       });
       // Load GeoJSON data from the prop
+      
       map.data.addGeoJson(jsonData);
     }
 
@@ -54,7 +60,7 @@ const GoogleMapComponent = () => {
     //     <Marker position={defaultCenter} />
     //   </GoogleMap>
     // </LoadScript>
-    <div id="map" style={{ width: '100%', height: '400px' }}></div>
+    <div id="map"></div>
   );
 };
 

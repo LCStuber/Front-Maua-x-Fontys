@@ -1,0 +1,28 @@
+.seeMoreButton {
+    color: white;
+    padding: 12px 20px;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    border-radius: 12px;
+    background: #336C9D;
+    gap: 10px;
+    justify-content: center;
+    min-width: 70%;
+    margin-top: 20px;
+    /* font-size: inherit; */
+        font-size: 27px;
+        font-style: normal;
+        /* font-weight: 700; */
+        line-height: normal;
+}
+.plusIcon{
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    fill: #FFF;
+}
+.seeMoreTxt{
+    width:100%;
+}

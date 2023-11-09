@@ -17,7 +17,7 @@ const SelectBlockButton = () => {
     <div className={`dropdown ${isOpen ? "open" : ""}`}>
       <button className="dropdown-button" onClick={() => setIsOpen(!isOpen)}>
         {selectedOption} 
-        <img className="polygonIcon" src={PolyconIcon} alt="Example" />
+        <img className="polygonIcon" src={PolyconIcon} alt="polygon_icon" />
         {/* <span className={`arrow ${isOpen ? "up" : "down"}`} /> */}
       </button>
       {isOpen && (

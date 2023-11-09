@@ -2,13 +2,14 @@
     position: relative;
     display: inline-block;
     flex-shrink: 0;
+    min-width: 80%;
 
 }
 
 .dropdown-button {
-    border-radius: 20px;
+    border-radius: 12px;
     color: white;
-    padding: 10px 20px;
+    padding: 12px 20px;
     cursor: pointer;
     border: none;
     display: flex;
@@ -16,6 +17,13 @@
     border-radius: 12px;
     background: #336C9D;
     gap: 10px;
+    width: 100%;
+    justify-content: space-between;
+    /* font-size: inherit; */
+    font-size: 27px;
+    font-style: normal;
+    /* font-weight: 700; */
+    line-height: normal;
 }
 
 .arrow {
@@ -33,7 +41,7 @@
     left: 0;
     background-color: #fff;
     border: 1px solid #ccc;
-    border-radius: 8px;
+    border-radius: 12px;
     margin-top: 5px;
     display: flex;
     flex-direction: column;
@@ -43,11 +51,15 @@
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
+    margin-top: 10px;
+    
 }
 
 .dropdown.open .options {
     opacity: 1;
     visibility: visible;
+    z-index: 1;
+    width: 100%;
 }
 
 .option {
@@ -58,10 +70,13 @@
     &:hover {
         background-color: #f1f1f1;
     }
+
+    justify-content: center;
+    display: flex;
 }
 .polygonIcon{
-    width: 15px;
-    height: 15px;
+    width: 13px;
+    height: 13px;
     flex-shrink: 0;
     fill: #FFF;
 }
