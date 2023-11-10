@@ -9,6 +9,8 @@ import api from '../../api/axiosConfig';
 
 library.add(faUser, faClock, faBuilding, faUsers);
 
+{/* Add authentication for that page */}
+
 const ActivityDetail = () => {
   const { id } = useParams();
 
@@ -35,6 +37,55 @@ const ActivityDetail = () => {
   }
   const buttonText = isSubscribed ? 'Unsubscribe' : 'Subscribe';
 
+  function formatDate(dateString) {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const formattedDate = new Date(dateString).toLocaleDateString(undefined, options);
+    return formattedDate;
+  }
+  
+  // Test data (remove later)
+  const currentEmail = "email2";
+
+  const handleUnsubscribe = async () => {
+    const endpoint = `https://localhost:3001/api/v1/activities/${activity.id}/removeSubscribed/${currentEmail}`;
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+      });
+  
+      if (response.ok) {
+        const updatedSubscribed = activity.subscribed.filter(
+          (email) => email !== currentEmail
+        );
+    
+        setActivity({ ...activity, subscribed: updatedSubscribed });
+      } else {
+        // Handle errors
+      }
+    } catch (error) {
+      // Handle fetch errors
+    }
+  };
+
+  const handleSubscribe = async () => {
+    const endpoint = `https://localhost:3001/api/v1/activities/${activity.id}/addSubscribed/${currentEmail}`;
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+      });
+  
+      if (response.ok) {
+        const updatedSubscribed = [...activity.subscribed, currentEmail];
+
+        setActivity({ ...activity, subscribed: updatedSubscribed });
+      } else {
+        // Handle errors
+      }
+    } catch (error) {
+      // Handle fetch errors
+    }
+  };
+
   return (
     <div>
       {activity ? (
@@ -44,7 +95,7 @@ const ActivityDetail = () => {
             <div className="time-and-room-container">
               <div className="time-container">
                 <FontAwesomeIcon className="icon" icon={faClock} />
-                <p>{activity.startDate}</p>
+                <p>{formatDate(activity.startDate)}</p>
               </div>
               <div className="room-container">
                 <FontAwesomeIcon className="icon" icon={faBuilding} />
@@ -53,20 +104,27 @@ const ActivityDetail = () => {
             </div>
             <div className="lector-container">
               <FontAwesomeIcon className="icon" icon={faUser} />
-              <p>{activity.lector}</p>
+              <p>dummy lector</p> {/* replace that with actual data */}
             </div>
-            <button
-              className={`subscribeButton ${isSubscribed ? 'unsubscribe' : 'subscribe'}`}
-              onClick={toggleSubscribeButton}
-            >
-              {buttonText}
-            </button>
-            <div className="capacity-container">
-              <FontAwesomeIcon className="icon" icon={faUsers} />
 
-              {/* TODO: Check if capacity is not null */}
-              <p>{activity.used_capacity}/{activity.capacity}</p>
-            </div>
+            {activity.subscribed.includes(currentEmail) ?(
+              <button className="unsubscribeButton" onClick={handleUnsubscribe}>Unsubscribe</button>
+            ) : (
+              <button className="subscribeButton" onClick={handleSubscribe}>Subscribe</button>
+            )}
+            
+              <div className="capacity-container">
+                <FontAwesomeIcon className="icon" icon={faUsers} />
+                {activity.capacity === null ?(
+                  <p>{activity.subscribed.length}</p>
+                ) : (
+                  activity.subscribed === null ? (
+                    <p>0/{activity.capacity}</p>
+                  ) : (
+                    <p>{activity.subscribed.length}/{activity.capacity}</p>
+                  )
+                )}
+              </div>
           </div>
           <div className="bottom-container">
             <p className="description-title">Description:</p> 
