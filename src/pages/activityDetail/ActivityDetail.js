@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './ActivityDetail.css';
 import { useParams } from 'react-router-dom';
-import { activities } from '../activities/Activities';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faUser, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { faClock, faBuilding } from '@fortawesome/free-regular-svg-icons';
+import api from '../../api/axiosConfig';
 
 library.add(faUser, faClock, faBuilding, faUsers);
 
@@ -14,10 +14,19 @@ const ActivityDetail = () => {
 
   const [activity, setActivity] = useState(null);
 
+  const getActivityDetails = async () => {
+    try {
+      const response = await api.get(`/api/v1/activities/${id}`);
+      console.log(response.data);
+      setActivity(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   useEffect(() => {
-    const findActivityById = activities.find((item) => item.id === id);
-    setActivity(findActivityById);
-  }, [id]);
+    getActivityDetails();
+  }, [])
 
   const [isSubscribed, setIsSubscribed] = useState(false);
 
@@ -26,18 +35,16 @@ const ActivityDetail = () => {
   }
   const buttonText = isSubscribed ? 'Unsubscribe' : 'Subscribe';
 
-  console.log(id);
-
   return (
     <div>
       {activity ? (
         <div className="main-container">
-          <p className="title-text">{activity.title}:</p>
+          <p className="title-text">{activity.name}:</p>
           <div className="top-container">
             <div className="time-and-room-container">
               <div className="time-container">
                 <FontAwesomeIcon className="icon" icon={faClock} />
-                <p>{activity.time}</p>
+                <p>{activity.startDate}</p>
               </div>
               <div className="room-container">
                 <FontAwesomeIcon className="icon" icon={faBuilding} />
@@ -56,9 +63,10 @@ const ActivityDetail = () => {
             </button>
             <div className="capacity-container">
               <FontAwesomeIcon className="icon" icon={faUsers} />
-              <p>{activity.used_capacity}/{activity.max_capacity}</p>
+
+              {/* TODO: Check if capacity is not null */}
+              <p>{activity.used_capacity}/{activity.capacity}</p>
             </div>
-            {/* Display detailed activity information here */}
           </div>
           <div className="bottom-container">
             <p className="description-title">Description:</p> 

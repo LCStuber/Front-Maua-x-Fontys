@@ -1,0 +1,7 @@
+.selectBlockField{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 28px;
+    /* gap: 50px; */
+}
