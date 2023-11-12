@@ -6,6 +6,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faUser, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { faClock, faBuilding } from '@fortawesome/free-regular-svg-icons';
 import api from '../../api/axiosConfig';
+import { act } from 'react-dom/test-utils';
 
 library.add(faUser, faClock, faBuilding, faUsers);
 
@@ -104,13 +105,17 @@ const ActivityDetail = () => {
             </div>
             <div className="lector-container">
               <FontAwesomeIcon className="icon" icon={faUser} />
-              <p>dummy lector</p> {/* replace that with actual data */}
+              <p>{activity.lector}</p>
             </div>
-
-            {activity.subscribed.includes(currentEmail) ?(
-              <button className="unsubscribeButton" onClick={handleUnsubscribe}>Unsubscribe</button>
-            ) : (
+            
+            {activity.subscribed === null ? (
               <button className="subscribeButton" onClick={handleSubscribe}>Subscribe</button>
+            ) : (
+              activity.subscribed.includes(currentEmail) ?(
+                <button className="unsubscribeButton" onClick={handleUnsubscribe}>Unsubscribe</button>
+              ) : (
+                <button className="subscribeButton" onClick={handleSubscribe}>Subscribe</button>
+              )
             )}
             
               <div className="capacity-container">
