@@ -3,6 +3,7 @@ import './App.css';
 import Activities from './pages/activities/Activities';
 import ActivityDetail from './pages/activityDetail/ActivityDetail';
 import HomePage from './pages/homepage/homepage';
+import Login from './pages/login/Login';
 import Courses from './pages/courses/courses';
 import StuOrgs from './pages/stu-orgs/stuorgs'
 import MauaLocation from "./pages/maua-location/MauaLocation";
@@ -22,15 +23,15 @@ function App() {
   return (
     <Router>
       <main className="content">
-        <Navbar openDrawer={toggleDrawer}/>
         <Routes>
-          <Route path="/activities" element={<Activities />} />
-          <Route path="/activity/:id" element={<ActivityDetail />} />
-          <Route path="/homepage" element={<HomePage />} />
-          <Route path="/courses" element={<Courses />} />
-          <Route path="/stuorgs" element={<StuOrgs />} />
-          <Route path="/interactive-map" element={<InteractiveMap />} />
-          <Route path="/maua-location" element = {<MauaLocation />} />
+          <Route index path="/" element={<Login />} />
+          <Route path="/activities" element={<><Navbar openDrawer={toggleDrawer} /><Activities /></>} />
+          <Route path="/activity/:id" element={<><Navbar openDrawer={toggleDrawer} /><ActivityDetail /></>} />
+          <Route path="/homepage" element={<><Navbar openDrawer={toggleDrawer} /><HomePage /></>} />
+          <Route path="/courses" element={<><Navbar openDrawer={toggleDrawer} /><Courses /></>} />
+          <Route path="/stuorgs" element={<><Navbar openDrawer={toggleDrawer} /><StuOrgs /></>} />
+          <Route path="/interactive-map" element={<><Navbar openDrawer={toggleDrawer} /><InteractiveMap /></>} />
+          <Route path="/maua-location" element = {<><Navbar openDrawer={toggleDrawer} /><MauaLocation /></>} />
         </Routes>
       </main>
     </Router>
