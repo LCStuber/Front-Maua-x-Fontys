@@ -10,7 +10,7 @@ export default function LoginContainer() {
         <>
             <Container>
                 <LogoPrint src={Logo} alt="Logo do Print"></LogoPrint>
-                <LoginButton href="">
+                <LoginButton href="/homepage">
                     <Text>Login</Text>
                     <LogoMS365 src={MS365Logo} alt="MS365"></LogoMS365>
                 </LoginButton>
