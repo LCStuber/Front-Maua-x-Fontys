@@ -33,7 +33,7 @@ export default function StuOrgCard({ org }) {
   return (
     <CardContainer>
       <Card>
-        <CardMedia component="img" image={org.image} alt={org.name + ' logo'} />
+        <CardMedia component="img" image={org.url} alt={org.name + ' logo'} />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div" fontWeight={'bold'}>
             {org.name}

@@ -1,52 +1,27 @@
-import React, {useState} from 'react';
-import axios from 'axios';
+import React, {useState, useEffect} from 'react';
+import api from '../../../api/axiosConfig';
 import {Header} from '../../../styled-components/Header';
-import DevCommunityMauaImage from '../imgs/DevCommunity.png';
 import Grid from '@mui/material/Unstable_Grid2';
 import StuOrgCard from './stuOrg_card';
 
 
 export default function StuOrgsList(){
 
-    const [stuOrgs, setStuOrgs] = React.useState([]);
+    const [stuOrgs, setStuOrgs] = useState([]);
 
-    const stuOrgs_list = [
-        {
-            id: 1,
-            name: "Dev. Community Mauá",
-            description: "This is Dev. Community Mauá.",
-            image: DevCommunityMauaImage
-        },
-        {
-            id: 2,
-            name: "Mauá Esports",
-            description: "This is Mauá Esports.",
-            image: DevCommunityMauaImage
-        },
-        {
-            id: 3,
-            name: "Mauá Jr.",
-            description: "This is Maua Jr.",
-            image: DevCommunityMauaImage
-        },
-        {
-            id: 4,
-            name: "AeroMauá",
-            description: "This is AeroMauá.",
-            image: DevCommunityMauaImage
-        },
-        {
-            id: 5,
-            name: "Enactus Mauá",
-            description: "This is Enactus Mauá.",
-            image: DevCommunityMauaImage
-        },
-        //Later we'll connect this with DynamoDB
-    ];
-
-    React.useEffect(() => {
-        setStuOrgs(stuOrgs_list);
-    }, []);
+    const getStuOrgs = async () => {
+      try {
+        const response = await api.get('/api/v1/organizations');
+        console.log(response.data);
+        setStuOrgs(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  
+    useEffect(() => {
+      getStuOrgs();
+    }, [])
 
     return(
         <>
