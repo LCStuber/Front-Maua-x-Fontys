@@ -18,6 +18,11 @@ const style = {
     p: 4,
   };
 
+
+const style2 = {
+   
+  };
+
 export default function ModalCourse({course, open, onClose}) {
 
   return (
@@ -27,6 +32,7 @@ export default function ModalCourse({course, open, onClose}) {
         onClose={onClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
+        style={style2}
       >
         <Box sx={style}>
           <Typography sx={{"borderBottom": "1px solid #f6f6f6", marginBottom: "8px"}} id="modal-modal-title" variant="p" component="h2">

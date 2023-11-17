@@ -45,7 +45,7 @@ export default function CoursesCard({course}) {
       <CardContainer>
         <Card>
           <CardHeader title={course.name} />        
-          <CardMedia style={{position: "relative"}} component="img" height="194" image={course.image} alt={course.name + " imagem"} />
+          <CardMedia style={{position: "relative"}} component="img" height="194" image={course.url} alt={course.name + " imagem"} />
             <Button>
               <IconButton
                 aria-label="show more"
