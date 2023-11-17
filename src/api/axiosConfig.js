@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export default axios.create({
-    baseURL: 'https://back.lcstuber.net',
+    baseURL: 'https://localhost:3001',
     headers: {
         'Content-type': 'application/json'
     },
