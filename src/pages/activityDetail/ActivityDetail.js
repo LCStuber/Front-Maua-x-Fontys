@@ -121,7 +121,11 @@ const ActivityDetail = () => {
               <div className="capacity-container">
                 <FontAwesomeIcon className="icon" icon={faUsers} />
                 {activity.capacity === null ?(
-                  <p>{activity.subscribed.length}</p>
+                  activity.subscribed != null ? (
+                    <p>{activity.subscribed.length}</p>
+                  ) : (
+                    <p>0</p>
+                  )
                 ) : (
                   activity.subscribed === null ? (
                     <p>0/{activity.capacity}</p>
