@@ -2,7 +2,35 @@ import React, { useState } from "react";
 import "./SelectBlockButton.css";
 import PolyconIcon from '../imgs/polygon.svg';
 
-const options = ["Select block", "Block A", "Block B", "Block C", "Canteen"];
+const options = ["Select block", 
+"Block A", 
+"Block B", 
+"Block C", 
+"Block D", 
+"Block E", 
+"Block F", 
+"Block G", 
+"Block H", 
+"Block I", 
+"Block J", 
+"Block K", 
+"Block L", 
+"Block M", 
+"Block N", 
+"Block P", 
+"Block Q", 
+"Block R", 
+"Block S", 
+"Block T", 
+"Block U", 
+"Block V", 
+"Block W", 
+"Block ", 
+"CEAF: Center for Sports and Physical Activities",
+"CA Kiosk - between blocks F and K",
+"Gym Snack Bar",
+"H Cafe - Next to the Library"
+];
 
 const SelectBlockButton = () => {
   const [isOpen, setIsOpen] = useState(false);

@@ -1,17 +1,6 @@
-// import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import React, { useEffect } from 'react';
-import jsonData from './JSON.json'
+import jsonData from './coordinates.json'
 import "./GoogleMapComponent.css"
-
-// const mapContainerStyle = {
-//   width: '100%',
-//   height: '400px',
-// };
-
-// const defaultCenter = {
-//   lat: -23.647945404052734,
-//   lng: -46.57420349121094, // maua location 
-// };
 
 const GoogleMapComponent = () => {
   useEffect(() => {
@@ -24,16 +13,16 @@ const GoogleMapComponent = () => {
           lng: -46.573049,
           lat: -23.649001,
 
-         
         },
-        mapTypeId: 'terrain', // Set the map type to roadmap (normal 2D map)
-        disableDefaultUI: true, // Disable default UI components
-        zoomControl: true, // Enable zoom control
-        gestureHandling: 'cooperative', // Enable smooth zoom gestures
+        mapTypeId: 'terrain',
+        disableDefaultUI: true,
+        zoomControl: true,
+        gestureHandling: 'cooperative',
       });
-      // Load GeoJSON data from the prop
       
       map.data.addGeoJson(jsonData);
+      
+      
     }
 
     window.initMap = initMap;

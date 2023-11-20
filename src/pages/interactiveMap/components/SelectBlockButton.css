@@ -52,6 +52,8 @@
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
     margin-top: 10px;
+    max-height: 350px;
+    overflow: scroll;
     
 }
 
