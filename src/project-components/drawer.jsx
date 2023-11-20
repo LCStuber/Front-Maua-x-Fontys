@@ -7,7 +7,10 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import LocalActivityIcon from '@mui/icons-material/LocalActivity';
+import MapIcon from '@mui/icons-material/Map';
 import LogoutIcon from '@mui/icons-material/Logout';
+import SchoolIcon from '@mui/icons-material/School';
+import Link from '@mui/material/Link';
 
 export default function Drawer({ anchor, open, onClose, onOpen }) {
   const [state, setState] = React.useState({
@@ -37,18 +40,23 @@ export default function Drawer({ anchor, open, onClose, onOpen }) {
       onKeyDown={onClose}
     >
       <List>
-        {['My activities', 'Logout'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <LocalActivityIcon /> : <LogoutIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
+        {[['My activities', <LocalActivityIcon />, '/activities'],
+        ['Interactive Map', <MapIcon />, '/interactive-map'],
+        ["Mauá's Location", <SchoolIcon />, '/maua-location'],
+        ['Logout', <LogoutIcon />, '/']].map((button, index) => (
+          <Link href={button[2]}>
+            <ListItem key={button[0]} disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  {button[1]}
+                </ListItemIcon>
+                <ListItemText primary={button[0]} />
+              </ListItemButton>
+            </ListItem>
+          </Link>
         ))}
       </List>
-      
+
     </Box>
   );
 
