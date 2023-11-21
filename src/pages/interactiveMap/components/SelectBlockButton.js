@@ -41,6 +41,18 @@ const SelectBlockButton = () => {
     setIsOpen(false);
   };
 
+  // const features = map.data.getFeatures();
+
+  // const selectedFeature = features.find((feature) => {
+  //   return feature.getProperty('letter') === options;
+  // });
+
+  // if (selectedFeature) {
+  //   const clickEvent = new Event('click', { bubbles: true });
+  //   selectedFeature.featureTarget.dispatchEvent(clickEvent);
+  // }
+
+
   return (
     <div className={`dropdown ${isOpen ? "open" : ""}`}>
       <button className="dropdown-button" onClick={() => setIsOpen(!isOpen)}>
