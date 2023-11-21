@@ -1065,12 +1065,10 @@
         {
             "type": "Feature",
             "properties": {
-                "letter": "T",
+                "letter": "V",
                 "color": "blue",
                 "rank": "7",
-                "ascii": "71",
-                "roomsEN": "",
-                "roomsPT": ""
+                "ascii": "71"
             },
             "geometry": {
                 "type": "Polygon",

@@ -10,7 +10,6 @@ const InteractiveMap = () => {
         <div className='selectBlockField'>
             <SelectBlockButton />
             <GoogleMapComponent/>
-            <SeeMoreButton/>
             <AllActivitiesButton/>
         </div>
        

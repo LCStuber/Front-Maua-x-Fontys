@@ -5,7 +5,7 @@ import "./GoogleMapComponent.css";
 const GoogleMapComponent = () => {
   useEffect(() => {
     let map;
-
+    let infoWindowOpen = false;
     function initMap() {
       map = new window.google.maps.Map(document.getElementById("map"), {
         zoom: 16.8,
@@ -22,35 +22,23 @@ const GoogleMapComponent = () => {
       map.data.addGeoJson(jsonData);
 
       const clickedFeatureIds = new Set();
-      
+
       map.data.addListener('click', handleFeatureClick);
 
       function handleFeatureClick(event) {
         const featureId = event.feature.getProperty('letter');
-        if (!clickedFeatureIds.has(featureId)) {
+
+        if (!clickedFeatureIds.has(featureId) && !infoWindowOpen) {
           clickedFeatureIds.add(featureId);
 
           const roomsEN = event.feature.getProperty('roomsEN');
-          
           let description = `No Rooms`;
-          if (roomsEN !== undefined)
-          {
-            let roomsArray = roomsEN.split(',').map(room => room.trim()); 
 
+          if (roomsEN !== undefined) {
+            let roomsArray = roomsEN.split(',').map(room => room.trim());
             roomsArray.sort((a, b) => a.localeCompare(b));
 
-            
-            description = 
-            // `
-            //   <p>Rooms: ${properties.roomsEN}</p>
-            //   <p>Color: ${properties.color}</p>
-            //   <p>Rank: ${properties.rank}</p>
-            //   <p>ASCII: ${properties.ascii}</p>
-            // `
-              `
-                <p> <br> ${roomsArray.join('<br>')} <br> </p>
-              `
-            ;
+            description = `<p><br>${roomsArray.join('<br>')}<br></p>`;
           }
 
           const infoWindow = new window.google.maps.InfoWindow({
@@ -60,11 +48,14 @@ const GoogleMapComponent = () => {
 
           infoWindow.addListener('closeclick', () => {
             clickedFeatureIds.delete(featureId);
+            infoWindowOpen = false;
           });
 
           infoWindow.open(map);
+          infoWindowOpen = true;
         }
       }
+      console.log("Map created");
     }
 
     window.initMap = initMap;
