@@ -1,3 +1,26 @@
+.activity-lists-container {
+    padding-top: 1.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.day-activities {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.week-title-container {
+    padding: 14px;
+    background: #002B50;
+    border-radius: 25px;
+    color: #fff;
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 0.8rem;
+}
+
 .activity-list {
     display: flex;
     flex-direction: column;
@@ -56,4 +79,8 @@
 
 a {
     text-decoration: none;
+}
+
+.activities-container {
+    margin: 20px;
 }
