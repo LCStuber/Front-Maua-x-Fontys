@@ -1,9 +1,15 @@
-.activity-lists-container {
+.activity-lists-container-desktop {
     padding-top: 1.5rem;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
     display: flex;
     justify-content: space-between;
+}
+
+.activity-lists-container-mobile {
+    padding-top: 1.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
 }
 
 .day-activities {
@@ -83,4 +89,16 @@ a {
 
 .activities-container {
     margin: 20px;
+}
+
+@media (max-width: 767px) {
+    .activity-lists-container-desktop {
+      display: none;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .activity-lists-container-mobile {
+      display: none;
+    }
 }
