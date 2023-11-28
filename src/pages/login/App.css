@@ -67,4 +67,6 @@ summary,
 
 body {
   background-color: #00396A;
+  overflow: hidden;
+  max-height: 1536px;
 }

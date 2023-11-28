@@ -7,13 +7,14 @@ import Cloud from './components/clouds';
 function Login() {
 
   return (
-
-    <Body>
-      <Container>
+    <>
+      <Body>
         <Cloud></Cloud>
-        <LoginContainer></LoginContainer>
-      </Container>
-    </Body>
+        <Container>
+          <LoginContainer></LoginContainer>
+        </Container>
+      </Body>
+    </>
   )
 }
 
