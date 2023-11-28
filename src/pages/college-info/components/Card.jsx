@@ -11,11 +11,11 @@ export default function ImgMediaCard({linkImg, name}) {
         component="img"
         alt="green iguana"
         height="140"
-        image={linkFoto}
+        image={linkImg}
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-        {nome}
+        {name}
         </Typography>
         </CardContent>
     </Card>

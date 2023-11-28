@@ -13,14 +13,14 @@ export default function NavigationComponent() {
         <Grid container>
             <Grid item xs={12}>            
                 <Anchor href="/activities">
-                    <Activities>See all activities</Activities>
+                    <Activities>Ver todas as atividades</Activities>
                 </Anchor>
-                <Header style={{marginTop: "12px", marginBottom: "12px"}}>College Information: </Header>
+                <Header style={{marginTop: "12px", marginBottom: "12px"}}>Informações Gerais: </Header>
             </Grid>
         </Grid>
         <Grid container>
             <Grid item xs={12} md={4}>
-                <Anchor href="#">
+                <Anchor href="/college-info">
                     <Card>
                         <CardText style={{fontSize: "120%"}}>
                             Sobre a Mauá

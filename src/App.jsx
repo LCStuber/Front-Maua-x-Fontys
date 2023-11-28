@@ -7,6 +7,7 @@ import Login from './pages/login/Login';
 import Courses from './pages/courses/courses';
 import StuOrgs from './pages/stu-orgs/stuorgs'
 import MauaLocation from "./pages/maua-location/MauaLocation";
+import CollegeInfo from './pages/college-info/collegeInfo';
 import React, {useState} from 'react';
 import Navbar from './project-components/navbar';
 import InteractiveMap from './pages/interactiveMap/InteractiveMap';
@@ -32,6 +33,7 @@ function App() {
           <Route path="/stuorgs" element={<><Navbar openDrawer={toggleDrawer} /><StuOrgs /></>} />
           <Route path="/interactive-map" element={<><Navbar openDrawer={toggleDrawer} /><InteractiveMap /></>} />
           <Route path="/maua-location" element = {<><Navbar openDrawer={toggleDrawer} /><MauaLocation /></>} />
+          <Route path="/college-info" element={<><Navbar openDrawer={toggleDrawer} /><CollegeInfo /></>} />
         </Routes>
       </main>
     </Router>
