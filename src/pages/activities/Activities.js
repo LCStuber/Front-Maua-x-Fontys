@@ -40,7 +40,7 @@ const Activities = () => {
     }
     activitiesByDay[dayOfWeek].push(activity);
   });
-
+  
   return (
     <div className="activities-container">
       <div className="activity-lists-container-desktop">

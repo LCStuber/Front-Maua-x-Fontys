@@ -97,7 +97,7 @@ a {
     }
   }
 
-  @media (min-width: 768px) {
+@media (min-width: 768px) {
     .activity-lists-container-mobile {
       display: none;
     }
