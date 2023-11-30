@@ -2,8 +2,6 @@ import React, {useState, useEffect} from 'react';
 import api from '../../../api/axiosConfig';
 import {Header} from '../../../styled-components/Header';
 import CoursesCard from './courses_card';
-import ComputerScienceImage from '../imgs/csi-img.jpg';
-import SystemsInformationImage from '../imgs/sys-img.jpg';
 import Grid from '@mui/material/Unstable_Grid2';
 
 export default function CoursesList() {
