@@ -4,10 +4,11 @@ import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import IconButton from '@mui/material/IconButton';
-import AddIcon from '@mui/icons-material/Add';
+import Person2Icon from '@mui/icons-material/Person2';
 import { Button, CardContainer } from '../styled-components/courses_list';
 import ModalCourse from './modal';
 import LaunchIcon from '@mui/icons-material/Launch';
+
 const theme = createTheme({
   components: {
     MuiCard: {
@@ -55,7 +56,7 @@ export default function CoursesCard({course}) {
                 size="large"
                 onClick={open ? handleClose : handleOpen}
               >
-                <AddIcon />
+                <Person2Icon />
               </IconButton>
             </Button>
         </Card>
