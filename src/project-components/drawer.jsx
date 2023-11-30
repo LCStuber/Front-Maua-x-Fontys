@@ -11,6 +11,7 @@ import MapIcon from '@mui/icons-material/Map';
 import LogoutIcon from '@mui/icons-material/Logout';
 import SchoolIcon from '@mui/icons-material/School';
 import Link from '@mui/material/Link';
+import { Announcement } from '@mui/icons-material';
 
 export default function Drawer({ anchor, open, onClose, onOpen }) {
   const [state, setState] = React.useState({
@@ -43,6 +44,7 @@ export default function Drawer({ anchor, open, onClose, onOpen }) {
         {[['My activities', <LocalActivityIcon />, '/activities'],
         ['Interactive Map', <MapIcon />, '/interactive-map'],
         ["Mauá's Location", <SchoolIcon />, '/maua-location'],
+        ["Announcements", <Announcement/>, '/stuannouncement'],
         ['Logout', <LogoutIcon />, '/']].map((button, index) => (
           <Link href={button[2]}>
             <ListItem key={button[0]} disablePadding>

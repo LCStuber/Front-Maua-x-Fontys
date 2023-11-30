@@ -1,10 +1,10 @@
 import React from 'react';
+import './StuAnnouncement.css';
 
 
 const StuAnnouncement = () => {
     return(
         <>
-        <link rel="stylesheet" href="/StuAnnouncement.css"/>
         <div className="containerStuAnnounce">
             <h1> Announcements:</h1>
             <div className="announcementWrapper">
