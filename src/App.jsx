@@ -10,6 +10,7 @@ import MauaLocation from "./pages/maua-location/MauaLocation";
 import React, {useState} from 'react';
 import Navbar from './project-components/navbar';
 import InteractiveMap from './pages/interactiveMap/InteractiveMap';
+import Announcement from './pages/announcement/Announcement';
 
 
 function App() {

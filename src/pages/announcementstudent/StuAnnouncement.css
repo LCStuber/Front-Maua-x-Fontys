@@ -1,0 +1,39 @@
+.containerStuAnnounce{
+    box-sizing: border-box;
+    background-color: #014785;
+    width: 100%;
+    height: 100vh;
+    color: white;
+    padding: 10px 25px 10px 25px;
+    font-family: lexend;
+}
+#SubDatefield{
+    display: flex;
+    justify-content: space-between;
+}
+
+.announcementWrapper{
+    border: 1px solid white;
+    padding: 10px; 
+    border-radius: 25px;
+    height: 70vh;
+    background-color: white;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.announcementContainer{
+    box-sizing: border-box;
+    border: 1px solid white;
+    border-radius: 20px;
+    padding: 20px; 
+    padding-top: 0px;
+    padding-left: 10px;
+    background-color: #002B50;
+    margin-bottom: 5px;
+}
+
+.announcementContainer p{
+    box-sizing: border-box;
+    height: auto;
+}
