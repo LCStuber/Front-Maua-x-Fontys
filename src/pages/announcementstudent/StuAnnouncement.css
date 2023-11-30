@@ -22,18 +22,21 @@
     overflow-y: scroll;
 }
 
+#announcementtitle{
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
 .announcementContainer{
     box-sizing: border-box;
     border: 1px solid white;
     border-radius: 20px;
     padding: 20px; 
-    padding-top: 0px;
-    padding-left: 10px;
     background-color: #002B50;
     margin-bottom: 5px;
 }
 
-.announcementContainer p{
+.announcementContainer h4,p{
     box-sizing: border-box;
     height: auto;
+    padding-top: 10px;
 }
