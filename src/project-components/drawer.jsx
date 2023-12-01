@@ -45,6 +45,7 @@ export default function Drawer({ anchor, open, onClose, onOpen }) {
         ['Interactive Map', <MapIcon />, '/interactive-map'],
         ["Mauá's Location", <SchoolIcon />, '/maua-location'],
         ["Announcements", <Announcement/>, '/stuannouncement'],
+        ["Announcements", <Announcement/>, '/announcement'],
         ['Logout', <LogoutIcon />, '/']].map((button, index) => (
           <Link href={button[2]}>
             <ListItem key={button[0]} disablePadding>

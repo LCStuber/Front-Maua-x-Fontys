@@ -34,8 +34,8 @@ function App() {
           <Route path="/stuorgs" element={<><Navbar openDrawer={toggleDrawer} /><StuOrgs /></>} />
           <Route path="/interactive-map" element={<><Navbar openDrawer={toggleDrawer} /><InteractiveMap /></>} />
           <Route path="/maua-location" element = {<><Navbar openDrawer={toggleDrawer} /><MauaLocation /></>} />
-          <Route path="/stuannouncement" element = {<StuAnnouncement />} />
-          <Route path="/announcement" element = {<Announcement />} />
+          <Route path="/stuannouncement" element = {<><Navbar openDrawer={toggleDrawer} /><StuAnnouncement /> </>} />
+          <Route path="/announcement" element = {<><Navbar openDrawer={toggleDrawer} /><Announcement /> </>} />
 
         </Routes>
       </main>

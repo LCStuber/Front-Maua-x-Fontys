@@ -46,6 +46,7 @@ const StuAnnouncement = () => {
                         message will be here then lenght of the message doesn't matter
                     </p>
                 </div>
+                
             </div>
         </div>
         </>
