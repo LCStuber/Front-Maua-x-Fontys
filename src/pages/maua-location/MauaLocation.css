@@ -37,6 +37,20 @@
     padding-bottom: 5px;
 }
 
+.path-button-container{
+  width: 60%;
+  padding: 30px 10px;
+  margin-left: 180px;
+}
+
+.path-button {
+  background-color: #336C9D;;
+  border-radius: 10px;
+  color: white;
+  padding: 15px;
+  font-size: 16px;
+}
+
 @media (max-width: 768px) {
     .location-container {
       display: flex;
@@ -44,6 +58,11 @@
     }
   
     .address-box {
+      width: 100%; 
+      margin-left: 0;
+    }
+
+    .path-button-container{
       width: 100%; 
       margin-left: 0;
     }
