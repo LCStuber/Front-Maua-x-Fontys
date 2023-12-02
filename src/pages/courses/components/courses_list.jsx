@@ -12,7 +12,7 @@ export default function CoursesList() {
       try {
         const response = await api.get('/api/v1/courses');
         console.log(response.data);
-        setCourses(response.data);
+        setCourses(response.data);  
       } catch (error) {
         console.log(error);
       }
