@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 import Activities from './pages/activities/Activities';
 import ActivityDetail from './pages/activityDetail/ActivityDetail';
@@ -10,7 +10,17 @@ import MauaLocation from "./pages/maua-location/MauaLocation";
 import React, {useState} from 'react';
 import Navbar from './project-components/navbar';
 import InteractiveMap from './pages/interactiveMap/InteractiveMap';
+import { useIsAuthenticated } from "@azure/msal-react";
 
+const ProtectedRoute = ({ element }) => {
+  const isAuthenticated = useIsAuthenticated();
+
+  if (!isAuthenticated) {
+    return <Navigate to="/" replace />;
+  }
+
+  return element;
+};
 
 function App() {
 
@@ -25,13 +35,34 @@ function App() {
       <main className="content">
         <Routes>
           <Route index path="/" element={<Login />} />
-          <Route path="/activities" element={<><Navbar openDrawer={toggleDrawer} /><Activities /></>} />
-          <Route path="/activity/:id" element={<><Navbar openDrawer={toggleDrawer} /><ActivityDetail /></>} />
-          <Route path="/homepage" element={<><Navbar openDrawer={toggleDrawer} /><HomePage /></>} />
-          <Route path="/courses" element={<><Navbar openDrawer={toggleDrawer} /><Courses /></>} />
-          <Route path="/stuorgs" element={<><Navbar openDrawer={toggleDrawer} /><StuOrgs /></>} />
-          <Route path="/interactive-map" element={<><Navbar openDrawer={toggleDrawer} /><InteractiveMap /></>} />
-          <Route path="/maua-location" element = {<><Navbar openDrawer={toggleDrawer} /><MauaLocation /></>} />
+          <Route
+            path="/activities"
+            element={<ProtectedRoute element={<><Navbar openDrawer={toggleDrawer} /><Activities /></>} />}
+          />
+          <Route
+            path="/activity/:id"
+            element={<ProtectedRoute element={<><Navbar openDrawer={toggleDrawer} /><ActivityDetail /></>} />}
+          />
+          <Route
+            path="/homepage"
+            element={<ProtectedRoute element={<><Navbar openDrawer={toggleDrawer} /><HomePage /></>} />}
+          />
+          <Route
+            path="/courses"
+            element={<ProtectedRoute element={<><Navbar openDrawer={toggleDrawer} /><Courses /></>} />}
+          />
+          <Route
+            path="/stuorgs"
+            element={<ProtectedRoute element={<><Navbar openDrawer={toggleDrawer} /><StuOrgs /></>} />}
+          />
+          <Route
+            path="/interactive-map"
+            element={<ProtectedRoute element={<><Navbar openDrawer={toggleDrawer} /><InteractiveMap /></>} />}
+          />
+          <Route
+            path="/maua-location"
+            element={<ProtectedRoute element={<><Navbar openDrawer={toggleDrawer} /><MauaLocation /></>} />}
+          />
         </Routes>
       </main>
     </Router>
