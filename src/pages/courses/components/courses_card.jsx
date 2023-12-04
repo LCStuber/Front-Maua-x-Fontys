@@ -4,9 +4,10 @@ import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import IconButton from '@mui/material/IconButton';
-import AddIcon from '@mui/icons-material/Add';
+import Person2Icon from '@mui/icons-material/Person2';
 import { Button, CardContainer } from '../styled-components/courses_list';
 import ModalCourse from './modal';
+import LaunchIcon from '@mui/icons-material/Launch';
 
 const theme = createTheme({
   components: {
@@ -44,6 +45,9 @@ export default function CoursesCard({course}) {
     <ThemeProvider theme={theme}>
       <CardContainer>
         <Card>
+        <a href={course.url}>
+          <LaunchIcon style={{float: "right", marginTop: "17.5px", marginRight: "15px"}}/>  
+        </a>
           <CardHeader title={course.name} />        
           <CardMedia style={{position: "relative"}} component="img" height="194" image={course.url} alt={course.name + " imagem"} />
             <Button>
@@ -52,7 +56,7 @@ export default function CoursesCard({course}) {
                 size="large"
                 onClick={open ? handleClose : handleOpen}
               >
-                <AddIcon />
+                <Person2Icon />
               </IconButton>
             </Button>
         </Card>

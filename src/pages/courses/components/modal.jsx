@@ -41,8 +41,11 @@ export default function ModalCourse({course, open, onClose}) {
           <Typography variant="p" component="h4">
             Coordenador: {course.coordinator}
           </Typography>
+          <Typography variant="p" component="h5">
+            Coordenador: {course.coordinatorEmail}
+          </Typography>
           <Typography id="modal-modal-description" variant="p" component="h5" sx={{ mt: 2 }}>
-            {course.description}
+            <img src={course.coordinatorImage} alt={"Coordenador do curso: " + course.name}/>
           </Typography>
           <IconButton>
             <CloseIcon sx={{top: "0", right: "0", position: "fixed", filter: "invert()"}} fontSize="large" onClick={onClose} />
