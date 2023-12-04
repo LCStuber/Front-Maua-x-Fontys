@@ -10,16 +10,19 @@ import MauaLocation from "./pages/maua-location/MauaLocation";
 import React, {useState} from 'react';
 import Navbar from './project-components/navbar';
 import InteractiveMap from './pages/interactiveMap/InteractiveMap';
-import { useIsAuthenticated } from "@azure/msal-react";
+import { AuthenticatedTemplate, UnauthenticatedTemplate, useMsal } from '@azure/msal-react';
 
 const ProtectedRoute = ({ element }) => {
-  const isAuthenticated = useIsAuthenticated();
-
-  if (!isAuthenticated) {
-    return <Navigate to="/" replace />;
-  }
-
-  return element;
+  return (
+    <div>
+      <AuthenticatedTemplate>
+        {element}
+      </AuthenticatedTemplate>
+      <UnauthenticatedTemplate>
+        <Navigate to="/" replace />
+      </UnauthenticatedTemplate>
+    </div>
+  );
 };
 
 function App() {
