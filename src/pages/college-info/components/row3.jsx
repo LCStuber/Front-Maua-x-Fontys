@@ -2,7 +2,6 @@ import React from 'react';
 import Grid from '@mui/material/Unstable_Grid2';
 import {Image} from '../styled-components/Image'
 import {Container, Header, Description} from '../styled-components/Description';
-import Imagem2 from '../imgs/Imagem2.png';
 
 
 export default function Row3() {
@@ -15,7 +14,7 @@ export default function Row3() {
                 </Container>
             </Grid>
             <Grid item md={5} order={{ xs: 3, sm: 2 }}>
-                <Image src={Imagem2}/>
+                <Image src="https://drive.google.com/uc?export=view&id=1d26fPilrM9wYeEUhO_SiLd3EhLti8MPE"/>
             </Grid>
         </Grid>
     );

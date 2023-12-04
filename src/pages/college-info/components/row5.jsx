@@ -2,7 +2,6 @@ import React from 'react';
 import Grid from '@mui/material/Unstable_Grid2';
 import {ImageInclined} from '../styled-components/Image'
 import {Container, Description, Header} from '../styled-components/Description';
-import Imagem4 from '../imgs/Imagem4.png';
 
 export default function Row5() {
     return (
@@ -14,7 +13,7 @@ export default function Row5() {
                 </Container>
             </Grid>
             <Grid item md={5} order={{ xs: 3, sm: 2 }}>
-                <ImageInclined src={Imagem4}/>
+                <ImageInclined src="https://drive.google.com/uc?export=view&id=1s1w_GTA84iMfY48uBIb9VgopuraYfJ22"/>
             </Grid>
         </Grid>
     );
