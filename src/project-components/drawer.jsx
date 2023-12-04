@@ -43,9 +43,9 @@ export default function Drawer({ anchor, open, onClose, onOpen }) {
       onKeyDown={onClose}
     >
       <List>
-        {[['My activities', <LocalActivityIcon />, '/activities'],
-        ['Interactive Map', <MapIcon />, '/interactive-map'],
-        ["Mauá's Location", <SchoolIcon />, '/maua-location'],
+        {[['My activities', <LocalActivityIcon />, () => {navigate('/activities');}],
+        ['Interactive Map', <MapIcon />, () => {navigate('/interactive-map');}],
+        ["Mauá's Location", <SchoolIcon />, () => {navigate('/maua-location');}],
         ['Logout', <LogoutIcon />, () => {
           instance.logoutPopup({
             postLogoutRedirectUri: "/",

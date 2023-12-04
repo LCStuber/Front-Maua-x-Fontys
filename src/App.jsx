@@ -64,6 +64,10 @@ function App() {
             path="/maua-location"
             element={<ProtectedRoute element={<><Navbar openDrawer={toggleDrawer} /><MauaLocation /></>} />}
           />
+          <Route
+            path="/college-info"
+            element={<ProtectedRoute element={<><Navbar openDrawer={toggleDrawer} /><CollegeInfo /></>} />}
+          />
         </Routes>
       </main>
     </Router>
