@@ -13,7 +13,7 @@ export default function Row4() {
                     </Container>
                 </Grid>
                 <Grid item md={6} order={{ xs: 3, sm: 2 }}>
-                    <ImageInclined src="https://drive.google.com/uc?export=view&id=1UChq59-DVu00hZvVG9i4f_ID4UYqm9Zk"/>
+                    <ImageInclined src="https://d1135f49d6br9m.cloudfront.net/info3.png"/>
                 </Grid>
         </Grid>
     );

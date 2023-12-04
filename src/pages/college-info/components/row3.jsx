@@ -14,7 +14,7 @@ export default function Row3() {
                 </Container>
             </Grid>
             <Grid item md={5} order={{ xs: 3, sm: 2 }}>
-                <Image src="https://drive.google.com/uc?export=view&id=1d26fPilrM9wYeEUhO_SiLd3EhLti8MPE"/>
+                <Image src="https://d1135f49d6br9m.cloudfront.net/info2.png"/>
             </Grid>
         </Grid>
     );

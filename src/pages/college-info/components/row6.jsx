@@ -7,7 +7,7 @@ export default function Row6() {
     return (
         <Grid container style={{ backgroundColor: "#ffffff"}} >
                 <Grid item md={7} order={{ xs: 2, sm: 3 }}>
-                    <Image src="https://drive.google.com/uc?export=view&id=12iswbsqufiHCRFjxeWHrx709yZTnqLPu"/>
+                    <Image src="https://d1135f49d6br9m.cloudfront.net/info5.png"/>
                 </Grid>
                 <Grid item md={5}>
                     <Container>

@@ -13,7 +13,7 @@ export default function WelcomeComponent(){
             <p>Welcome {accounts[0].name}!</p>
             <DateContainer>{day}/{month}</DateContainer>  
         </Welcome>
-        <Image src="https://drive.google.com/uc?export=view&id=1xzDjxtLFG8i3VYGy7g2NIxiZobG_7Tr_" alt="Default Image"></Image>  
+        <Image src="https://d1135f49d6br9m.cloudfront.net/imagem_homepage.jpg" alt="Default Image"></Image>  
         </>
     )
 }
