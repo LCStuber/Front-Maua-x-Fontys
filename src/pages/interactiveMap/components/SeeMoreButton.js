@@ -5,7 +5,6 @@ import './SeeMoreButton.css'
 
 const SeeMoreButton = () => {
     return (
-
         <button className="seeMoreButton">
             <p id="seeMoreTxt"> See More </p>
             <img className="plusIcon" src={PlusIcon} alt="plus_icon" />
