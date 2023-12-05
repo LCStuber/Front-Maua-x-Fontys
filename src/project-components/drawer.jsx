@@ -11,6 +11,8 @@ import LocalActivityIcon from '@mui/icons-material/LocalActivity';
 import MapIcon from '@mui/icons-material/Map';
 import LogoutIcon from '@mui/icons-material/Logout';
 import SchoolIcon from '@mui/icons-material/School';
+import Link from '@mui/material/Link';
+import { Announcement } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 
 export default function Drawer({ anchor, open, onClose, onOpen }) {
@@ -46,6 +48,8 @@ export default function Drawer({ anchor, open, onClose, onOpen }) {
         {[['My activities', <LocalActivityIcon />, () => {navigate('/activities');}],
         ['Interactive Map', <MapIcon />, () => {navigate('/interactive-map');}],
         ["Mauá's Location", <SchoolIcon />, () => {navigate('/maua-location');}],
+        ["Announcements", <Announcement/>, () => {navigate('/stuannouncement');}],
+        ["Announcements", <Announcement/>, () => {navigate('/announcement');}],
         ['Logout', <LogoutIcon />, () => {
           instance.logoutPopup({
             postLogoutRedirectUri: "/",

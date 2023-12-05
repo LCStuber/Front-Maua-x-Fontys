@@ -11,6 +11,8 @@ import CollegeInfo from './pages/college-info/collegeInfo';
 import React, {useState} from 'react';
 import Navbar from './project-components/navbar';
 import InteractiveMap from './pages/interactiveMap/InteractiveMap';
+import Announcement from './pages/announcement/Announcement';
+import StuAnnouncement from './pages/announcementstudent/StuAnnouncement';
 import { useIsAuthenticated, AuthenticatedTemplate, UnauthenticatedTemplate, useMsal } from '@azure/msal-react';
 
 const ProtectedRoute = ({ element }) => {
@@ -81,6 +83,14 @@ function App() {
           <Route
             path="/college-info"
             element={<ProtectedRoute element={<><Navbar openDrawer={toggleDrawer} /><CollegeInfo /></>} />}
+          />
+          <Route
+            path="/stuannouncement"
+            element={<ProtectedRoute element={<><Navbar openDrawer={toggleDrawer} /><StuAnnouncement /></>} />}
+          />
+          <Route
+            path="/announcement"
+            element={<ProtectedRoute element={<><Navbar openDrawer={toggleDrawer} /><Announcement /></>} />}
           />
         </Routes>
       </main>
