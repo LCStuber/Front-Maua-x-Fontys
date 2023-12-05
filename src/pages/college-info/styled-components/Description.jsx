@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Header2 = styled.h1`
-    font-family: Sansita-Black;
+    font-family: 'Sansita', sans-serif;
     margin-bottom: 10px;
     text-align: center;
     color: black;
@@ -9,7 +9,7 @@ const Header2 = styled.h1`
     
 `;
 const Header = styled.h1`
-    font-family: Sansita-Black;
+    font-family: 'Sansita', sans-serif;
     margin-bottom: 10px;
     text-align: center;
     color: #f6f6f6;

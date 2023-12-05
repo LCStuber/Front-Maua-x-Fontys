@@ -10,7 +10,7 @@ export default function WelcomeComponent(){
     return(
         <>        
         <Welcome>
-            <p>Welcome {accounts[0].name}!</p>
+            <p>Bem vindo, {accounts[0].name.charAt(0).toUpperCase() + accounts[0].name.substr(1).toLowerCase().split(" ")[0]}!</p>
             <DateContainer>{day}/{month}</DateContainer>  
         </Welcome>
         <Image src="https://d1135f49d6br9m.cloudfront.net/imagem_homepage.jpg" alt="Default Image"></Image>  

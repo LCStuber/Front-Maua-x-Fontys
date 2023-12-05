@@ -48,8 +48,8 @@ export default function CoursesCard({course}) {
         <a href={course.url}>
           <LaunchIcon style={{float: "right", marginTop: "17.5px", marginRight: "15px"}}/>  
         </a>
-          <CardHeader title={course.name} />        
-          <CardMedia style={{position: "relative"}} component="img" height="194" image={course.url} alt={course.name + " imagem"} />
+          <CardHeader title={course.name}/>        
+          <CardMedia style={{position: "relative"}} component="img" height="194" image={course.displayImage} alt={course.name + " imagem"} />
             <Button>
               <IconButton
                 aria-label="show more"
