@@ -1,5 +1,4 @@
 import * as React from 'react';
-import axios from "axios";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -8,7 +7,6 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Drawer from './drawer';
 import Image from '../styled-components/Navbar';
-import Logo from '../imgs/logo-branco-print.png'
 
 
 export default function Navbar({openDrawer}){
@@ -39,7 +37,7 @@ export default function Navbar({openDrawer}){
           </IconButton>
           <a href="/homepage">
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              <Image src={Logo} alt="Logo Print Mauá"/>
+              <Image src="https://d1135f49d6br9m.cloudfront.net/logo-branco-print.png" alt="Logo Print Mauá"/>
             </Typography>
           </a>
         </Toolbar>

@@ -5,6 +5,7 @@ import Grid from '@mui/material/Unstable_Grid2';
 import StuOrgCard from './stuOrg_card';
 
 
+
 export default function StuOrgsList(){
 
     const [stuOrgs, setStuOrgs] = useState([]);

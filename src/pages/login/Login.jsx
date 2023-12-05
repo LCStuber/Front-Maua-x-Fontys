@@ -1,20 +1,34 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
 import { Body, Container } from './styled-components/Body.jsx';
-import LoginContainer from './components/loginContainer';
+import { SignInButton } from './components/loginContainer';
+import { useMsal, useIsAuthenticated } from '@azure/msal-react';
+import { useNavigate } from 'react-router-dom';
+
 import Cloud from './components/clouds';
 
 function Login() {
+  const { instance } = useMsal();
+  const isAuthenticated = useIsAuthenticated();
+  const navigate = useNavigate();
+
+  const handleSignIn = () => {
+    instance.loginRedirect();
+  };
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/homepage');
+    }
+  }, [isAuthenticated, navigate]);
 
   return (
-    <>
-      <Body>
+
+    <Body>
+      <Container>
         <Cloud></Cloud>
-        <Container>
-          <LoginContainer></LoginContainer>
-        </Container>
-      </Body>
-    </>
+        <SignInButton onClick={handleSignIn}></SignInButton>
+      </Container>
+    </Body>
   )
 }
 
