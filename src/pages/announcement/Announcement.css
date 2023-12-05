@@ -1,0 +1,55 @@
+
+.container{
+    margin: 0;
+    padding: 25px;
+    width: 100%;
+    height: auto;
+    font-size: 18px;
+    text-align: center;
+}
+
+.container input{
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 20px black;
+    margin: 10px;
+}
+
+.container textarea{
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 10px black;
+    margin: 10px
+}
+
+#form{
+    text-align: center;
+}
+
+.field{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+    
+}
+
+.field textarea {
+    height: 500px;
+}
+
+@media only screen and (max-height: 900px) {
+    .field textarea {
+        height: 500px;
+    }
+  }
+
+.field label{
+    font-size: 25px;
+}
+
+#submitbutton{
+    padding: 20px 70px;
+    background-color: green;
+    color: white;
+}

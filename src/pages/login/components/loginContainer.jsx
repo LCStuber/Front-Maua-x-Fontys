@@ -1,18 +1,19 @@
 import React from "react";
 import { Container, LogoPrint, LoginButton, LogoMS365, Text } from '../styled-components/loginContainer.jsx'
-import Logo from '../imgs/logo-branco-print.png'
-import MS365Logo from '../imgs/microsoft-365-logo.png'
+import { useMsal } from "@azure/msal-react";
+import { loginRequest } from "../../../authConfig";
 
 
+export const SignInButton = () => {
+  const { instance } = useMsal();
 
-export default function LoginContainer() {
-    return (
+  return (
         <>
             <Container>
-                <LogoPrint src={Logo} alt="Logo do Print"></LogoPrint>
-                <LoginButton href="/homepage">
+                <LogoPrint src="https://d1135f49d6br9m.cloudfront.net/logo-branco-print.png" alt="Logo do Print"></LogoPrint>
+                <LoginButton as="button" onClick={() => instance.loginRedirect(loginRequest)}>
                     <Text>Login</Text>
-                    <LogoMS365 src={MS365Logo} alt="MS365"></LogoMS365>
+                    <LogoMS365 src="https://d1135f49d6br9m.cloudfront.net/microsoft-365-logo.png" alt="MS365"></LogoMS365>
                 </LoginButton>
             </Container>
         </>
