@@ -8,7 +8,7 @@ background-color: #014785;
 font-family: Arial, sans-serif;
 text-align: center;
 color: #FFFFFF;
-height: 100vh;
+height: 100%;
 width: 100vw;
 z-index: 0;
 `;
@@ -18,7 +18,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 width: 100vw;
-height: 100vh;
+height: 100%;
 fit-content;
 `
 

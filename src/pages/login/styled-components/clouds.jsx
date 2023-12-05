@@ -3,7 +3,6 @@ import styled from 'styled-components';
 const Shape1 = styled.div`
 @media screen and (max-aspect-ratio: 1/1) and (orientation: portrait){
     position: absolute;
-    left: 20vw;
     width: 60vw;
     height: 60vw;
     bottom: 0;
@@ -72,9 +71,9 @@ const Shape3 = styled.div`
 const Shape4 = styled.div`
 @media screen and (max-aspect-ratio: 1/1) and (orientation: portrait){
     position: absolute;
-    bottom: 0;
+    top: 90%;
     width: 100vw;
-    height: 6vh;
+    height: 20%;
     background-color: #F2F6F9;
 }
 `;

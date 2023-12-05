@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const Container = styled.div`
 @media (max-aspect-ratio: 1/1) and (orientation: portrait){
+    margin-top: ;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -44,9 +45,9 @@ const LoginButton = styled.a`
 @media (max-aspect-ratio: 1/1) and (orientation: portrait){
     display: block;
     text-align: center;
-    width: 50%;
-    margin-left: 25%;
-    margin-right: 25%;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
     height: fit-content;
     padding: 15px 35px;
     color: #FFFFFF;
