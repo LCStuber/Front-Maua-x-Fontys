@@ -1,16 +1,14 @@
 import React from 'react'
-import SelectBlockButton from './components/SelectBlockButton'
 import "./InteractiveMap.css"
 import GoogleMapComponent from './components/GoogleMapComponent'
-import SeeMoreButton from './components/SeeMoreButton'
 import AllActivitiesButton from './components/AllActivitiesButton'
 
 const InteractiveMap = () => {
+    const textLanguage = "EN";// to change the name just change this field
     return (
         <div className='selectBlockField'>
-            <SelectBlockButton />
-            <GoogleMapComponent/>
-            <AllActivitiesButton/>
+            <GoogleMapComponent textLanguage={textLanguage}/>
+            <AllActivitiesButton textLanguage={textLanguage}/>
         </div>
        
     )

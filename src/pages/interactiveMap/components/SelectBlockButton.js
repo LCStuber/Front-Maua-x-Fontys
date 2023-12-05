@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./SelectBlockButton.css";
 import PolyconIcon from '../imgs/polygon.svg';
 
-const options = ["Select block", 
-"Block A", 
+const optionsEN = ["Select block",
+"Block A",
 "Block B", 
 "Block C", 
 "Block D", 
@@ -13,45 +13,75 @@ const options = ["Select block",
 "Block H", 
 "Block I", 
 "Block J", 
-"Block K", 
+// "Block K",
 "Block L", 
 "Block M", 
-"Block N", 
+"Block N",
+// "Block O",
 "Block P", 
 "Block Q", 
 "Block R", 
 "Block S", 
-"Block T", 
+// "Block T",
 "Block U", 
 "Block V", 
-"Block W", 
-"Block ", 
+// "Block W",
+// "Block ",
 "CEAF: Center for Sports and Physical Activities",
 "CA Kiosk - between blocks F and K",
 "Gym Snack Bar",
 "H Cafe - Next to the Library"
 ];
+const optionsPT =["Selecionar bloco",
+  "Bloco A",
+  "Bloco B",
+  "Bloco C",
+  "Bloco D",
+  "Bloco E",
+  "Bloco F",
+  "Bloco G",
+  "Bloco H",
+  "Bloco I",
+  "Bloco J",
+// "Bloco K",
+  "Bloco L",
+  "Bloco M",
+  "Bloco N",
+// "Bloco O",
+  "Bloco P",
+  "Bloco Q",
+  "Bloco R",
+  "Bloco S",
+// "Bloco T",
+  "Bloco U",
+  "Bloco V",
+// "Bloco W",
+// "Bloco ",
+  "CEAF: Centro de Esportes e Atividades Físicas",
+  "Cabine CA - entre os blocos F e K",
+  "Lanchonete da Academia",
+  "Café H - Ao lado da biblioteca"
+];
 
-const SelectBlockButton = () => {
+const SelectBlockButton = ({emulateClick, textLanguage}) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(options[0]);
+  const [selectedOption, setSelectedOption] = useState([]);
 
+
+  useEffect(() => {
+    // setIsOpen(false);
+    if(textLanguage === "EN"){
+        setSelectedOption(optionsEN[0]);
+      }
+      else{
+        setSelectedOption(optionsPT[0])
+      }
+  }, [textLanguage]);
   const handleOptionClick = (option) => {
     setSelectedOption(option);
     setIsOpen(false);
+    emulateClick(option.substring(option.length - 1));
   };
-
-  // const features = map.data.getFeatures();
-
-  // const selectedFeature = features.find((feature) => {
-  //   return feature.getProperty('letter') === options;
-  // });
-
-  // if (selectedFeature) {
-  //   const clickEvent = new Event('click', { bubbles: true });
-  //   selectedFeature.featureTarget.dispatchEvent(clickEvent);
-  // }
-
 
   return (
     <div className={`dropdown ${isOpen ? "open" : ""}`}>
@@ -62,15 +92,27 @@ const SelectBlockButton = () => {
       </button>
       {isOpen && (
         <div className="options">
-          {options.map((option, index) => (
-            <div
-              key={index}
-              className="option"
-              onClick={() => handleOptionClick(option)}
-            >
-              {option}
-            </div>
-          ))}
+          {
+            textLanguage === "EN" ?
+              optionsEN.map((option, index) => (
+                <div
+                    key={index}
+                    className="option"
+                    onClick={() => handleOptionClick(option)}
+                >
+                  {option}
+                </div>
+              )) :
+              optionsPT.map((option, index) => (
+                <div
+                    key={index}
+                    className="option"
+                    onClick={() => handleOptionClick(option)}
+                >
+                  {option}
+                </div>
+              ))
+          }
         </div>
       )}
     </div>

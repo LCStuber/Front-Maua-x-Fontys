@@ -2,8 +2,7 @@ import React from "react";
 import './AllActivitiesButton.css'
 import { useNavigate } from 'react-router-dom';
 
-const AllActivitiesButton = () => {
-
+const AllActivitiesButton = ({textLanguage}) => {
     const navigate = useNavigate();
 
     const handleRedirect = () => {
@@ -14,7 +13,11 @@ const AllActivitiesButton = () => {
     return (
 
         <button className="allActivitiesButton" onClick={handleRedirect}>
-            <p id="allActivitiesTxt"> All Activities </p>
+            {textLanguage === "EN" ? (
+                <p id="allActivitiesTxt">All Activities</p>
+            ) : (
+                <p id="otherActivitiesTxt">Todas as Atividades</p>
+            )}
         </button>
     )
 };
