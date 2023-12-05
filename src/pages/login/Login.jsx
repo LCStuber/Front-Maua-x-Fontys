@@ -25,9 +25,9 @@ function Login() {
 
     <Body>
       <Container>
-        <Cloud></Cloud>
         <SignInButton onClick={handleSignIn}></SignInButton>
       </Container>
+      <Cloud></Cloud>
     </Body>
   )
 }

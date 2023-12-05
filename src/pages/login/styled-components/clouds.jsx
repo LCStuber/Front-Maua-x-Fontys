@@ -3,8 +3,9 @@ import styled from 'styled-components';
 const Shape1 = styled.div`
 @media screen and (max-aspect-ratio: 1/1) and (orientation: portrait){
     position: absolute;
-    width: 60vw;
-    height: 60vw;
+    width: 55vw;
+    height: 55vw;
+    left: 20vw;
     bottom: 0;
     background-color: #F2F6F9;
     clip-path: circle(50% at 50% 50%);
@@ -30,16 +31,16 @@ const Shape2 = styled.div`
     bottom: 5vh;
     background-color: #F2F6F9;
     clip-path: circle(65.5% at 59% 84%);
-    z-index: 1;
+    z-index: 0;
 }
 @media (orientation:landscape){
     position: absolute;
     justify-self: center;
     align-self: center;
-    margin-left: 210px;
-    margin-top: 230px;
-    width: 210px;
-    height: 210px;
+    margin-left: 180px;
+    margin-top: 210px;
+    width: 160px;
+    height: 160px;
     background-color: #F2F6F9;
     clip-path: circle(50% at 50% 50%);
 }
@@ -48,8 +49,8 @@ const Shape2 = styled.div`
 const Shape3 = styled.div`
 @media screen and (max-aspect-ratio: 1/1) and (orientation: portrait){
     position: absolute;
-    left: 50vw;
-    width: 50vw;
+    left: 50%;
+    width: 50%;
     height: 50vw;
     bottom: 5vh;
     background-color: #F2F6F9;
@@ -71,9 +72,9 @@ const Shape3 = styled.div`
 const Shape4 = styled.div`
 @media screen and (max-aspect-ratio: 1/1) and (orientation: portrait){
     position: absolute;
-    top: 90%;
+    bottom: 0;
     width: 100vw;
-    height: 20%;
+    height: 10%;
     background-color: #F2F6F9;
 }
 `;
@@ -81,7 +82,7 @@ const Shape4 = styled.div`
 const Shadow1 = styled.div`
 @media screen and (max-aspect-ratio: 1/1) and (orientation: portrait){
     position: absolute;
-    left: 15vw;
+    left: 25vw;
     width: 50vw;
     height: 50vw;
     bottom: 10vh;
@@ -115,10 +116,10 @@ const Shadow2 = styled.div`
     position: absolute;
     justify-self: center;
     align-self: center;
-    margin-right: 80px;
-    margin-top: 200px;
-    width: 250px;
-    height: 250px;
+    margin-right: 85px;
+    margin-top: 185px;
+    width: 180px;
+    height: 180px;
     background-color: #B8CCDD;
     clip-path: circle(50% at 50% 50%);
 }
@@ -180,7 +181,7 @@ const SubShadow2 = styled.div`
     clip-path: circle(70.6% at 66% 81%);
 }
 @media (orientation:landscape){
-    position: absolute;
+    /*position: absolute;
     justify-self: center;
     align-self: center;
     margin-top: 280px;
@@ -188,7 +189,7 @@ const SubShadow2 = styled.div`
     width: 250px;
     height: 250px;
     background-color: #628DB4;
-    clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);*/
 }
 `;
 

@@ -2,12 +2,12 @@ import styled from 'styled-components';
 
 const Container = styled.div`
 @media (max-aspect-ratio: 1/1) and (orientation: portrait){
-    margin-top: ;
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
-    width: 100vw;  
+    top: 0;
+    width: 100vw;
+    background-color: #014785;  
  }
 @media (orientation: landscape) {
     display: flex;
@@ -20,7 +20,7 @@ const Container = styled.div`
     background-color: #004785;
     border-radius: 12px;
     box-shadow: 0 3px 6px #000000;
-    aspect-ratio: 2/3;
+    aspect-ratio: 4/5;
     z-index: 1;
 }
 `
@@ -52,7 +52,7 @@ const LoginButton = styled.a`
     padding: 15px 35px;
     color: #FFFFFF;
     text-decoration: none;
-    margin-top: 55vh;
+    margin-top: 50vh;
     background: #002B50;
     box-shadow: inset 32px 59px 41px -71px #336C9D;
     border-radius: 12px;
