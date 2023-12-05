@@ -10,6 +10,9 @@ import Row7 from './components/row7';
 export default function CollegeInfo() {
   return(
     <>
+        <style>
+          @import url('https://fonts.googleapis.com/css2?family=Sansita:wght@700&display=swap');
+        </style>
         <Row1/>
         <Row2/>
         <Row3/>

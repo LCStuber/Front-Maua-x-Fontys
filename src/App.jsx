@@ -11,19 +11,30 @@ import CollegeInfo from './pages/college-info/collegeInfo';
 import React, {useState} from 'react';
 import Navbar from './project-components/navbar';
 import InteractiveMap from './pages/interactiveMap/InteractiveMap';
-import { AuthenticatedTemplate, UnauthenticatedTemplate, useMsal } from '@azure/msal-react';
+import { useIsAuthenticated, AuthenticatedTemplate, UnauthenticatedTemplate, useMsal } from '@azure/msal-react';
 
 const ProtectedRoute = ({ element }) => {
-  return (
-    <div>
-      <AuthenticatedTemplate>
-        {element}
-      </AuthenticatedTemplate>
-      <UnauthenticatedTemplate>
-        <Navigate to="/" replace />
-      </UnauthenticatedTemplate>
-    </div>
-  );
+  const regexAluno = /^\d{2}\.\d{5}-\d@maua\.br$/;
+  const { accounts } = useMsal();
+  if ( useIsAuthenticated() && !regexAluno.test(accounts[0].username) && !(accounts[0].username === "print_teste@maua.br")) {
+    return (
+      <div>
+        {/* TODO: Notification Screen */}
+      </div>
+    )
+  }
+  else {
+    return (
+      <div>
+        <AuthenticatedTemplate>
+          {element}
+        </AuthenticatedTemplate>
+        <UnauthenticatedTemplate>
+          <Navigate to="/" replace />
+        </UnauthenticatedTemplate>
+      </div>
+    );
+  }
 };
 
 function App() {
