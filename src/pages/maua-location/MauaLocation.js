@@ -43,8 +43,10 @@ const MauaLocation = () => {
     }
 
     useEffect(() => {
-      getUserLocation();
-    }, []);
+      if (isLoaded) {
+        getUserLocation();
+      }
+    }, [isLoaded]);
     
     if (loadError) {
         return <div>Error loading maps</div>;
