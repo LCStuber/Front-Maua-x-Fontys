@@ -32,13 +32,13 @@ export default function Row7() {
         <>
         <div>
             <Grid container  textAlign={"center"}>
-                <Grid item md={12}>
+                <Grid md={12}>
                     <Header style={{marginTop: "24px"}}>Reitoria</Header>
                 </Grid>
-                <Grid  item xs={12} md={6}  display={"flex"} alignItems={"center"} justifyContent={"center"}  marginTop={"24px"}>
+                <Grid xs={12} md={6}  display={"flex"} alignItems={"center"} justifyContent={"center"}  marginTop={"24px"}>
                     <Card linkImg={universityInfo.rectorImage} name={universityInfo.rector} cargo="Reitor"/>
                 </Grid>
-                <Grid item xs={12} md={6} display={"flex"} alignItems={"center"} justifyContent={"center"}  marginTop={"24px"}>
+                <Grid xs={12} md={6} display={"flex"} alignItems={"center"} justifyContent={"center"}  marginTop={"24px"}>
                     <Card linkImg={universityInfo.viceRectorImage} name={universityInfo.viceRector} cargo="Vice Reitor" />
                 </Grid>
             </Grid>
