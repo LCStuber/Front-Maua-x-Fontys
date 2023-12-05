@@ -11,7 +11,7 @@ export default function NavigationComponent() {
     return(
         <>
         <Grid container>
-            <Grid item xs={12}>            
+            <Grid xs={12}>            
                 <Anchor href="/activities">
                     <Activities>Ver todas as atividades</Activities>
                 </Anchor>
@@ -19,7 +19,7 @@ export default function NavigationComponent() {
             </Grid>
         </Grid>
         <Grid container>
-            <Grid item xs={12} md={4}>
+            <Grid xs={12} md={4}>
                 <Anchor href="/college-info">
                     <Card>
                         <CardText style={{fontSize: "120%"}}>
@@ -29,7 +29,7 @@ export default function NavigationComponent() {
                     </Card>
                 </Anchor>
             </Grid>
-            <Grid item xs={12} md={4}>
+            <Grid xs={12} md={4}>
                 <Anchor href="/courses">
                     <Card>
                         <CollectionsBookmarkIcon sx={{ fontSize: 72 }} style={{marginLeft: "20px"}} ></CollectionsBookmarkIcon>
@@ -39,7 +39,7 @@ export default function NavigationComponent() {
                     </Card>
                 </Anchor>
             </Grid>
-            <Grid item xs={12} md={4}>
+            <Grid xs={12} md={4}>
                 <Anchor href="/stuorgs">
                     <Card>
                         <CardText style={{fontSize: "110%"}}>

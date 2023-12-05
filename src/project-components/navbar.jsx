@@ -37,7 +37,7 @@ export default function Navbar({openDrawer}){
           </IconButton>
           <a href="/homepage">
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              <Image src="https://drive.google.com/uc?export=view&id=1g8VzMqpyM7gsDEvOPG3-_CIeeYjJ0jT3" alt="Logo Print Mauá"/>
+              <Image src="https://d1135f49d6br9m.cloudfront.net/logo-branco-print.png" alt="Logo Print Mauá"/>
             </Typography>
           </a>
         </Toolbar>
