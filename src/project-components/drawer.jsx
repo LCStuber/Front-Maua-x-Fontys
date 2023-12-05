@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useMsal } from "@azure/msal-react";
 import Box from '@mui/material/Box';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import List from '@mui/material/List';
@@ -12,8 +13,11 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import SchoolIcon from '@mui/icons-material/School';
 import Link from '@mui/material/Link';
 import { Announcement } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 
 export default function Drawer({ anchor, open, onClose, onOpen }) {
+  const { instance } = useMsal();
+  const navigate = useNavigate();
   const [state, setState] = React.useState({
     top: false,
     left: false,
@@ -41,22 +45,26 @@ export default function Drawer({ anchor, open, onClose, onOpen }) {
       onKeyDown={onClose}
     >
       <List>
-        {[['My activities', <LocalActivityIcon />, '/activities'],
-        ['Interactive Map', <MapIcon />, '/interactive-map'],
-        ["Mauá's Location", <SchoolIcon />, '/maua-location'],
-        ["Announcements", <Announcement/>, '/stuannouncement'],
-        ["Announcements", <Announcement/>, '/announcement'],
-        ['Logout', <LogoutIcon />, '/']].map((button, index) => (
-          <Link href={button[2]}>
-            <ListItem key={button[0]} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {button[1]}
-                </ListItemIcon>
-                <ListItemText primary={button[0]} />
-              </ListItemButton>
-            </ListItem>
-          </Link>
+        {[['My activities', <LocalActivityIcon />, () => {navigate('/activities');}],
+        ['Interactive Map', <MapIcon />, () => {navigate('/interactive-map');}],
+        ["Mauá's Location", <SchoolIcon />, () => {navigate('/maua-location');}],
+        ["Announcements", <Announcement/>, () => {navigate('/stuannouncement');}],
+        ["Announcements", <Announcement/>, () => {navigate('/announcement');}],
+        ['Logout', <LogoutIcon />, () => {
+          instance.logoutPopup({
+            postLogoutRedirectUri: "/",
+            mainWindowRedirectUri: "/",
+          });
+          navigate('/');
+        }]].map((button, index) => (
+          <ListItem key={button[0]} disablePadding>
+            <ListItemButton onClick={typeof button[2] === 'function' ? button[2] : () => {}}>
+              <ListItemIcon>
+                {button[1]}
+              </ListItemIcon>
+              <ListItemText primary={button[0]} />
+            </ListItemButton>
+          </ListItem>
         ))}
       </List>
 

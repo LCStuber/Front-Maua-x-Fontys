@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 import Activities from './pages/activities/Activities';
 import ActivityDetail from './pages/activityDetail/ActivityDetail';
@@ -7,12 +7,37 @@ import Login from './pages/login/Login';
 import Courses from './pages/courses/courses';
 import StuOrgs from './pages/stu-orgs/stuorgs'
 import MauaLocation from "./pages/maua-location/MauaLocation";
+import CollegeInfo from './pages/college-info/collegeInfo';
 import React, {useState} from 'react';
 import Navbar from './project-components/navbar';
 import InteractiveMap from './pages/interactiveMap/InteractiveMap';
 import Announcement from './pages/announcement/Announcement';
 import StuAnnouncement from './pages/announcementstudent/StuAnnouncement';
+import { useIsAuthenticated, AuthenticatedTemplate, UnauthenticatedTemplate, useMsal } from '@azure/msal-react';
 
+const ProtectedRoute = ({ element }) => {
+  const regexAluno = /^\d{2}\.\d{5}-\d@maua\.br$/;
+  const { accounts } = useMsal();
+  if ( useIsAuthenticated() && !regexAluno.test(accounts[0].username) && !(accounts[0].username === "print_teste@maua.br")) {
+    return (
+      <div>
+        {/* TODO: Notification Screen */}
+      </div>
+    )
+  }
+  else {
+    return (
+      <div>
+        <AuthenticatedTemplate>
+          {element}
+        </AuthenticatedTemplate>
+        <UnauthenticatedTemplate>
+          <Navigate to="/" replace />
+        </UnauthenticatedTemplate>
+      </div>
+    );
+  }
+};
 
 function App() {
 
@@ -27,16 +52,46 @@ function App() {
       <main className="content">
         <Routes>
           <Route index path="/" element={<Login />} />
-          <Route path="/activities" element={<><Navbar openDrawer={toggleDrawer} /><Activities /></>} />
-          <Route path="/activity/:id" element={<><Navbar openDrawer={toggleDrawer} /><ActivityDetail /></>} />
-          <Route path="/homepage" element={<><Navbar openDrawer={toggleDrawer} /><HomePage /></>} />
-          <Route path="/courses" element={<><Navbar openDrawer={toggleDrawer} /><Courses /></>} />
-          <Route path="/stuorgs" element={<><Navbar openDrawer={toggleDrawer} /><StuOrgs /></>} />
-          <Route path="/interactive-map" element={<><Navbar openDrawer={toggleDrawer} /><InteractiveMap /></>} />
-          <Route path="/maua-location" element = {<><Navbar openDrawer={toggleDrawer} /><MauaLocation /></>} />
-          <Route path="/stuannouncement" element = {<><Navbar openDrawer={toggleDrawer} /><StuAnnouncement /> </>} />
-          <Route path="/announcement" element = {<><Navbar openDrawer={toggleDrawer} /><Announcement /> </>} />
-
+          <Route
+            path="/activities"
+            element={<ProtectedRoute element={<><Navbar openDrawer={toggleDrawer} /><Activities /></>} />}
+          />
+          <Route
+            path="/activity/:id"
+            element={<ProtectedRoute element={<><Navbar openDrawer={toggleDrawer} /><ActivityDetail /></>} />}
+          />
+          <Route
+            path="/homepage"
+            element={<ProtectedRoute element={<><Navbar openDrawer={toggleDrawer} /><HomePage /></>} />}
+          />
+          <Route
+            path="/courses"
+            element={<ProtectedRoute element={<><Navbar openDrawer={toggleDrawer} /><Courses /></>} />}
+          />
+          <Route
+            path="/stuorgs"
+            element={<ProtectedRoute element={<><Navbar openDrawer={toggleDrawer} /><StuOrgs /></>} />}
+          />
+          <Route
+            path="/interactive-map"
+            element={<ProtectedRoute element={<><Navbar openDrawer={toggleDrawer} /><InteractiveMap /></>} />}
+          />
+          <Route
+            path="/maua-location"
+            element={<ProtectedRoute element={<><Navbar openDrawer={toggleDrawer} /><MauaLocation /></>} />}
+          />
+          <Route
+            path="/college-info"
+            element={<ProtectedRoute element={<><Navbar openDrawer={toggleDrawer} /><CollegeInfo /></>} />}
+          />
+          <Route
+            path="/stuannouncement"
+            element={<ProtectedRoute element={<><Navbar openDrawer={toggleDrawer} /><StuAnnouncement /></>} />}
+          />
+          <Route
+            path="/announcement"
+            element={<ProtectedRoute element={<><Navbar openDrawer={toggleDrawer} /><Announcement /></>} />}
+          />
         </Routes>
       </main>
     </Router>
