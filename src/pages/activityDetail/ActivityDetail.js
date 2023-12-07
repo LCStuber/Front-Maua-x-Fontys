@@ -86,6 +86,15 @@ const ActivityDetail = () => {
     }
   };
 
+  function getFormattedTime(date) {
+    const dateObject = new Date(date);
+  
+    const hours = dateObject.getUTCHours();
+    const minutes = dateObject.getUTCMinutes();
+  
+    return `${hours}:${minutes < 10 ? '0' : ''}${minutes}`;
+  }
+
   return (
     <div>
       {activity ? (
@@ -95,7 +104,7 @@ const ActivityDetail = () => {
             <div className="time-and-room-container">
               <div className="time-container">
                 <FontAwesomeIcon className="icon" icon={faClock} />
-                <p>{formatDate(activity.startDate)}</p>
+                <p>{getFormattedTime(activity.startDate)}</p>
               </div>
               <div className="room-container">
                 <FontAwesomeIcon className="icon" icon={faBuilding} />
