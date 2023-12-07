@@ -1,0 +1,54 @@
+
+.containerStuAnnounce{
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    color: white;
+    padding: 10px 25px 10px 25px;
+    font-family: lexend;
+}
+#SubDatefield{
+    display: flex;
+    justify-content: space-between;
+}
+
+.announcementWrapper{
+    border: 1px solid white;
+    padding: 10px; 
+    border-radius: 25px;
+    height: 750px;
+    background-color: white;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+#announcementtitle{
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+.announcementContainer{
+    box-sizing: border-box;
+    border: 1px solid white;
+    border-radius: 20px;
+    padding: 20px; 
+    background-color: #002B50;
+    margin-bottom: 5px;
+}
+
+.announcementContainer h4,p{
+    box-sizing: border-box;
+    height: auto;
+    padding-top: 10px;
+}
+
+@media only screen and (max-height: 900px) {
+    .announcementWrapper{
+        height: 750px;
+        border: 1px solid white;
+        padding: 10px; 
+        border-radius: 25px;
+        background-color: white;
+        overflow: hidden;
+        overflow-y: scroll;
+    }
+  }

@@ -10,6 +10,7 @@ import Collapse from '@mui/material/Collapse';
 import CardActions from '@mui/material/CardActions';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import InstagramIcon from '@mui/icons-material/Instagram';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -33,7 +34,10 @@ export default function StuOrgCard({ org }) {
   return (
     <CardContainer>
       <Card>
-        <CardMedia component="img" image={org.url} alt={org.name + ' logo'} />
+        <CardMedia component="img" sx={{height: "350px", objectFit: "fill"}} image={org.url} alt={org.name + ' logo'} />
+        <a href={org.instagram}>
+          <InstagramIcon style={{float: "right", marginTop: "10px", marginRight: "10px"}}/>
+        </a>
         <CardContent>
           <Typography gutterBottom variant="h5" component="div" fontWeight={'bold'}>
             {org.name}
@@ -50,14 +54,14 @@ export default function StuOrgCard({ org }) {
             <ExpandMoreIcon/>
             </ExpandMore>
             </CardActions>
-            <Collapse in={expanded} timeout="auto" unmountOnExit>
-              <Typography variant="body2" color="text.secondary">
+            <Collapse in={expanded} timeout="auto"  unmountOnExit>
+              <Typography sx={{fontSize: "10px"}} variant="body2" color="text.secondary">
                 {org.description}
               </Typography>
             </Collapse>
             </>
           ) : (
-            <Typography variant="body2" color="text.secondary">
+            <Typography sx={{fontSize: "12px"}} variant="body2" color="text.secondary">
               {org.description}
             </Typography>
           )}

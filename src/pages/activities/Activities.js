@@ -42,7 +42,7 @@ const Activities = () => {
     }
     activitiesByDay[dayOfWeek].push(activity);
   });
-
+  
   function getFormattedTime(date) {
     const dateObject = new Date(date);
   

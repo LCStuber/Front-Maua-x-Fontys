@@ -7,10 +7,9 @@ import { faUser, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { faClock, faBuilding } from '@fortawesome/free-regular-svg-icons';
 import api from '../../api/axiosConfig';
 import { act } from 'react-dom/test-utils';
+import { useMsal } from '@azure/msal-react';
 
 library.add(faUser, faClock, faBuilding, faUsers);
-
-{/* Add authentication for that page */}
 
 const ActivityDetail = () => {
   const { id } = useParams();
@@ -44,11 +43,11 @@ const ActivityDetail = () => {
     return formattedDate;
   }
   
-  // Test data (remove later)
-  const currentEmail = "email2";
+  const { accounts } = useMsal();
+  const currentEmail = accounts[0].username;
 
   const handleUnsubscribe = async () => {
-    const endpoint = `https://localhost:3001/api/v1/activities/${activity.id}/removeSubscribed/${currentEmail}`;
+    const endpoint = process.env.REACT_APP_BACK_END_URL+`/api/v1/activities/${activity.id}/removeSubscribed/${currentEmail}`;
     try {
       const response = await fetch(endpoint, {
         method: 'POST',
@@ -69,7 +68,7 @@ const ActivityDetail = () => {
   };
 
   const handleSubscribe = async () => {
-    const endpoint = `https://localhost:3001/api/v1/activities/${activity.id}/addSubscribed/${currentEmail}`;
+    const endpoint = process.env.REACT_APP_BACK_END_URL+`/api/v1/activities/${activity.id}/addSubscribed/${currentEmail}`;
     try {
       const response = await fetch(endpoint, {
         method: 'POST',
