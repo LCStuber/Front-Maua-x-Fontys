@@ -43,6 +43,15 @@ const Activities = () => {
     activitiesByDay[dayOfWeek].push(activity);
   });
 
+  function getFormattedTime(date) {
+    const dateObject = new Date(date);
+  
+    const hours = dateObject.getUTCHours();
+    const minutes = dateObject.getUTCMinutes();
+  
+    return `${hours}:${minutes < 10 ? '0' : ''}${minutes}`;
+  }
+
   return (
     <div className="activities-container">
       <div className="activity-lists-container-desktop">
@@ -61,7 +70,7 @@ const Activities = () => {
                     <div className="activity-title">{activity.title}</div>
                     <div className="activity-details">
                       <div className="activity-room"><span className='activity-room-title'>Room: </span>{activity.room}</div>
-                      <div className="activity-time"><span className='activity-room-time'>Time: </span>{activity.time}</div>
+                      <div className="activity-time"><span className='activity-room-time'>Time: </span>{getFormattedTime(activity.startDate)}</div>
                     </div>
                   </Link>
                 ))}
