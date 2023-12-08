@@ -14,7 +14,7 @@ const MauaLocation = () => {
 
     const [directions, setDirections] = useState(null);
 
-    useEffect(() => {
+    const getUserLocation = () => {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
           (position) => {
@@ -39,10 +39,14 @@ const MauaLocation = () => {
             console.error('Error getting current location:', error);
           }
         );
-
-
       }
-    }, []);
+    }
+
+    useEffect(() => {
+      if (isLoaded) {
+        getUserLocation();
+      }
+    }, [isLoaded]);
     
     if (loadError) {
         return <div>Error loading maps</div>;
@@ -69,9 +73,14 @@ const MauaLocation = () => {
           />
         )}
         </GoogleMap>
-        <div class="address-box">
-          <h2>Address: </h2>
-          <p>Praça Mauá, 1 - Mauá, São Caetano do Sul - SP, 09580-900, Brazil</p>
+        <div className="left-container">
+          <div className="address-box">
+            <h2>Address: </h2>
+            <p>Praça Mauá, 1 - Mauá, São Caetano do Sul - SP, 09580-900, Brazil</p>
+          </div>
+          <div className="path-button-container">
+            <button className="path-button" onClick={getUserLocation}>Display Route</button>
+          </div>
         </div>
       </div>
     </div>
