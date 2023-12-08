@@ -8,6 +8,7 @@ import Person2Icon from '@mui/icons-material/Person2';
 import { Button, CardContainer } from '../styled-components/courses_list';
 import ModalCourse from './modal';
 import LaunchIcon from '@mui/icons-material/Launch';
+import InfoIcon from '@mui/icons-material/Info';
 
 const theme = createTheme({
   components: {
@@ -31,37 +32,80 @@ const theme = createTheme({
   });
 
 export default function CoursesCard({course}) {
-  const [open, setOpen] = useState(false);
+  const [openDescriptionModal, setOpenDescriptionModal] = useState(false);
+  const [openCoordinatorModal, setOpenCoordinatorModal] = useState(false);
 
-  const handleOpen = () => {
-    setOpen(true);
+  const handleOpenDescriptionModal = () => {
+    setOpenDescriptionModal(true);
   };
 
-  const handleClose = () => {
-    setOpen(false);
+  const handleCloseDescriptionModal = () => {
+    setOpenDescriptionModal(false);
   };
 
-  return (
-    <ThemeProvider theme={theme}>
-      <CardContainer>
-        <Card>
-        <a href={course.url}>
-          <LaunchIcon style={{float: "right", marginTop: "17.5px", marginRight: "15px"}}/>  
-        </a>
-          <CardHeader title={course.name}/>        
-          <CardMedia style={{position: "relative"}} component="img" height="194" image={course.displayImage} alt={course.name + " imagem"} />
-            <Button>
-              <IconButton
-                aria-label="show more"
-                size="large"
-                onClick={open ? handleClose : handleOpen}
-              >
-                <Person2Icon />
-              </IconButton>
-            </Button>
-        </Card>
-      </CardContainer>
-      <ModalCourse course={course} open={open} onClose={handleClose} />
-    </ThemeProvider>
-  );
+  const handleOpenCoordinatorModal = () => {
+    setOpenCoordinatorModal(true);
+  };
+
+  const handleCloseCoordinatorModal = () => {
+    setOpenCoordinatorModal(false);
+  };
+
+
+  if (course.name === "Engenharia – Ciclo Básico"){
+    return (
+      <ThemeProvider theme={theme}>
+        <CardContainer>
+          <Card>
+            <IconButton
+              aria-label="show more"
+              size="large"
+              onClick={openDescriptionModal ? handleCloseDescriptionModal : handleOpenDescriptionModal}
+              style={{position: "absolute", top: "0", right: "0", color: "white", marginTop: "5px", marginRight: "2px"}}
+            >
+              <InfoIcon/>
+            </IconButton>
+            <CardHeader title={course.name}/>        
+            <CardMedia style={{position: "relative"}} component="img" height="194" image={course.displayImage} alt={course.name + " imagem"} />
+              <Button>
+                <IconButton
+                  aria-label="show more"
+                  size="large"
+                  onClick={openCoordinatorModal ? handleCloseCoordinatorModal : handleOpenCoordinatorModal}
+                >
+                  <Person2Icon />
+                </IconButton>
+              </Button>
+          </Card>
+        </CardContainer>
+        <ModalCourse course={course} open={openDescriptionModal} onClose={handleCloseDescriptionModal} type={"description"} />
+        <ModalCourse course={course} open={openCoordinatorModal} onClose={handleCloseCoordinatorModal} type={"coordinator"} />
+      </ThemeProvider>
+    )
+  }
+  else{
+    return (
+      <ThemeProvider theme={theme}>
+        <CardContainer>
+          <Card>
+          <a href={course.url}>
+            <LaunchIcon style={{float: "right", marginTop: "17.5px", marginRight: "15px"}}/>  
+          </a>
+            <CardHeader title={course.name}/>        
+            <CardMedia style={{position: "relative"}} component="img" height="194" image={course.displayImage} alt={course.name + " imagem"} />
+              <Button>
+                <IconButton
+                  aria-label="show more"
+                  size="large"
+                  onClick={openCoordinatorModal ? handleCloseCoordinatorModal : handleOpenCoordinatorModal}
+                >
+                  <Person2Icon />
+                </IconButton>
+              </Button>
+          </Card>
+        </CardContainer>
+        <ModalCourse course={course} open={openCoordinatorModal} onClose={handleCloseCoordinatorModal} type={"coordinator"} />
+      </ThemeProvider>
+    );
+  }
 }
