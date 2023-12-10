@@ -9,6 +9,7 @@ import SwiperCore from "swiper";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules'
 import { height } from '@mui/system';
+import { useMsal } from '@azure/msal-react';
 
 SwiperCore.use([Navigation])
 
@@ -19,9 +20,12 @@ function dayOfWeekAsString(dayIndex) {
 const Activities = () => {
   const [activities, setActivities] = useState([]);
 
+  const { accounts } = useMsal();
+  const currentEmail = accounts[0].username;
+
   const getActivities = async () => {
     try {
-      const response = await api.get('/api/v1/activities');
+      const response = await api.get(`/api/v1/activities/${currentEmail}`);
       console.log(response.data);
       setActivities(response.data);
     } catch (error) {
