@@ -13,15 +13,26 @@ export default function StuOrgsList(){
     const getStuOrgs = async () => {
       try {
         const response = await api.get('/api/v1/organizations');
-        console.log(response.data);
-        setStuOrgs(response.data);
+        const resp = response.data;
+
+        resp.sort((a, b) => {
+          if (a.name < b.name) {
+            return -1;
+          }
+          if (a.name > b.name){
+            return 1;
+          }
+          return 0;
+        })
+        setStuOrgs(resp);
+        
       } catch (error) {
         console.log(error);
       }
     }
-  
+    
     useEffect(() => {
-      getStuOrgs();
+      getStuOrgs()
     }, [])
 
     return(

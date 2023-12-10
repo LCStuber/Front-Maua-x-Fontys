@@ -11,8 +11,18 @@ export default function CoursesList() {
     const getCourses = async () => {
       try {
         const response = await api.get('/api/v1/courses');
-        console.log(response.data);
-        setCourses(response.data);  
+        const resp = response.data;
+
+        resp.sort((a, b) => {
+          if (a.name < b.name) {
+            return -1;
+          }
+          if (a.name > b.name){
+            return 1;
+          }
+          return 0;
+        })
+        setCourses(resp);
       } catch (error) {
         console.log(error);
       }
