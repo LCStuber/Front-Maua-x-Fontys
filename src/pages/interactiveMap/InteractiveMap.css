@@ -5,3 +5,17 @@
     padding: 28px;
     /* gap: 50px; */
 }
+
+.activity-capacity{
+    margin-top: 15px;
+    font-size: 26px;
+    border-radius: 30px;
+    color: white;
+    display: flex;
+    padding: 5px 15px;
+}
+
+.icon{
+    margin-top: 12px;
+    margin-left: 10px;
+}

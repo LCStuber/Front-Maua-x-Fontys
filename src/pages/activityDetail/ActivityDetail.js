@@ -117,12 +117,20 @@ const ActivityDetail = () => {
             </div>
             
             {activity.subscribed === null ? (
-              <button className="subscribeButton" onClick={handleSubscribe}>Subscribe</button>
+              activity.subscribed.length >= activity.capacity ? (
+                <button className="subscribeButton">Subscribe</button>
+              ) : (
+                <button className="subscribeButton" onClick={handleSubscribe}>Subscribe</button>
+              )
             ) : (
               activity.subscribed.includes(currentEmail) ?(
                 <button className="unsubscribeButton" onClick={handleUnsubscribe}>Unsubscribe</button>
               ) : (
-                <button className="subscribeButton" onClick={handleSubscribe}>Subscribe</button>
+                activity.subscribed.length >= activity.capacity ? (
+                  <button className="subscribeButton">Subscribe</button>
+                ) : (
+                  <button className="subscribeButton" onClick={handleSubscribe}>Subscribe</button>
+                )
               )
             )}
             
