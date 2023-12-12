@@ -5,6 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faUser, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { faClock, faBuilding } from '@fortawesome/free-regular-svg-icons';
+import api from '../../api/axiosConfig';
+import { act } from 'react-dom/test-utils';
+import { useMsal } from '@azure/msal-react';
 
 library.add(faUser, faClock, faBuilding, faUsers);
 
@@ -13,10 +16,19 @@ const ActivityDetail = () => {
 
   const [activity, setActivity] = useState(null);
 
-  // useEffect(() => {
-  //   const findActivityById = activities.find((item) => item.id === id);
-  //   setActivity(findActivityById);
-  // }, [id]);
+  const getActivityDetails = async () => {
+    try {
+      const response = await api.get(`/api/v1/activities/${id}`);
+      console.log(response.data);
+      setActivity(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    getActivityDetails();
+  }, [])
 
   const [isSubscribed, setIsSubscribed] = useState(false);
 
@@ -25,18 +37,74 @@ const ActivityDetail = () => {
   }
   const buttonText = isSubscribed ? 'Unsubscribe' : 'Subscribe';
 
-  console.log(id);
+  function formatDate(dateString) {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const formattedDate = new Date(dateString).toLocaleDateString(undefined, options);
+    return formattedDate;
+  }
+  
+  const { accounts } = useMsal();
+  const currentEmail = accounts[0].username;
+
+  const handleUnsubscribe = async () => {
+    const endpoint = process.env.REACT_APP_BACK_END_URL+`/api/v1/activities/${activity.id}/removeSubscribed/${currentEmail}`;
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+      });
+  
+      if (response.ok) {
+        const updatedSubscribed = activity.subscribed.filter(
+          (email) => email !== currentEmail
+        );
+    
+        setActivity({ ...activity, subscribed: updatedSubscribed });
+      } else {
+        // Handle errors
+      }
+    } catch (error) {
+      // Handle fetch errors
+    }
+  };
+
+  const handleSubscribe = async () => {
+    const endpoint = process.env.REACT_APP_BACK_END_URL+`/api/v1/activities/${activity.id}/addSubscribed/${currentEmail}`;
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+      });
+  
+      if (response.ok) {
+        const updatedSubscribed = [...activity.subscribed, currentEmail];
+
+        setActivity({ ...activity, subscribed: updatedSubscribed });
+      } else {
+        // Handle errors
+      }
+    } catch (error) {
+      // Handle fetch errors
+    }
+  };
+
+  function getFormattedTime(date) {
+    const dateObject = new Date(date);
+  
+    const hours = dateObject.getUTCHours();
+    const minutes = dateObject.getUTCMinutes();
+  
+    return `${hours}:${minutes < 10 ? '0' : ''}${minutes}`;
+  }
 
   return (
     <div>
       {activity ? (
         <div className="main-container">
-          <p className="title-text">{activity.title}:</p>
+          <p className="title-text">{activity.name}:</p>
           <div className="top-container">
             <div className="time-and-room-container">
               <div className="time-container">
                 <FontAwesomeIcon className="icon" icon={faClock} />
-                <p>{activity.time}</p>
+                <p>{getFormattedTime(activity.startDate)}</p>
               </div>
               <div className="room-container">
                 <FontAwesomeIcon className="icon" icon={faBuilding} />
@@ -47,17 +115,41 @@ const ActivityDetail = () => {
               <FontAwesomeIcon className="icon" icon={faUser} />
               <p>{activity.lector}</p>
             </div>
-            <button
-              className={`subscribeButton ${isSubscribed ? 'unsubscribe' : 'subscribe'}`}
-              onClick={toggleSubscribeButton}
-            >
-              {buttonText}
-            </button>
-            <div className="capacity-container">
-              <FontAwesomeIcon className="icon" icon={faUsers} />
-              <p>{activity.used_capacity}/{activity.max_capacity}</p>
-            </div>
-            {/* Display detailed activity information here */}
+            
+            {activity.subscribed === null ? (
+              activity.subscribed.length >= activity.capacity ? (
+                <button className="subscribeButton">Subscribe</button>
+              ) : (
+                <button className="subscribeButton" onClick={handleSubscribe}>Subscribe</button>
+              )
+            ) : (
+              activity.subscribed.includes(currentEmail) ?(
+                <button className="unsubscribeButton" onClick={handleUnsubscribe}>Unsubscribe</button>
+              ) : (
+                activity.subscribed.length >= activity.capacity ? (
+                  <button className="subscribeButton">Subscribe</button>
+                ) : (
+                  <button className="subscribeButton" onClick={handleSubscribe}>Subscribe</button>
+                )
+              )
+            )}
+            
+              <div className="capacity-container">
+                <FontAwesomeIcon className="icon" icon={faUsers} />
+                {activity.capacity === null ?(
+                  activity.subscribed != null ? (
+                    <p>{activity.subscribed.length}</p>
+                  ) : (
+                    <p>0</p>
+                  )
+                ) : (
+                  activity.subscribed === null ? (
+                    <p>0/{activity.capacity}</p>
+                  ) : (
+                    <p>{activity.subscribed.length}/{activity.capacity}</p>
+                  )
+                )}
+              </div>
           </div>
           <div className="bottom-container">
             <p className="description-title">Description:</p> 

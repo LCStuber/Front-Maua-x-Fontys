@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useMsal } from "@azure/msal-react";
 import Box from '@mui/material/Box';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import List from '@mui/material/List';
@@ -7,9 +8,16 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import LocalActivityIcon from '@mui/icons-material/LocalActivity';
+import MapIcon from '@mui/icons-material/Map';
 import LogoutIcon from '@mui/icons-material/Logout';
+import SchoolIcon from '@mui/icons-material/School';
+import Link from '@mui/material/Link';
+import { Announcement } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 
 export default function Drawer({ anchor, open, onClose, onOpen }) {
+  const { instance } = useMsal();
+  const navigate = useNavigate();
   const [state, setState] = React.useState({
     top: false,
     left: false,
@@ -37,18 +45,29 @@ export default function Drawer({ anchor, open, onClose, onOpen }) {
       onKeyDown={onClose}
     >
       <List>
-        {['My activities', 'Logout'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
+        {[['My activities', <LocalActivityIcon />, () => {navigate('/activities');}],
+        ['Interactive Map', <MapIcon />, () => {navigate('/interactive-map');}],
+        ["Mauá's Location", <SchoolIcon />, () => {navigate('/maua-location');}],
+        // ["Announcements", <Announcement/>, () => {navigate('/stuannouncement');}],
+        // ["Announcements", <Announcement/>, () => {navigate('/announcement');}],
+        ['Logout', <LogoutIcon />, () => {
+          instance.logoutPopup({
+            postLogoutRedirectUri: "/",
+            mainWindowRedirectUri: "/",
+          });
+          navigate('/');
+        }]].map((button, index) => (
+          <ListItem key={button[0]} disablePadding>
+            <ListItemButton onClick={typeof button[2] === 'function' ? button[2] : () => {}}>
               <ListItemIcon>
-                {index % 2 === 0 ? <LocalActivityIcon /> : <LogoutIcon />}
+                {button[1]}
               </ListItemIcon>
-              <ListItemText primary={text} />
+              <ListItemText primary={button[0]} />
             </ListItemButton>
           </ListItem>
         ))}
       </List>
-      
+
     </Box>
   );
 

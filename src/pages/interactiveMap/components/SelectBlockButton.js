@@ -63,10 +63,9 @@ const optionsPT =["Selecionar bloco",
   "Café H - Ao lado da biblioteca"
 ];
 
-const SelectBlockButton = ({emulateClick, textLanguage}) => {
+const SelectBlockButton = ({emulateClick, textLanguage, receiveSelectedLetter }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState([]);
-
 
   useEffect(() => {
     // setIsOpen(false);
@@ -76,12 +75,13 @@ const SelectBlockButton = ({emulateClick, textLanguage}) => {
       else{
         setSelectedOption(optionsPT[0])
       }
-  }, [textLanguage]);
-  const handleOptionClick = (option) => {
+  }, []); // add textlanguage
+  function handleOptionClick(option){
     setSelectedOption(option);
     setIsOpen(false);
     emulateClick(option.substring(option.length - 1));
-  };
+    receiveSelectedLetter(option.substring(option.length - 1));
+  }
 
   return (
     <div className={`dropdown ${isOpen ? "open" : ""}`}>

@@ -1,8 +1,9 @@
-import React, { useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import coordinates from './coordinates.json';
 import './GoogleMapComponent.css';
 import { Loader } from "@googlemaps/js-api-loader"
 import SelectBlockButton from "./SelectBlockButton";
+import ActivitiesMonitor from "./ActivitiesMonitor";
 
 const GoogleMapComponent = ({textLanguage}) => {
 
@@ -10,7 +11,13 @@ const GoogleMapComponent = ({textLanguage}) => {
   let clickedFeatureIds = null;
 
   let map;
-  useEffect(() => { // initialize mapp
+
+  const [selectedLetter, setSelectedLetter] = useState([]);
+  const receiveSelectedLetter = (letter) => {
+      setSelectedLetter(letter)
+  };
+
+  useEffect(() => { // initialize map
     const loader = new Loader({
       apiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
       version: 'weekly',
@@ -29,10 +36,9 @@ const GoogleMapComponent = ({textLanguage}) => {
     });
   }, []);
 
-  const getFeatureDataByLetter = (letter) => {
+  function getFeatureDataByLetter(letter) {
     return coordinates.features.find((feature) => feature.properties.letter === letter);
-  };
-
+  }
   function presentBlockPopup(featureId, rooms, position) {
     let description = `<p>No Rooms</p>`;
 
@@ -64,8 +70,7 @@ const GoogleMapComponent = ({textLanguage}) => {
 
     infoWindow.open(map);
     currentInfoWindow = infoWindow;
-  } //ok
-
+  }
   function handleFeatureClick(event) {
 
     const featureId = event.feature.getProperty('letter');
@@ -79,30 +84,28 @@ const GoogleMapComponent = ({textLanguage}) => {
     }
     presentBlockPopup(featureId, rooms, event.latLng)
   }
-
-  const calculatePolygonCenter = (feature) => {
-    const coordinates = feature.geometry.coordinates[0]; // Assuming the first array is the exterior ring
+  function calculatePolygonCenter(feature){
+    const coordinates = feature.geometry.coordinates[0];
 
     let totalLat = 0;
     let totalLng = 0;
 
     for (let i = 0; i < coordinates.length; i++) {
-      totalLat += coordinates[i][1]; // Assuming coordinates[i] is [lng, lat]
-      totalLng += coordinates[i][0]; // Assuming coordinates[i] is [lng, lat]
+      totalLat += coordinates[i][1];
+      totalLng += coordinates[i][0];
     }
 
     const centerX = totalLng / coordinates.length;
     const centerY = totalLat / coordinates.length;
 
     return { lat: centerY, lng: centerX };
-  };
-
-  const emulateClick = (letter) => {
+  }
+  function emulateClick(letter){
     if (map) {
       let feature = getFeatureDataByLetter(letter);
 
       if (feature) {
-        const geometry = feature.geometry; // Get the geometry of the feature
+        const geometry = feature.geometry;
 
         if (geometry.type === 'Polygon' || geometry.type === 'MultiPolygon') {
 
@@ -117,18 +120,18 @@ const GoogleMapComponent = ({textLanguage}) => {
             presentBlockPopup(feature.properties.letter, feature.properties.roomsPT, popUpPoint);
           }
           if (map && popUpPoint) {
-            map.panTo(popUpPoint); // Pan the map to the center of the popup
-            map.setZoom(18); // Set the zoom level to zoom in on the location
+            map.panTo(popUpPoint);
+            map.setZoom(18);
           }
         }
       }
     }
-  };
-
+  }
   return (
     <>
-      <SelectBlockButton emulateClick = {emulateClick} textLanguage={textLanguage}/>
-      <div id='map'> </div>
+      <SelectBlockButton emulateClick = {emulateClick} textLanguage={textLanguage} receiveSelectedLetter={receiveSelectedLetter}/>
+      <div id='map'></div>
+      <ActivitiesMonitor textLanguage={textLanguage} selectedLetter={selectedLetter}/>
     </>
   )
 };

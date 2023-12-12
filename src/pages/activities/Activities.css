@@ -1,8 +1,39 @@
+.activity-lists-container-desktop {
+    padding-top: 1.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.activity-lists-container-mobile {
+    padding-top: 1.5rem;
+}
+
+.day-activities {
+    flex: 1;
+    margin: 0 20px;
+}
+
+.week-title-container {
+    padding: 14px;
+    background: #002B50;
+    border-radius: 25px;
+    color: #fff;
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 0.8rem;
+    max-width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .activity-list {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 50px;
+    padding-bottom: 10px;
 }
 
 .activity {
@@ -10,8 +41,8 @@
     background-color: #002B50;
     color: #fff;
     margin: 10px;
-    width: 80%;
-    max-width: 300px;
+    width: 90%;
+    max-width: 340px;
     text-align: left;
     padding-top: 18px;
     padding-bottom: 40px;
@@ -45,7 +76,7 @@
 
 .activity-room,
 .activity-time {
-    font-size: 33px;
+    font-size: 22px;
     padding: 14px;
 }
 
@@ -56,4 +87,36 @@
 
 a {
     text-decoration: none;
+}
+
+.activities-container {
+    margin: 20px;
+}
+
+@media (max-width: 767px) {
+    .activity-lists-container-desktop {
+      display: none;
+    }
+  }
+
+@media (min-width: 768px) {
+    .activity-lists-container-mobile {
+      display: none;
+    }
+}
+
+.swiper .swiper-button-prev {
+    top: 27px;
+    color: white;
+    left: 0;
+}
+
+.swiper .swiper-button-next {
+    top: 27px;
+    color: white;
+    right: 0;
+}
+
+.day-activities-container {
+    min-height: 100vh;
 }
