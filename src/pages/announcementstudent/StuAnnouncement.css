@@ -7,6 +7,17 @@
     padding: 10px 25px 10px 25px;
     font-family: lexend;
 }
+
+.therearenoannouncements{
+    color: black;
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    padding: 10px 25px 10px 25px;
+    font-family: lexend;
+    text-align: center;
+}
+
 #SubDatefield{
     display: flex;
     justify-content: space-between;

@@ -12,6 +12,7 @@ import Navbar from './project-components/navbar';
 import InteractiveMap from './pages/interactiveMap/InteractiveMap';
 import Announcement from './pages/announcement/Announcement';
 import StuAnnouncement from './pages/announcementstudent/StuAnnouncement';
+import './firebase-messaging-sw.js';
 
 
 function App() {
