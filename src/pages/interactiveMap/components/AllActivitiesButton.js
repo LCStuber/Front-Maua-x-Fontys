@@ -1,8 +1,9 @@
 import React from "react";
 import './AllActivitiesButton.css'
 import { useNavigate } from 'react-router-dom';
+import PolyconIcon from "../imgs/polygon.svg";
 
-const AllActivitiesButton = ({textLanguage}) => {
+const AllActivitiesButton = ({textLanguage, showActivities}) => {
     const navigate = useNavigate();
 
     const handleRedirect = () => {
@@ -12,12 +13,13 @@ const AllActivitiesButton = ({textLanguage}) => {
 
     return (
 
-        <button className="allActivitiesButton" onClick={handleRedirect}>
+        <button className="allActivitiesButton" onClick={showActivities}>
             {textLanguage === "EN" ? (
                 <p id="allActivitiesTxt">All Activities</p>
             ) : (
                 <p id="otherActivitiesTxt">Todas as Atividades</p>
             )}
+            <img className="polygonIcon" src={PolyconIcon} alt="polygon_icon" />
         </button>
     )
 };

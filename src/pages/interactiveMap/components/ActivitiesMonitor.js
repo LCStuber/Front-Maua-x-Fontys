@@ -7,6 +7,8 @@ import SwiperCore from "swiper";
 import {Navigation} from "swiper/modules";
 import {library} from "@fortawesome/fontawesome-svg-core";
 import api from "../../../api/axiosConfig";
+import "./ActivitiesMonitor.css"
+import AllActivitiesButton from "./AllActivitiesButton";
 
 const ActivitiesMonitor = ({textLanguage, selectedLetter}) =>{
 //textLanguage logic VVV
@@ -16,6 +18,11 @@ const ActivitiesMonitor = ({textLanguage, selectedLetter}) =>{
     const [activities, setActivities] = useState([]);
     // const [selectedActivities, setSelectedActivities] = useState([]);
     const [activitiesByDay, setActivitiesByDay] = useState([]);
+
+    const [showAllActivities, setShowAllActivities] = useState(false);
+    const toggleActivitiesVisibility = () => {
+        setShowAllActivities(!showAllActivities);
+    };
     function dayOfWeekAsString(dayIndex) {
         return ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][dayIndex] || '';
     }
@@ -46,17 +53,43 @@ const ActivitiesMonitor = ({textLanguage, selectedLetter}) =>{
     }
 
     useEffect(() => {
-        getActivities();
-        let activitiesByDayTemp =[]
-        activities.forEach((activity) => {
-            const dayOfWeek = new Date(activity.startDate);
-            if (!activitiesByDayTemp[dayOfWeek]) {
-                activitiesByDayTemp[dayOfWeek] = [];
+        async function fetchData() {
+            try {
+                console.log("SelectedLetter: " + selectedLetter);
+                const response = await api.get(`/api/v1/activities`);
+                const responseActivities = response.data;
+
+                let matchActivities = [];
+                console.log(responseActivities);
+
+                if (responseActivities.length !== 0) {
+                    responseActivities.forEach((activity) => {
+                        if (activity.building.toString() === selectedLetter.toString()) {
+                            matchActivities.push(activity);
+                        }
+                    });
+                    setActivities(matchActivities);
+
+                    // Logic to set activitiesByDay based on activities
+                    const activitiesByDayTemp = {};
+                    matchActivities.forEach((activity) => {
+                        const dayOfWeek = new Date(activity.startDate);
+                        const dayKey = dayOfWeek.toDateString();
+
+                        if (!activitiesByDayTemp[dayKey]) {
+                            activitiesByDayTemp[dayKey] = [];
+                        }
+                        activitiesByDayTemp[dayKey].push(activity);
+                    });
+                    setActivitiesByDay(activitiesByDayTemp);
+                }
+            } catch (error) {
+                console.log(error);
             }
-            activitiesByDayTemp[dayOfWeek].push(activity);
-        });
-        setActivitiesByDay(activitiesByDayTemp)
-    }, [selectedLetter])
+        }
+
+        fetchData();
+    }, [selectedLetter]);
 
     function getFormattedTime(date) {
         const dateObject = new Date(date);
@@ -67,12 +100,14 @@ const ActivitiesMonitor = ({textLanguage, selectedLetter}) =>{
         return `${hours}:${minutes < 10 ? '0' : ''}${minutes}`;
     }
     return (
-        <div className="activities-container">
-            <div className="activity-lists-container-desktop">
-                {Object.keys(activitiesByDay).length === 0 ? (
-                    <p>Choose a block</p>
-                ) : (
-                    Object.keys(activitiesByDay).map((day) => {
+        <>
+            <AllActivitiesButton textLanguage={textLanguage} showActivities={toggleActivitiesVisibility}></AllActivitiesButton>
+            <div className="activities-container">
+                <div className={`activity-lists-container-desktop ${showAllActivities ? 'show' : ''}`}>
+                    {Object.keys(activitiesByDay).length === 0 ? (
+                        <p> No Activities</p>
+                    ) : (
+                        Object.keys(activitiesByDay).map((day) => {
                             const dayDate = new Date(day)
                             const dayName = dayOfWeekAsString(dayDate.getDay());
                             return (
@@ -80,7 +115,7 @@ const ActivitiesMonitor = ({textLanguage, selectedLetter}) =>{
                                     <div className="week-title-container">
                                         {dayName} - {dayDate.getDate()}/{dayDate.getMonth() + 1}/{dayDate.getFullYear()}
                                     </div>
-                                    <div className="activity-list">
+                                    <div className="activity-list-map-desktop">
                                         {activitiesByDay[day].map((activity) => (
                                             <Link className='activity' to={`/activity/${activity.id}`} key={activity.id}>
                                                 <div className="activity-title">{activity.title}a</div>
@@ -110,19 +145,19 @@ const ActivitiesMonitor = ({textLanguage, selectedLetter}) =>{
                                 </div>
                             );
                         })
-                )}
+                    )}
 
-            </div>
-            <div className="activity-lists-container-mobile">
-                <Swiper
-                    spaceBetween={50}
-                    slidesPerView={1}
-                    navigation={{ clickable: true }}
-                >
-                    {Object.keys(activitiesByDay).length === 0 ? (
-                        <p>Choose a block</p>
-                    ) : (
-                        Object.keys(activitiesByDay).map((day) => {
+                </div>
+                <div className={`activity-lists-container-mobile ${showAllActivities ? 'show' : ''}`}>
+                    <Swiper
+                        spaceBetween={50}
+                        slidesPerView={1}
+                        navigation={{ clickable: true }}
+                    >
+                        {Object.keys(activitiesByDay).length === 0 ? (
+                            <p> No Activities</p>
+                        ) : (
+                            Object.keys(activitiesByDay).map((day) => {
                                 const dayDate = new Date(day);
                                 const dayName = dayOfWeekAsString(dayDate.getDay());
 
@@ -132,7 +167,7 @@ const ActivitiesMonitor = ({textLanguage, selectedLetter}) =>{
                                             <div className="week-title-container">
                                                 {dayName} - {dayDate.getDate()}/{dayDate.getMonth() + 1}/{dayDate.getFullYear()}
                                             </div>
-                                            <div className="activity-list">
+                                            <div className="activity-list-map-mobile">
                                                 {activitiesByDay[day].map((activity) => (
                                                     <Link className="activity" to={`/activity/${activity.id}`} key={activity.id}>
                                                         <div className="activity-title">{activity.title}</div>
@@ -169,11 +204,12 @@ const ActivitiesMonitor = ({textLanguage, selectedLetter}) =>{
                                     </SwiperSlide>
                                 );
                             })
-                    )}
+                        )}
 
-                </Swiper>
+                    </Swiper>
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 

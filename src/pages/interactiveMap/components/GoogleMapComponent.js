@@ -14,7 +14,7 @@ const GoogleMapComponent = ({textLanguage}) => {
 
   const [selectedLetter, setSelectedLetter] = useState([]);
   const receiveSelectedLetter = (letter) => {
-      setSelectedLetter(letter)
+    setSelectedLetter(...[letter])
   };
 
   useEffect(() => { // initialize map
@@ -128,11 +128,11 @@ const GoogleMapComponent = ({textLanguage}) => {
     }
   }
   return (
-    <>
-      <SelectBlockButton emulateClick = {emulateClick} textLanguage={textLanguage} receiveSelectedLetter={receiveSelectedLetter}/>
-      <div id='map'></div>
-      <ActivitiesMonitor textLanguage={textLanguage} selectedLetter={selectedLetter}/>
-    </>
+      <>
+        <SelectBlockButton emulateClick = {emulateClick} textLanguage={textLanguage} receiveSelectedLetter={receiveSelectedLetter}/>
+        <div id='map'></div>
+        <ActivitiesMonitor textLanguage={textLanguage} selectedLetter={selectedLetter}/>
+      </>
   )
 };
 

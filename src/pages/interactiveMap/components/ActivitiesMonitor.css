@@ -1,0 +1,43 @@
+.activity-lists-container-desktop {
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    max-height: 0;
+    color: white;
+    font-size: 27px;
+    font-style: normal;
+}
+
+.activity-lists-container-desktop.show {
+    max-height: 1000px; /* Set a value that accommodates the content height */
+}
+.activity-list-map-desktop {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 50px;
+    padding-bottom: 10px;
+}
+
+
+
+.activity-lists-container-mobile {
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    max-height: 0;
+    color: white;
+    font-size: 27px;
+    font-style: normal;
+}
+.activity-lists-container-mobile.show {
+    max-height: 1000px; /* Set a value that accommodates the content height */
+}
+.activity-list-map-mobile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    padding-bottom: 10px;
+    color: white;
+    font-size: 27px;
+    font-style: normal;
+}

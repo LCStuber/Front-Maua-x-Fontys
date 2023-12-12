@@ -1,7 +1,7 @@
-import React, {useState} from 'react'
+import React from 'react'
 import "./InteractiveMap.css"
 import GoogleMapComponent from './components/GoogleMapComponent'
-import ActivitiesMonitor from "./components/ActivitiesMonitor";
+
 
 const InteractiveMap = () => {
     const textLanguage = "EN";// to change the name just change this field
