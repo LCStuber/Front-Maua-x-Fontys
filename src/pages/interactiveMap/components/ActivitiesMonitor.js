@@ -15,7 +15,7 @@ const ActivitiesMonitor = ({textLanguage, selectedLetter}) =>{
     SwiperCore.use([Navigation])
     library.add(faUsers);
 
-    const [activities, setActivities] = useState([]);
+    // const [activities, setActivities] = useState([]);
     // const [selectedActivities, setSelectedActivities] = useState([]);
     const [activitiesByDay, setActivitiesByDay] = useState([]);
 
@@ -26,31 +26,30 @@ const ActivitiesMonitor = ({textLanguage, selectedLetter}) =>{
     function dayOfWeekAsString(dayIndex) {
         return ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][dayIndex] || '';
     }
-    const getActivities = async () => {
-        try {
-            console.log("SelectedLetter: " + selectedLetter)
-            const response = await api.get(`/api/v1/activities`);
-            let responseActivities = response.data;
-            let matchActivities = [];
-            console.log(responseActivities)
-            if (responseActivities.length !== 0)
-            {
-                responseActivities.forEach((activity) =>{
-                    let i =0;
-                    console.log((i+1) + activity.building.toString() + "   " + selectedLetter.toString())
-                    if (activity.building.toString() === selectedLetter.toString()){
-                        matchActivities.push(activity);
-                    }
-                });
-                setActivities(matchActivities);
-                console.log(activities)
-            }
-
-        } catch (error)
-        {
-            console.log(error);
-        }
-    }
+    // const getActivities = async () => {
+    //     try {
+    //         console.log("SelectedLetter: " + selectedLetter)
+    //         const response = await api.get(`/api/v1/activities`);
+    //         let responseActivities = response.data;
+    //         let matchActivities = [];
+    //         console.log(responseActivities)
+    //         if (responseActivities.length !== 0)
+    //         {
+    //             responseActivities.forEach((activity) =>{
+    //                 let i =0;
+    //                 console.log((i+1) + activity.building.toString() + "   " + selectedLetter.toString())
+    //                 if (activity.building.toString() === selectedLetter.toString()){
+    //                     matchActivities.push(activity);
+    //                 }
+    //             });
+    //             setActivities(matchActivities);
+    //         }
+    //
+    //     } catch (error)
+    //     {
+    //         console.log(error);
+    //     }
+    // }
 
     useEffect(() => {
         async function fetchData() {
@@ -60,15 +59,15 @@ const ActivitiesMonitor = ({textLanguage, selectedLetter}) =>{
                 const responseActivities = response.data;
 
                 let matchActivities = [];
-                console.log(responseActivities);
 
                 if (responseActivities.length !== 0) {
                     responseActivities.forEach((activity) => {
+                        console.log(activity.building.toString() === selectedLetter.toString())
                         if (activity.building.toString() === selectedLetter.toString()) {
                             matchActivities.push(activity);
                         }
                     });
-                    setActivities(matchActivities);
+                    // setActivities(matchActivities);
 
                     // Logic to set activitiesByDay based on activities
                     const activitiesByDayTemp = {};
@@ -105,7 +104,11 @@ const ActivitiesMonitor = ({textLanguage, selectedLetter}) =>{
             <div className="activities-container">
                 <div className={`activity-lists-container-desktop ${showAllActivities ? 'show' : ''}`}>
                     {Object.keys(activitiesByDay).length === 0 ? (
+                        textLanguage === "EN" ? (
                         <p> No Activities</p>
+                        ):(
+                            <p> Sem Atividades</p>
+                        )
                     ) : (
                         Object.keys(activitiesByDay).map((day) => {
                             const dayDate = new Date(day)
@@ -155,12 +158,17 @@ const ActivitiesMonitor = ({textLanguage, selectedLetter}) =>{
                         navigation={{ clickable: true }}
                     >
                         {Object.keys(activitiesByDay).length === 0 ? (
-                            <p> No Activities</p>
+                            textLanguage === "EN" ? (
+                                <p> No Activities</p>
+                            ):(
+                                <p> Sem Atividades</p>
+                            )
                         ) : (
                             Object.keys(activitiesByDay).map((day) => {
                                 const dayDate = new Date(day);
                                 const dayName = dayOfWeekAsString(dayDate.getDay());
 
+                                //TODO when on mobile view, the SwiperSlide div grows in width exponentially without stop. it is a bug from the Swiper slide that I do not know how to solve. i have quickFixed it by adding max-width: 340px; for now
                                 return (
                                     <SwiperSlide key={day} className='day-activities-container'>
                                         <div className="day-activities">

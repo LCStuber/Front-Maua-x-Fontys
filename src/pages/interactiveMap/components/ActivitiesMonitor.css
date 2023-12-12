@@ -27,9 +27,11 @@
     color: white;
     font-size: 27px;
     font-style: normal;
+    max-width: 340px;
 }
 .activity-lists-container-mobile.show {
     max-height: 1000px; /* Set a value that accommodates the content height */
+    max-width: 340px;
 }
 .activity-list-map-mobile{
     display: flex;

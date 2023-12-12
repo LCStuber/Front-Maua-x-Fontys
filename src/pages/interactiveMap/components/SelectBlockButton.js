@@ -75,7 +75,7 @@ const SelectBlockButton = ({emulateClick, textLanguage, receiveSelectedLetter })
       else{
         setSelectedOption(optionsPT[0])
       }
-  }, []); // add textlanguage
+  }, [textLanguage]); // add textlanguage
   function handleOptionClick(option){
     setSelectedOption(option);
     setIsOpen(false);
