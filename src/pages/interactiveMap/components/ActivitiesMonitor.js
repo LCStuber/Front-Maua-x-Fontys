@@ -115,7 +115,7 @@ const ActivitiesMonitor = ({textLanguage, selectedLetter, showAllActivities}) =>
                                     <div className="activity-list-map-desktop">
                                         {activitiesByDay[day].map((activity) => (
                                             <Link className='activity' to={`/activity/${activity.id}`} key={activity.id}>
-                                                <div className="activity-title">{activity.title}a</div>
+                                                <div className="activity-title">{activity.name}</div>
                                                 <div className="activity-capacity">
                                                     {activity.capacity === null ? (
                                                         activity.subscribed != null ? (
@@ -161,7 +161,6 @@ const ActivitiesMonitor = ({textLanguage, selectedLetter, showAllActivities}) =>
                             Object.keys(activitiesByDay).map((day) => {
                                 const dayDate = new Date(day);
                                 const dayName = dayOfWeekAsString(dayDate.getDay());
-
                                 //TODO when on mobile view, the SwiperSlide div grows in width exponentially without stop. it is a bug from the Swiper slide that I do not know how to solve. i have quickFixed it by adding max-width: 340px; for now
                                 return (
                                     <SwiperSlide key={day} className='day-activities-container'>
@@ -171,8 +170,9 @@ const ActivitiesMonitor = ({textLanguage, selectedLetter, showAllActivities}) =>
                                             </div>
                                             <div className="activity-list-map-mobile">
                                                 {activitiesByDay[day].map((activity) => (
+                                                    console.log(activity),
                                                     <Link className="activity" to={`/activity/${activity.id}`} key={activity.id}>
-                                                        <div className="activity-title">{activity.title}</div>
+                                                        <div className="activity-title">{activity.name}</div>
                                                         <div className="activity-capacity">
                                                             {activity.capacity === null ? (
                                                                 activity.subscribed != null ? (
@@ -196,7 +196,7 @@ const ActivitiesMonitor = ({textLanguage, selectedLetter, showAllActivities}) =>
                                                             </div>
                                                             <div className="activity-time">
                                                                 <span className="activity-room-time">Time: </span>
-                                                                {activity.time}
+                                                                {activity.startDate.substr(activity.startDate.length - 5)}
                                                             </div>
                                                         </div>
                                                     </Link>

@@ -30,7 +30,7 @@ export default function Row7() {
 
     return (
         <>
-        <div>
+        <div style={{marginBottom: 40}}>
             <Grid container  textAlign={"center"}>
                 <Grid md={12}>
                     <Header style={{marginTop: "24px"}}>Reitoria</Header>
