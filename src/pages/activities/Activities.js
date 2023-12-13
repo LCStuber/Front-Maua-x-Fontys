@@ -71,7 +71,7 @@ const Activities = () => {
               <div className="activity-list">
                 {activitiesByDay[day].map((activity) => (
                   <Link className='activity' to={`/activity/${activity.id}`} key={activity.id}>
-                    <div className="activity-title">{activity.title}</div>
+                    <div className="activity-title">{activity.name}</div>
                     <div className="activity-details">
                       <div className="activity-room"><span className='activity-room-title'>Room: </span>{activity.room}</div>
                       <div className="activity-time"><span className='activity-room-time'>Time: </span>{getFormattedTime(activity.startDate)}</div>
@@ -103,7 +103,7 @@ const Activities = () => {
                   <div className="activity-list">
                     {activitiesByDay[day].map((activity) => (
                       <Link className="activity" to={`/activity/${activity.id}`} key={activity.id}>
-                        <div className="activity-title">{activity.title}</div>
+                        <div className="activity-title">{activity.name}</div>
                         <div className="activity-details">
                           <div className="activity-room">
                             <span className="activity-room-title">Room: </span>
@@ -111,7 +111,7 @@ const Activities = () => {
                           </div>
                           <div className="activity-time">
                             <span className="activity-room-time">Time: </span>
-                            {activity.time}
+                            {activity.startDate.substr(activity.startDate.length - 5)}
                           </div>
                         </div>
                       </Link>

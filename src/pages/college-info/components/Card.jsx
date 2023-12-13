@@ -14,7 +14,7 @@ export default function ImgMediaCard({linkImg, name, cargo}) {
         image={linkImg}
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography gutterBottom variant="h6" style={{fontSize: "14pt"}} component="div">
         {name}
         </Typography>
         <Typography variant="body2" color="text.secondary">
