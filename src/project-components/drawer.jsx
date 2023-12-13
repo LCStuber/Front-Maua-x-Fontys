@@ -46,7 +46,6 @@ export default function Drawer({ anchor, open, onClose, onOpen }) {
     >
       <List>
         {[['My activities', <LocalActivityIcon />, () => {navigate('/activities');}],
-        ['Interactive Map', <MapIcon />, () => {navigate('/interactive-map');}],
         ["Mauá's Location", <SchoolIcon />, () => {navigate('/maua-location');}],
         // ["Announcements", <Announcement/>, () => {navigate('/stuannouncement');}],
         // ["Announcements", <Announcement/>, () => {navigate('/announcement');}],
