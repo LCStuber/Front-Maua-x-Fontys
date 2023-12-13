@@ -12,6 +12,10 @@ const GoogleMapComponent = ({textLanguage}) => {
 
   let map;
 
+  const [showAllActivities, setShowAllActivities] = useState(false);
+  const toggleActivitiesVisibility = () => {
+      setShowAllActivities(!showAllActivities);
+  };
   const [selectedLetter, setSelectedLetter] = useState([]);
   const receiveSelectedLetter = (letter) => {
     setSelectedLetter(letter) //TODO When removed you can select a block normally again from the dropdown and it will emulate clicking on the map. // I believe it has to do with the react responsiveness to changes and it reloads the component when it shouldn't.
@@ -130,9 +134,9 @@ const GoogleMapComponent = ({textLanguage}) => {
   }
   return (
       <>
-        <SelectBlockButton emulateClick = {emulateClick} textLanguage={textLanguage} receiveSelectedLetter={receiveSelectedLetter}/>
+        <SelectBlockButton emulateClick = {emulateClick} textLanguage={textLanguage} receiveSelectedLetter={receiveSelectedLetter} showActivities={toggleActivitiesVisibility}/>
         <div id='map'></div>
-        <ActivitiesMonitor textLanguage={textLanguage} selectedLetter={selectedLetter}/>
+        <ActivitiesMonitor textLanguage={textLanguage} selectedLetter={selectedLetter} showAllActivities={toggleActivitiesVisibility}/>
       </>
   )
 };

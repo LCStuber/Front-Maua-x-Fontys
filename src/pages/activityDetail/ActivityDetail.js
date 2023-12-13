@@ -58,7 +58,11 @@ const ActivityDetail = () => {
           (email) => email !== currentEmail
         );
     
-        setActivity({ ...activity, subscribed: updatedSubscribed });
+        setActivity(prevActivity => ({
+          ...prevActivity,
+          subscribed: updatedSubscribed
+        }));
+        
       } else {
         // Handle errors
       }
@@ -77,7 +81,11 @@ const ActivityDetail = () => {
       if (response.ok) {
         const updatedSubscribed = [...activity.subscribed, currentEmail];
 
-        setActivity({ ...activity, subscribed: updatedSubscribed });
+        setActivity(prevActivity => ({
+          ...prevActivity,
+          subscribed: updatedSubscribed
+        }));
+        
       } else {
         // Handle errors
       }
@@ -94,7 +102,10 @@ const ActivityDetail = () => {
   
     return `${hours}:${minutes < 10 ? '0' : ''}${minutes}`;
   }
-
+  if (activity && activity.subscribed === null){
+    activity.subscribed = [];
+  }
+  const isUserSubscribed = activity && activity.subscribed && activity.subscribed.includes(currentEmail);
   return (
     <div>
       {activity ? (
@@ -115,28 +126,23 @@ const ActivityDetail = () => {
               <FontAwesomeIcon className="icon" icon={faUser} />
               <p>{activity.lector}</p>
             </div>
-            
-            {activity.subscribed === null ? (
-              activity.subscribed.length >= activity.capacity ? (
-                <button className="subscribeButton">Subscribe</button>
+            {activity && (
+              <>
+              {isUserSubscribed ? (
+                <button className="unsubscribeButton" onClick={handleUnsubscribe}>
+                  Unsubscribe
+                </button>
               ) : (
-                <button className="subscribeButton" onClick={handleSubscribe}>Subscribe</button>
-              )
-            ) : (
-              activity.subscribed.includes(currentEmail) ?(
-                <button className="unsubscribeButton" onClick={handleUnsubscribe}>Unsubscribe</button>
-              ) : (
-                activity.subscribed.length >= activity.capacity ? (
-                  <button className="subscribeButton">Subscribe</button>
-                ) : (
-                  <button className="subscribeButton" onClick={handleSubscribe}>Subscribe</button>
-                )
-              )
-            )}
+                <button className="subscribeButton" onClick={handleSubscribe}>
+                  Subscribe
+                </button>
+              )}
+            </>
+          )}
             
               <div className="capacity-container">
                 <FontAwesomeIcon className="icon" icon={faUsers} />
-                {activity.capacity === null ?(
+                {activity.capacity == null ?(
                   activity.subscribed != null ? (
                     <p>{activity.subscribed.length}</p>
                   ) : (

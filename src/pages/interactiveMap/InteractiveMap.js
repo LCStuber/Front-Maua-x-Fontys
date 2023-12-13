@@ -4,7 +4,7 @@ import GoogleMapComponent from './components/GoogleMapComponent'
 
 
 const InteractiveMap = () => {
-    const textLanguage = "EN";//TODO// to change the language of the whole page just change this field to EN for english
+    const textLanguage = "PT";//TODO// to change the language of the whole page just change this field to EN for english
     return (
         <div className='selectBlockField'>
             <GoogleMapComponent textLanguage={textLanguage} />

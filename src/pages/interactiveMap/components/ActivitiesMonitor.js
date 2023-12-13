@@ -10,7 +10,7 @@ import api from "../../../api/axiosConfig";
 import "./ActivitiesMonitor.css"
 import AllActivitiesButton from "./AllActivitiesButton";
 
-const ActivitiesMonitor = ({textLanguage, selectedLetter}) =>{
+const ActivitiesMonitor = ({textLanguage, selectedLetter, showAllActivities}) =>{
 //textLanguage logic VVV
     SwiperCore.use([Navigation])
     library.add(faUsers);
@@ -18,11 +18,6 @@ const ActivitiesMonitor = ({textLanguage, selectedLetter}) =>{
     // const [activities, setActivities] = useState([]);
     // const [selectedActivities, setSelectedActivities] = useState([]);
     const [activitiesByDay, setActivitiesByDay] = useState([]);
-
-    const [showAllActivities, setShowAllActivities] = useState(false);
-    const toggleActivitiesVisibility = () => {
-        setShowAllActivities(!showAllActivities);
-    };
     function dayOfWeekAsString(dayIndex) {
         return ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][dayIndex] || '';
     }
@@ -100,7 +95,6 @@ const ActivitiesMonitor = ({textLanguage, selectedLetter}) =>{
     }
     return (
         <>
-            <AllActivitiesButton textLanguage={textLanguage} showActivities={toggleActivitiesVisibility}></AllActivitiesButton>
             <div className="activities-container">
                 <div className={`activity-lists-container-desktop ${showAllActivities ? 'show' : ''}`}>
                     {Object.keys(activitiesByDay).length === 0 ? (
@@ -114,7 +108,7 @@ const ActivitiesMonitor = ({textLanguage, selectedLetter}) =>{
                             const dayDate = new Date(day)
                             const dayName = dayOfWeekAsString(dayDate.getDay());
                             return (
-                                <div className="day-activities" key={day}>
+                                <div className="day-activities" key={day} style={{width: "400px"}}>
                                     <div className="week-title-container">
                                         {dayName} - {dayDate.getDate()}/{dayDate.getMonth() + 1}/{dayDate.getFullYear()}
                                     </div>
