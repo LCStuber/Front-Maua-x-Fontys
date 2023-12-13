@@ -12,7 +12,7 @@ export default function NavigationComponent() {
         <>
         <Grid container>
             <Grid xs={12}>            
-                <Anchor href="/activities">
+                <Anchor href="/interactive-map">
                     <Activities>Ver todas as atividades</Activities>
                 </Anchor>
                 <Header style={{marginTop: "12px", marginBottom: "12px"}}>Informações Gerais: </Header>

@@ -25,7 +25,7 @@ const Activities = () => {
 
   const getActivities = async () => {
     try {
-      const response = await api.get(`/api/v1/activities/${currentEmail}`);
+      const response = await api.get(`/api/v1/activities/email/${currentEmail}`);
       console.log(response.data);
       setActivities(response.data);
     } catch (error) {
