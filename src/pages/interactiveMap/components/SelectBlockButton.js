@@ -63,7 +63,7 @@ const optionsPT =["Selecionar bloco",
   "Café H - Ao lado da biblioteca"
 ];
 
-const SelectBlockButton = ({emulateClick, textLanguage, receiveSelectedLetter }) => {
+const SelectBlockButton = ({emulateClick, textLanguage, receiveSelectedLetter, showActivities }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState([]);
 
@@ -79,6 +79,7 @@ const SelectBlockButton = ({emulateClick, textLanguage, receiveSelectedLetter })
   function handleOptionClick(option){
     setSelectedOption(option);
     setIsOpen(false);
+    showActivities();
     emulateClick(option.substring(option.length - 1));
     receiveSelectedLetter(option.substring(option.length - 1));
   }

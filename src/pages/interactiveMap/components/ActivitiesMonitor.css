@@ -1,7 +1,6 @@
 .activity-lists-container-desktop {
     overflow: hidden;
     transition: max-height 0.3s ease-in-out;
-    max-height: 0;
     color: white;
     font-size: 27px;
     font-style: normal;
@@ -23,7 +22,6 @@
 .activity-lists-container-mobile {
     overflow: hidden;
     transition: max-height 0.3s ease-in-out;
-    max-height: 0;
     color: white;
     font-size: 27px;
     font-style: normal;
