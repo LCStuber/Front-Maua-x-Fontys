@@ -1,0 +1,1102 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "letter": "A",
+                "color": "blue",
+                "rank": "7",
+                "ascii": "71",
+                "roomsEN": "Design Studio, Manufacturing Labs, Espaço Azul, Simulation Room",
+                "roomsPT": "Design Studio, Laboratórios de Manufatura, Espaço Azul, Sala de Simulações"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -46.57366,
+                            -23.64966
+                        ],
+                        [
+                            -46.57356,
+                            -23.64957
+                        ],
+                        [
+                            -46.57333,
+                            -23.6498
+                        ],
+                        [
+                            -46.57334,
+                            -23.64981
+                        ],
+                        [
+                            -46.57328,
+                            -23.64985
+                        ],
+                        [
+                            -46.57321,
+                            -23.6498
+                        ],
+                        [
+                            -46.57312,
+                            -23.64988
+                        ],
+                        [
+                            -46.57305,
+                            -23.64981
+                        ],
+                        [
+                            -46.57293,
+                            -23.64992
+                        ],
+                        [
+                            -46.57312,
+                            -23.65006
+                        ],
+                        [
+                            -46.5732,
+                            -23.65
+                        ],
+                        [
+                            -46.57324,
+                            -23.65004
+                        ],
+                        [
+                            -46.57366,
+                            -23.64966
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "letter": "B",
+                "color": "blue",
+                "rank": "7",
+                "ascii": "71",
+                "roomsEN": "Formula SAE, Baja SAE, Automobilistic Engineering Labs, Kart Production Line, Solid Mechanics, Mechanic's Workshop",
+                "roomsPT": "Fórmula SAE, Baja SAE, Laboratórios de Engenharia Automobilística, Linha de Produção de Karts, Mecânica dos Sólidos, Oficina Mecânica"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -46.57356,
+                            -23.64949
+                        ],
+                        [
+                            -46.57343,
+                            -23.64941
+                        ],
+                        [
+                            -46.5731,
+                            -23.64974
+                        ],
+                        [
+                            -46.57305,
+                            -23.64981
+                        ],
+                        [
+                            -46.57312,
+                            -23.64988
+                        ],
+                        [
+                            -46.57321,
+                            -23.6498
+                        ],
+                        [
+                            -46.57326,
+                            -23.64975
+                        ],
+                        [
+                            -46.57327,
+                            -23.64976
+                        ],
+                        [
+                            -46.57356,
+                            -23.64949
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "letter": "C",
+                "color": "blue",
+                "rank": "7",
+                "ascii": "71",
+                "roomsEN": "Aerodesign, Eco Mauá, Labs, Restrooms",
+                "roomsPT": "Aerodesign, Eco Mauá, Laboratórios, Sanitários"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -46.57345,
+                            -23.64933
+                        ],
+                        [
+                            -46.57336,
+                            -23.64925
+                        ],
+                        [
+                            -46.57317,
+                            -23.64943
+                        ],
+                        [
+                            -46.57315,
+                            -23.64942
+                        ],
+                        [
+                            -46.57297,
+                            -23.6496
+                        ],
+                        [
+                            -46.57307,
+                            -23.64968
+                        ],
+                        [
+                            -46.57345,
+                            -23.64933
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "letter": "D",
+                "color": "blue",
+                "rank": "7",
+                "ascii": "71",
+                "roomsEN": "Fab Lab, Painting Room, Robotics Labs - KIMAUÁNISSO, Artificial Intelligence and Data Science Labs, Mauá Esports, Restrooms",
+                "roomsPT": "Fab Lab, Sala de Pintura, Laboratório de Robótica - KIMAUÁNISSO, Laboratório de Ciência de Dados e Inteligência Artificial, Mauá Esports, Sanitários"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -46.57331,
+                            -23.6492
+                        ],
+                        [
+                            -46.5732,
+                            -23.64911
+                        ],
+                        [
+                            -46.57282,
+                            -23.64947
+                        ],
+                        [
+                            -46.57292,
+                            -23.64956
+                        ],
+                        [
+                            -46.57331,
+                            -23.6492
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "letter": "E",
+                "color": "blue",
+                "rank": "7",
+                "ascii": "71",
+                "roomsEN": "Digital Creation, Advanced Computing, Design and Modeling Labs, Materials Labs",
+                "roomsPT": "Criação Digital, Computação Avançada, Laboratórios de Projeto e Modelagem, Laboratórios de Materiais"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -46.57277,
+                            -23.64942
+                        ],
+                        [
+                            -46.57315,
+                            -23.64905
+                        ],
+                        [
+                            -46.57304,
+                            -23.64897
+                        ],
+                        [
+                            -46.57268,
+                            -23.64934
+                        ],
+                        [
+                            -46.57277,
+                            -23.64942
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "letter": "F",
+                "color": "blue",
+                "rank": "7",
+                "ascii": "71",
+                "roomsEN": "Classrooms, Mauá Jr, Mauá Finance Group, Concreto Mauá SAMPE, Introduction to Civil Engineering Lab / Wind Tunnel, Hydraulics and Hydrology Lab, Flow Machinery Lab, Fluid Mechanics Lab, Thermodynamics Lab, Restrooms",
+                "roomsPT": "Salas de Aula, Mauá Jr, Mauá Finance Group, Concreto Mauá SAMPE, Laboratório de Introdução à Eng. Civil / Túnel de Vento, Laboratório de Hidráulica e Hidrologia, Laboratório de Máquinas de Fluxo, Laboratório de Mecânica dos Fluidos, Laboratório de Termodinâmica, Sanitários"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -46.57292,
+                            -23.64868
+                        ],
+                        [
+                            -46.57292,
+                            -23.6488
+                        ],
+                        [
+                            -46.57238,
+                            -23.6488
+                        ],
+                        [
+                            -46.57238,
+                            -23.64848
+                        ],
+                        [
+                            -46.57292,
+                            -23.64848
+                        ],
+                        [
+                            -46.57292,
+                            -23.64859
+                        ],
+                        [
+                            -46.57282,
+                            -23.64859
+                        ],
+                        [
+                            -46.57282,
+                            -23.64858
+                        ],
+                        [
+                            -46.57248,
+                            -23.64857
+                        ],
+                        [
+                            -46.57248,
+                            -23.6487
+                        ],
+                        [
+                            -46.57282,
+                            -23.6487
+                        ],
+                        [
+                            -46.57282,
+                            -23.64868
+                        ],
+                        [
+                            -46.57292,
+                            -23.64868
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "letter": "G",
+                "color": "blue",
+                "rank": "7",
+                "ascii": "71",
+                "roomsEN": "Teachers' Lounge, Student Services, Internship Office, Talent Academy, Dining Hall",
+                "roomsPT": "Sala de Professores, Atendimento aos Alunos, Setor de Estágios, Academia de Talentos, Refeitório"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        
+                        [
+                            -46.57245,
+                            -23.6484
+                        ],
+                        [
+                            -46.57245,
+                            -23.64808
+                        ],
+
+                        [
+                            -46.57294,
+                            -23.64809
+                        ],
+                        [
+                            -46.57294,
+                            -23.6484
+                        ],
+                        [
+                            -46.57245,
+                            -23.6484
+                        ]
+                    
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "letter": "H",
+                "color": "blue",
+                "rank": "7",
+                "ascii": "71",
+                "roomsEN": "Occupational Health Service, Classrooms, Restrooms, Auditorium, Dining Hall, Nawat Games, Inova Mauá, Enactus Mauá, Dev Community Mauá, Metaverse",
+                "roomsPT": "Serviço Médico Ocupacional, Salas de Aula, Sanitários, Auditório, Refeitório, Nawat Games, Inova Mauá, Enactus Mauá, Dev Community Mauá, Metaverso"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -46.57474,
+                            -23.64815
+                        ],
+                        [
+                            -46.5745,
+                            -23.64838
+                        ],
+                        [
+                            -46.57436,
+                            -23.64827
+                        ],
+                        [
+                            -46.5743,
+                            -23.64834
+                        ],
+                        [
+                            -46.57439,
+                            -23.64842
+                        ],
+                        [
+                            -46.57443,
+                            -23.64839
+                        ],
+                        [
+                            -46.57446,
+                            -23.64842
+                        ],
+                        [
+                            -46.57402,
+                            -23.64886
+                        ],
+                        [
+                            -46.57397,
+                            -23.64881
+                        ],
+                        [
+                            -46.574,
+                            -23.64878
+                        ],
+                        [
+                            -46.57387,
+                            -23.64867
+                        ],
+                        [
+                            -46.57375,
+                            -23.6488
+                        ],
+                        [
+                            -46.57388,
+                            -23.6489
+                        ],
+                        [
+                            -46.57393,
+                            -23.64887
+                        ],
+                        [
+                            -46.57397,
+                            -23.64891
+                        ],
+                        [
+                            -46.57381,
+                            -23.64907
+                        ],
+                        [
+                            -46.57392,
+                            -23.64916
+                        ],
+                        [
+                            -46.57408,
+                            -23.649
+                        ],
+                        [
+                            -46.57411,
+                            -23.64903
+                        ],
+                        [
+                            -46.57415,
+                            -23.64898
+                        ],
+                        [
+                            -46.57412,
+                            -23.64896
+                        ],
+                        [
+                            -46.57484,
+                            -23.64825
+                        ],
+                        [
+                            -46.57474,
+                            -23.64815
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "letter": "I",
+                "color": "blue",
+                "rank": "7",
+                "ascii": "71",
+                "roomsEN": "Food Engineering Pilot Plant, Research Lab",
+                "roomsPT": "Planta Piloto Eng. Alimentos, Laboratório de Pesquisas"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -46.57402,
+                            -23.64669
+                        ],
+                        [
+                            -46.57364,
+                            -23.64662
+                        ],
+                        [
+                            -46.57357,
+                            -23.64702
+                        ],
+                        [
+                            -46.57373,
+                            -23.64705
+                        ],
+                        [
+                            -46.57375,
+                            -23.647
+                        ],
+                        [
+                            -46.57394,
+                            -23.64704
+                        ],
+                        [
+                            -46.57402,
+                            -23.64669
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "letter": "J",
+                "color": "blue",
+                "rank": "7",
+                "ascii": "71",
+                "roomsEN": "Chemical Engineering Pilot Plant, Chemistry Labs, Center for Embedded Electronic Systems EESC, NAE Mauá, Restrooms",
+                "roomsPT": "Planta Piloto Eng. Química, Laboratórios de Química, Núcleo de Sistemas Eletrônicos Embarcados NSEE, NAE Mauá, Sanitários"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -46.57358,
+                            -23.64652
+                        ],
+                        [
+                            -46.57337,
+                            -23.64649
+                        ],
+                        [
+                            -46.57337,
+                            -23.64651
+                        ],
+                        [
+                            -46.57332,
+                            -23.64652
+                        ],
+                        [
+                            -46.57331,
+                            -23.64658
+                        ],
+                        [
+                            -46.57333,
+                            -23.6466
+                        ],
+                        [
+                            -46.57328,
+                            -23.64679
+                        ],
+                        [
+                            -46.57337,
+                            -23.6468
+                        ],
+                        [
+                            -46.57337,
+                            -23.64681
+                        ],
+                        [
+                            -46.57332,
+                            -23.64681
+                        ],
+                        [
+                            -46.57329,
+                            -23.64696
+                        ],
+                        [
+                            -46.57334,
+                            -23.64701
+                        ],
+                        [
+                            -46.57343,
+                            -23.64703
+                        ],
+                        [
+                            -46.57351,
+                            -23.64699
+                        ],
+                        [
+                            -46.57353,
+                            -23.64684
+                        ],
+                        [
+                            -46.57351,
+                            -23.64684
+                        ],
+                        [
+                            -46.57351,
+                            -23.64681
+                        ],
+                        [
+                            -46.57354,
+                            -23.6468
+                        ],
+                        [
+                            -46.57357,
+                            -23.64676
+                        ],
+                        [
+                            -46.57356,
+                            -23.64674
+                        ],
+                        [
+                            -46.57353,
+                            -23.64672
+                        ],
+                        [
+                            -46.57353,
+                            -23.6467
+                        ],
+                        [
+                            -46.57356,
+                            -23.64671
+                        ],
+                        [
+                            -46.57358,
+                            -23.64657
+                        ],
+                        [
+                            -46.57357,
+                            -23.64656
+                        ],
+                        [
+                            -46.57358,
+                            -23.64652
+                        ]
+                    ]
+                ]
+            }
+        },
+
+        {
+            "type": "Feature",
+            "properties": {
+                "letter": "L",
+                "color": "blue",
+                "rank": "7",
+                "ascii": "71",
+                "roomsEN": "Civil Construction Materials Lab, Woodworking Shop - GMS",
+                "roomsPT": "Laboratório de Materiais da Construção Civil, Marcenaria - GMS"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -46.57252,
+                            -23.64951
+                        ],
+                        [
+                            -46.57246,
+                            -23.64957
+                        ],
+                        [
+                            -46.57256,
+                            -23.64966
+                        ],
+                        [
+                            -46.57262,
+                            -23.64961
+                        ],
+                        [
+                            -46.57252,
+                            -23.64951
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "letter": "M",
+                "color": "blue",
+                "rank": "7",
+                "ascii": "71",
+                "roomsEN": "Engine Lab, Emissions Lab, Accessible Restroom, Locker Rooms",
+                "roomsPT": "Laboratório de Motores, Laboratório de Emissões, Sanitário Acessível, Vestiários"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -46.57226,
+                            -23.64771
+                        ],
+                        [
+                            -46.57209,
+                            -23.64773
+                        ],
+                        [
+                            -46.57209,
+                            -23.648
+                        ],
+                        [
+                            -46.57229,
+                            -23.64799
+                        ],
+                        [
+                            -46.57226,
+                            -23.64771
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "letter": "N",
+                "color": "blue",
+                "rank": "7",
+                "ascii": "71",
+                "roomsEN": "Tech Food Restaurant, Electrical Department - GMS, Hydraulics Department - GMS, Painting Department – GMS",
+                "roomsPT": "Restaurante Tech Food, Elétrica - GMS, Hidráulica - GMS, Pintura - GMS"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -46.57303,
+                            -23.64969
+                        ],
+                        [
+                            -46.5726,
+                            -23.64932
+                        ],
+                        [
+                            -46.57251,
+                            -23.64941
+                        ],
+                        [
+                            -46.57294,
+                            -23.64977
+                        ],
+                        [
+                            -46.57303,
+                            -23.64969
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "letter": "P",
+                "color": "blue",
+                "rank": "7",
+                "ascii": "71",
+                "roomsEN": "Computer Labs, Restrooms, Financial Management",
+                "roomsPT": "Laboratórios de Informática, Sanitários, Gerência Financeira"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -46.57374,
+                            -23.64793
+                        ],
+                        [
+                            -46.57359,
+                            -23.64808
+                        ],
+                        [
+                            -46.57357,
+                            -23.64809
+                        ],
+                        [
+                            -46.57354,
+                            -23.6481
+                        ],
+                        [
+                            -46.57354,
+                            -23.64812
+                        ],
+                        [
+                            -46.57354,
+                            -23.64814
+                        ],
+                        [
+                            -46.57335,
+                            -23.64831
+                        ],
+                        [
+                            -46.57335,
+                            -23.64831
+                        ],
+                        [
+                            -46.57333,
+                            -23.6483
+                        ],
+                        [
+                            -46.57329,
+                            -23.64831
+                        ],
+                        [
+                            -46.57328,
+                            -23.64833
+                        ],
+                        [
+                            -46.57327,
+                            -23.64836
+                        ],
+                        [
+                            -46.57328,
+                            -23.64838
+                        ],
+                        [
+                            -46.57314,
+                            -23.64854
+                        ],
+                        [
+                            -46.57321,
+                            -23.6486
+                        ],
+                        [
+                            -46.57377,
+                            -23.64808
+                        ],
+                        [
+                            -46.57376,
+                            -23.64806
+                        ],
+                        [
+                            -46.57382,
+                            -23.648
+                        ],
+                        [
+                            -46.57374,
+                            -23.64793
+                        ]
+                    ]
+                ]
+            }
+        },
+    
+        {
+            "type": "Feature",
+            "properties": {
+                "letter": "Q",
+                "color": "blue",
+                "rank": "7",
+                "ascii": "71",
+                "roomsEN": "IT Management, Computer Labs, Rectorate",
+                "roomsPT": "Gerência de Tecnologia de Informação, Laboratórios de Informática, Reitoria"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -46.57327,
+                            -23.64793
+                        ],
+                        [
+                            -46.57344,
+                            -23.64808
+                        ],
+                        [
+                            -46.57339,
+                            -23.64812
+                        ],
+                        [
+                            -46.57341,
+                            -23.64814
+                        ],
+                        [
+                            -46.57341,
+                            -23.64817
+                        ],
+                        [
+                            -46.57338,
+                            -23.6482
+                        ],
+                        [
+                            -46.57335,
+                            -23.64821
+                        ],
+                        [
+                            -46.57333,
+                            -23.64819
+                        ],
+                        [
+                            -46.57326,
+                            -23.64826
+                        ],
+                        [
+                            -46.57309,
+                            -23.6481
+                        ],
+                        [
+                            -46.57327,
+                            -23.64793
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "letter": "R",
+                "color": "blue",
+                "rank": "7",
+                "ascii": "71",
+                "roomsEN": "Research Center, Superintendent's Office, HR Management, Maintenance and Services Management, Marketing Management",
+                "roomsPT": "Centro de Pesquisas, Superintendência, Gerência de Recursos Humanos, Gerência de Manutenção e Serviços, Gerência de Marketing"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -46.57451,
+                            -23.64681
+                        ],
+                        [
+                            -46.57418,
+                            -23.64675
+                        ],
+                        [
+                            -46.57411,
+                            -23.64707
+                        ],
+                        [
+                            -46.57445,
+                            -23.64713
+                        ],
+                        [
+                            -46.57451,
+                            -23.64681
+                        ]
+                    ]
+                ]
+            }
+        },
+        
+        {
+            "type": "Feature",
+            "properties": {
+                "letter": "S",
+                "color": "blue",
+                "rank": "7",
+                "ascii": "71",
+                "roomsEN": "Division of Engines and Vehicles, Test Benches",
+                "roomsPT": "Divisão de Motores e Veículos, Bancos de Prova"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -46.57452,
+                            -23.64965
+                        ],
+                        [
+                            -46.57433,
+                            -23.64949
+                        ],
+                        [
+                            -46.57409,
+                            -23.64975
+                        ],
+                        [
+                            -46.57426,
+                            -23.6499
+                        ],
+                        [
+                            -46.57452,
+                            -23.64965
+                        ]
+                    ]
+                ]
+            }
+        },{
+            "type": "Feature",
+            "properties": {
+                "letter": "U",
+                "color": "blue",
+                "rank": "7",
+                "ascii": "71",
+                "roomsEN": "Classrooms, Recording Studio, Chevy Pro Room, Restrooms",
+                "roomsPT": "Salas de Aula, Estúdio de Gravações, Sala Chevy Pro, Sanitários"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -46.57397,
+                            -23.64824
+                        ],
+                        [
+                            -46.57425,
+                            -23.6485
+                        ],
+                        [
+                            -46.57409,
+                            -23.64865
+                        ],
+                        [
+                            -46.57396,
+                            -23.64853
+                        ],
+                        [
+                            -46.57387,
+                            -23.6486
+                        ],
+                        [
+                            -46.57381,
+                            -23.64855
+                        ],
+                        [
+                            -46.57374,
+                            -23.64862
+                        ],
+                        [
+                            -46.57356,
+                            -23.64847
+                        ],
+                        [
+                            -46.57375,
+                            -23.64828
+                        ],
+                        [
+                            -46.57376,
+                            -23.64829
+                        ],
+                        [
+                            -46.57375,
+                            -23.6483
+                        ],
+                        [
+                            -46.57387,
+                            -23.64841
+                        ],
+                        [
+                            -46.57395,
+                            -23.64835
+                        ],
+                        [
+                            -46.5739,
+                            -23.64831
+                        ],
+                        [
+                            -46.57397,
+                            -23.64824
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "letter": "V",
+                "color": "blue",
+                "rank": "7",
+                "ascii": "71"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -46.57411,
+                            -23.64779
+                        ],
+                        [
+                            -46.57387,
+                            -23.64804
+                        ],
+                        [
+                            -46.5742,
+                            -23.64834
+                        ],
+                        [
+                            -46.57445,
+                            -23.64808
+                        ],
+                        [
+                            -46.57411,
+                            -23.64779
+                        ]
+                    ]
+                ]
+            }
+        }
+    ]
+}

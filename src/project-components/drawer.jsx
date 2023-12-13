@@ -48,8 +48,8 @@ export default function Drawer({ anchor, open, onClose, onOpen }) {
         {[['My activities', <LocalActivityIcon />, () => {navigate('/activities');}],
         ['Interactive Map', <MapIcon />, () => {navigate('/interactive-map');}],
         ["Mauá's Location", <SchoolIcon />, () => {navigate('/maua-location');}],
-        ["Announcements", <Announcement/>, () => {navigate('/stuannouncement');}],
-        ["Announcements", <Announcement/>, () => {navigate('/announcement');}],
+        // ["Announcements", <Announcement/>, () => {navigate('/stuannouncement');}],
+        // ["Announcements", <Announcement/>, () => {navigate('/announcement');}],
         ['Logout', <LogoutIcon />, () => {
           instance.logoutPopup({
             postLogoutRedirectUri: "/",

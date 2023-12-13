@@ -1,0 +1,22 @@
+.allActivitiesButton{
+    color: white;
+        padding: 12px 20px;
+        cursor: pointer;
+        border: none;
+        display: flex;
+        align-items: center;
+        border-radius: 12px;
+        background: #6691B6;
+        gap: 10px;
+        justify-content: space-between;
+        min-width: 70%;
+        margin-top: 20px;
+        /* font-size: inherit; */
+        font-size: 27px;
+        font-style: normal;
+        /* font-weight: 700; */
+        line-height: normal;
+}
+.allActivitiesTxt {
+    width: 100%;
+}
