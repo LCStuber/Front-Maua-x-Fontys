@@ -111,7 +111,7 @@ const Activities = () => {
                           </div>
                           <div className="activity-time">
                             <span className="activity-room-time">Time: </span>
-                            {activity.startDate.substr(activity.startDate.length - 5)}
+                            {getFormattedTime(activity.startDate)}
                           </div>
                         </div>
                       </Link>

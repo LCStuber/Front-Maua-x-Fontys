@@ -108,7 +108,7 @@ const ActivitiesMonitor = ({textLanguage, selectedLetter, showAllActivities}) =>
                             const dayDate = new Date(day)
                             const dayName = dayOfWeekAsString(dayDate.getDay());
                             return (
-                                <div className="day-activities" key={day} style={{width: "400px"}}>
+                                <div className="day-activities" key={day} style={{width: "100%"}}>
                                     <div className="week-title-container">
                                         {dayName} - {dayDate.getDate()}/{dayDate.getMonth() + 1}/{dayDate.getFullYear()}
                                     </div>
@@ -196,7 +196,7 @@ const ActivitiesMonitor = ({textLanguage, selectedLetter, showAllActivities}) =>
                                                             </div>
                                                             <div className="activity-time">
                                                                 <span className="activity-room-time">Time: </span>
-                                                                {activity.startDate.substr(activity.startDate.length - 5)}
+                                                                {getFormattedTime(activity.startDate)}
                                                             </div>
                                                         </div>
                                                     </Link>
