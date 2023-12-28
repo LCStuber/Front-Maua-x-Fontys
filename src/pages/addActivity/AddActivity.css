@@ -1,0 +1,52 @@
+.page-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.add-activity-page-title{
+    font-size: 26px;
+    color: white;
+}
+
+.main-container{
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    background-color: #00396A;
+}
+
+.add-activity-name,
+.add-activity-description,
+.add-activity-start-date,
+.add-activity-end-date,
+.add-activity-lector,
+.add-activity-building,
+.add-activity-room,
+.add-activity-capacity,
+.add-activity-is-mandatory{
+    height: 50px;
+    width: 80%;
+    border-radius: 10px;
+    background-color: #336C9D;
+    margin-top: 10px;
+}
+
+
+.add-activity-submit-button{
+    display: flex;
+    background-color: #009406;
+    color: white;
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+}
