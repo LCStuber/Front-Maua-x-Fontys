@@ -14,6 +14,7 @@ import InteractiveMap from './pages/interactiveMap/InteractiveMap';
 import Announcement from './pages/announcement/Announcement';
 import StuAnnouncement from './pages/announcementstudent/StuAnnouncement';
 import { useIsAuthenticated, AuthenticatedTemplate, UnauthenticatedTemplate, useMsal } from '@azure/msal-react';
+import AddActivity from './pages/addActivity/AddActivity';
 
 const ProtectedRoute = ({ element }) => {
   const regexAluno = /^\d{2}\.\d{5}-\d@maua\.br$/;
@@ -91,6 +92,10 @@ function App() {
           <Route
             path="/announcement"
             element={<ProtectedRoute element={<><Navbar openDrawer={toggleDrawer} /><Announcement /></>} />}
+          />
+          <Route
+            path="/addActivity"
+            element={<ProtectedRoute element={<><Navbar openDrawer={toggleDrawer} /><AddActivity /></>} />}
           />
         </Routes>
       </main>
