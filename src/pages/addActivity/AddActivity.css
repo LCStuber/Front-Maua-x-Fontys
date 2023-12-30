@@ -22,9 +22,6 @@
 }
 
 .add-activity-name,
-.add-activity-description,
-.add-activity-start-date,
-.add-activity-end-date,
 .add-activity-lector,
 .add-activity-building,
 .add-activity-room,
@@ -35,6 +32,79 @@
     border-radius: 10px;
     background-color: #336C9D;
     margin-top: 10px;
+}
+
+.add-activity-name input::placeholder,
+.add-activity-lector input::placeholder,
+.add-activity-building input::placeholder,
+.add-activity-room input::placeholder,
+.add-activity-capacity input::placeholder,
+.add-activity-is-mandatory input::placeholder{
+    color: white;
+}
+
+.add-activity-start-date,
+.add-activity-end-date{
+    height: 50px;
+    width: 80%;
+    border-radius: 10px;
+    background-color: #336C9D;
+    margin-top: 10px;
+}
+
+.add-activity-description{
+    height: 150px;
+    width: 80%;
+    border-radius: 10px;
+    background-color: #336C9D;
+    margin-top: 10px;
+}
+
+.add-activity-description textarea::placeholder{
+    color: white;
+}
+
+.add-activity-name input,
+.add-activity-lector input,
+.add-activity-room input{
+    height: 50px;
+    width: 100%;
+    outline: none;
+    font-size: 14px;
+    padding-left: 15px;
+    background: transparent;
+    color: white;
+}
+
+.add-activity-description textarea{
+    height: 150px;
+    width: 100%;
+    outline: none;
+    font-size: 14px;
+    padding-left: 10px;
+    background: transparent;
+    padding-top: 10px;
+}
+
+.datepicker .MuiInputBase-root {
+    color: white;
+}
+
+.datepicker .MuiInputLabel-root {
+    color: white;
+    font-size: 14px;
+}
+
+.datepicker .MuiOutlinedInput-notchedOutline {
+  border: none !important;
+}
+
+.datepicker .MuiInputLabel-outlined.MuiInputLabel-shrink {
+    display: none;
+}
+  
+.datepicker .MuiIconButton-root {
+    color: white;
 }
 
 
