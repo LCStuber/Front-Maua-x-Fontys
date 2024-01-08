@@ -1,52 +1,46 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './StuAnnouncement.css';
+import api from '../../api/axiosConfig';
 
 
 const StuAnnouncement = () => {
+    const [announcements, setAnnouncements] = useState([]);
+
+    const getNotifications = async () => {
+        try {
+            const response = await api.get('/api/v1/notifications');
+            console.log(response.data);
+            setAnnouncements(response.data);
+          } catch (error) {
+            console.log(error);
+          }
+    }
+
+    useEffect(() => {
+        getNotifications();
+    }, []);
+
     return(
         <>
         <div className="containerStuAnnounce">
             <h1 id="announcementtitle"> Announcements:</h1>
             <div className="announcementWrapper">
-                
-                <div className="announcementContainer">
-                    <div id="SubDatefield">
-                    <h3> Teacher1 </h3>
-                    <h3> DateTime</h3>
-                    </div>
-                    <h4> Subject </h4>
-                    <p> 
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                    </p>
-                </div>
-                <div className="announcementContainer">
-                    <div id="SubDatefield">
-                    <h3> Teacher1 </h3>
-                    <h3> DateTime</h3>
-                    </div>
-                    <h4> Subject </h4>
-                    <p> 
-                        message will be here
-                    </p>
-                </div>
-                <div className="announcementContainer">
-                    <div id="SubDatefield">
-                    <h3> Teacher1 </h3>
-                    <h3> DateTime</h3>
-                    </div>
-                    <h4> Subject </h4>
-                    <p> 
-                        message will be here then lenght of the message doesn't matter
-                    </p>
-                </div>
-                
+            {announcements.length === 0 ? (
+                    <p className='no-announcements'>There are no announcements.</p>
+                ) : (
+                    announcements.map((announcement, index) => (
+                        <div className="announcementContainer" key={index}>
+                            <div id="SubDatefield">
+                                <h3> {announcement.sender} </h3>
+                                <h3> {announcement.datetime} </h3>
+                            </div>
+                            <h4> {announcement.subject} </h4>
+                            <p> 
+                                {announcement.message}
+                            </p>
+                        </div>
+                    ))
+                )}
             </div>
         </div>
         </>

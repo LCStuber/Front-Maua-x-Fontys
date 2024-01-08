@@ -41,6 +41,16 @@
     padding-top: 10px;
 }
 
+.no-announcements{
+    color: black;
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    padding: 10px 25px 10px 25px;
+    font-family: lexend;
+    text-align: center;
+}
+
 @media only screen and (max-height: 900px) {
     .announcementWrapper{
         height: 750px;

@@ -48,8 +48,9 @@
     font-size: 25px;
 }
 
-#submitbutton{
-    padding: 20px 70px;
+.submitbutton{
+    padding: 15px 55px;
     background-color: green;
     color: white;
+    border-radius: 20px;
 }
