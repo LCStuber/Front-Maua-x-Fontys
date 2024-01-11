@@ -2,7 +2,7 @@ importScripts('https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js');
 importScripts('https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js');
 
 firebase.initializeApp({
-    apiKey: `${process.env.REACT_APP_FIREBASE_API_KEY}}`,
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
     authDomain: "fontysmaua.firebaseapp.com",
     projectId: "fontysmaua",
     storageBucket: "fontysmaua.appspot.com",

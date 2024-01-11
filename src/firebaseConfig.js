@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getMessaging, getToken } from 'firebase/messaging';
+import { getMessaging, getToken, onMessage } from 'firebase/messaging';
 import { register } from 'register-service-worker'
 
 register('./firebase-messaging-sw.js', {
@@ -28,7 +28,7 @@ register('./firebase-messaging-sw.js', {
 })
 
 export const firebaseConfig = {
-    apiKey: `${process.env.REACT_APP_FIREBASE_API_KEY}}`,
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
     authDomain: "fontysmaua.firebaseapp.com",
     projectId: "fontysmaua",
     storageBucket: "fontysmaua.appspot.com",
@@ -40,9 +40,11 @@ export const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const messaging = getMessaging(app);
 
+export {messaging}
+
 const getFirebaseToken = async (setTokenFound) => {
     return getToken(messaging, {
-        vapidKey: `${process.env.REACT_APP_FIREBASE_VAPID_KEY}`
+        vapidKey: process.env.REACT_APP_FIREBASE_VAPID_KEY
     })
         .then(currentToken => {
             if (currentToken) {
@@ -58,14 +60,42 @@ const getFirebaseToken = async (setTokenFound) => {
         });
 }
 
-export const requestPermission = (setTokenFound) => {
+const displayNotification = (title, body) => {
+    if (Notification.permission === 'granted') {
+        new Notification(title, { body });
+      } else if (Notification.permission !== 'denied') {
+        Notification.requestPermission().then(permission => {
+          if (permission === 'granted') {
+            displayNotification(title, body);
+          }
+        });
+      }
+};
+
+const onMessageListener = () =>{
+    new Promise(resolve => {
+        onMessage(messaging, payload => {
+            console.log('Foreground message received:', payload);
+            const { title, body } = payload.notification;
+
+            displayNotification(title, body);
+            resolve(payload);
+        })
+    })
+}
+
+export const requestPermission = async (setTokenFound) => {
     console.log("Requesting User Permission...");
-    Notification.requestPermission().then(permission => {
+    try {
+        const permission = await Notification.requestPermission();
         if (permission === "granted") {
-            console.log("Notifications permitted")
-            getFirebaseToken(setTokenFound)
+            console.log("Notifications permitted");
+            await getFirebaseToken(setTokenFound);
+            await onMessageListener();
         } else {
             console.log("User Permission denied");
         }
-    });
+    } catch (error) {
+        console.error('Error requesting permission:', error);
+    }
 };
