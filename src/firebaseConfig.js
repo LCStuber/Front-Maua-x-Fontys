@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getMessaging, getToken, onMessage } from 'firebase/messaging';
 import { register } from 'register-service-worker'
+import { toast } from 'react-hot-toast';
 
 register('./firebase-messaging-sw.js', {
     registrationOptions: { scope: './' },
@@ -61,6 +62,11 @@ const getFirebaseToken = async (setTokenFound) => {
 }
 
 const displayNotification = (title, body) => {
+    // toast(`${title}: ${body}`, {
+    //     duration: 5000,
+    //     position: 'bottom-right',
+    // });
+    
     if (Notification.permission === 'granted') {
         new Notification(title, { body });
       } else if (Notification.permission !== 'denied') {
@@ -69,17 +75,27 @@ const displayNotification = (title, body) => {
             displayNotification(title, body);
           }
         });
-      }
+    }
 };
 
 const onMessageListener = () =>{
     new Promise(resolve => {
         onMessage(messaging, payload => {
             console.log('Foreground message received:', payload);
-            const { title, body } = payload.notification;
 
-            displayNotification(title, body);
-            resolve(payload);
+            if (payload && payload.notification) {
+                const { title, body } = payload.notification;
+        
+                displayNotification(title, body);
+                resolve(payload);
+              } else if (payload && payload.data) {
+                const { title, body } = payload.data;
+        
+                displayNotification(title, body);
+                resolve(payload);
+              } else {
+                console.error('Payload, payload.notification, and payload.data are undefined.');
+              }
         })
     })
 }
