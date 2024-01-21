@@ -47,7 +47,7 @@ export default function Drawer({ anchor, open, onClose, onOpen }) {
       <List>
         {[['My activities', <LocalActivityIcon />, () => {navigate('/activities');}],
         ["Mauá's Location", <SchoolIcon />, () => {navigate('/maua-location');}],
-        // ["Announcements", <Announcement/>, () => {navigate('/stuannouncement');}],
+        ["Announcements", <Announcement/>, () => {navigate('/stuannouncement');}],
         // ["Announcements", <Announcement/>, () => {navigate('/announcement');}],
         ['Logout', <LogoutIcon />, () => {
           instance.logoutPopup({
