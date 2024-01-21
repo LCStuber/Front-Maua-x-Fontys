@@ -7,10 +7,9 @@ import ActivitiesMonitor from "./ActivitiesMonitor";
 
 const GoogleMapComponent = ({textLanguage}) => {
 
-  let currentInfoWindow = null;
-  let clickedFeatureIds = null;
-
-  let map;
+  const [clickedFeatureIds, setClickedFeatureIds] = useState(null);
+  const [currentInfoWindow, setCurrentInfoWindow] = useState(null);
+  const [campusMap, setCampusMap] = useState(null);
 
   const [showAllActivities, setShowAllActivities] = useState(false);
   const toggleActivitiesVisibility = () => {
@@ -18,8 +17,7 @@ const GoogleMapComponent = ({textLanguage}) => {
   };
   const [selectedLetter, setSelectedLetter] = useState([]);
   const receiveSelectedLetter = (letter) => {
-    setSelectedLetter(letter) //TODO When removed you can select a block normally again from the dropdown and it will emulate clicking on the map. // I believe it has to do with the react responsiveness to changes and it reloads the component when it shouldn't.
-
+    setSelectedLetter(letter)
   };
 
   useEffect(() => { // initialize map
@@ -31,13 +29,15 @@ const GoogleMapComponent = ({textLanguage}) => {
     loader.load().then(async () => {
       const { Map } = await window.google.maps.importLibrary('maps');
 
-      map = new Map(document.getElementById('map'), {
+      const map = new Map(document.getElementById('map'), {
         center: { lat: -23.648163, lng: -46.573078 },
         zoom: 16.8,
       });
 
       map.data.addGeoJson(coordinates);
       map.data.addListener('click', handleFeatureClick);
+
+      setCampusMap(map)
     });
   }, []);
 
@@ -57,7 +57,7 @@ const GoogleMapComponent = ({textLanguage}) => {
       return;
     }
 
-    clickedFeatureIds = featureId;
+    setClickedFeatureIds(featureId);
 
     if (currentInfoWindow) {
       currentInfoWindow.close();
@@ -69,12 +69,12 @@ const GoogleMapComponent = ({textLanguage}) => {
     });
 
     infoWindow.addListener('closeclick', () => {
-      clickedFeatureIds = null;
-      currentInfoWindow = null;
+      setClickedFeatureIds(null);
+      setCurrentInfoWindow(null);
     });
 
-    infoWindow.open(map);
-    currentInfoWindow = infoWindow;
+    infoWindow.open(campusMap);
+    setCurrentInfoWindow(infoWindow);
   }
   function handleFeatureClick(event) {
 
@@ -106,7 +106,7 @@ const GoogleMapComponent = ({textLanguage}) => {
     return { lat: centerY, lng: centerX };
   }
   function emulateClick(letter){
-    if (map) {
+    if (campusMap) {
       let feature = getFeatureDataByLetter(letter);
 
       if (feature) {
@@ -119,14 +119,12 @@ const GoogleMapComponent = ({textLanguage}) => {
           if (textLanguage === "EN")
           {
             presentBlockPopup(feature.properties.letter, feature.properties.roomsEN, popUpPoint);
-
-          }
-          else{
+          } else {
             presentBlockPopup(feature.properties.letter, feature.properties.roomsPT, popUpPoint);
           }
-          if (map && popUpPoint) {
-            map.panTo(popUpPoint);
-            map.setZoom(18);
+          if (popUpPoint) {
+            campusMap.panTo(popUpPoint);
+            campusMap.setZoom(18);
           }
         }
       }
