@@ -50,7 +50,9 @@ const ActivitiesMonitor = ({textLanguage, selectedLetter, showAllActivities}) =>
         async function fetchData() {
             try {
                 console.log("SelectedLetter: " + selectedLetter);
-                const response = await api.get(`/api/v1/activities`);
+                const response = await api.get(`http://localhost:3001/api/v1/activities`);
+                console.log("data");
+                console.log(response.data);
                 const responseActivities = response.data;
 
                 let matchActivities = [];

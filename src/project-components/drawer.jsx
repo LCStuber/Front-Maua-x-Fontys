@@ -11,6 +11,7 @@ import LocalActivityIcon from '@mui/icons-material/LocalActivity';
 import MapIcon from '@mui/icons-material/Map';
 import LogoutIcon from '@mui/icons-material/Logout';
 import SchoolIcon from '@mui/icons-material/School';
+import ControlPointTwoToneIcon from '@mui/icons-material/ControlPointTwoTone';
 import Link from '@mui/material/Link';
 import { Announcement } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
@@ -47,6 +48,7 @@ export default function Drawer({ anchor, open, onClose, onOpen }) {
       <List>
         {[['My activities', <LocalActivityIcon />, () => {navigate('/activities');}],
         ["Mauá's Location", <SchoolIcon />, () => {navigate('/maua-location');}],
+        ["Add activity", <ControlPointTwoToneIcon/>, () => {navigate('/addActivity');}],
         // ["Announcements", <Announcement/>, () => {navigate('/stuannouncement');}],
         // ["Announcements", <Announcement/>, () => {navigate('/announcement');}],
         ['Logout', <LogoutIcon />, () => {

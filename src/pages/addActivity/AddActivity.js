@@ -15,7 +15,7 @@ const AddActivity = () => {
         name: '',
         description: '',
         room: '',
-        building: 'Block A',
+        building: 'A',
         capacity: null,
         lector: ''
     })
@@ -52,7 +52,7 @@ const AddActivity = () => {
             };
     
             try{
-                const response = await api.post(`/api/v1/activities`, formattedData);
+                const response = await api.post(`http://localhost:3001/api/v1/activities`, formattedData);
                 console.log(response.data);
             } catch (error) {
                 console.log(error);
@@ -112,25 +112,25 @@ const AddActivity = () => {
 
                 <div className="add-activity-building">
                     <select className="building-dropdown" value={formData.building} onChange={handleBuildingChange}>
-                        <option>Block A</option>
-                        <option>Block B</option>
-                        <option>Block C</option>
-                        <option>Block D</option>
-                        <option>Block E</option>
-                        <option>Block F</option>
-                        <option>Block G</option>
-                        <option>Block H</option>
-                        <option>Block I</option>
-                        <option>Block J</option>
-                        <option>Block L</option>
-                        <option>Block M</option>
-                        <option>Block N</option>
-                        <option>Block P</option>
-                        <option>Block Q</option>
-                        <option>Block R</option>
-                        <option>Block S</option>
-                        <option>Block U</option>
-                        <option>Block V</option>
+                        <option value="A">Block A</option>
+                        <option value="B">Block B</option>
+                        <option value="C">Block C</option>
+                        <option value="D">Block D</option>
+                        <option value="E">Block E</option>
+                        <option value="F">Block F</option>
+                        <option value="G">Block G</option>
+                        <option value="H">Block H</option>
+                        <option value="I">Block I</option>
+                        <option value="J">Block J</option>
+                        <option value="L">Block L</option>
+                        <option value="M">Block M</option>
+                        <option value="N">Block N</option>
+                        <option value="P">Block P</option>
+                        <option value="Q">Block Q</option>
+                        <option value="R">Block R</option>
+                        <option value="S">Block S</option>
+                        <option value="U">Block U</option>
+                        <option value="V">Block V</option>
                         <option>CEAF</option>
                         <option>CA Kiosk</option>
                         <option>Gym Snack Bar</option>
