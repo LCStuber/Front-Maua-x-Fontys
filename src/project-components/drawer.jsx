@@ -47,16 +47,19 @@ export default function Drawer({ anchor, open, onClose, onOpen }) {
       <List>
         {[// Removido-24-01
           //['My activities', <LocalActivityIcon />, () => {navigate('/activities');}],
-        ["Mauá's Location", <SchoolIcon />, () => {navigate('/maua-location');}],
+        ["Localização da Mauá", <SchoolIcon />, () => {navigate('/maua-location');}],
         // ["Announcements", <Announcement/>, () => {navigate('/stuannouncement');}],
         // ["Announcements", <Announcement/>, () => {navigate('/announcement');}],
-        ['Logout', <LogoutIcon />, () => {
-          instance.logoutPopup({
-            postLogoutRedirectUri: "/",
-            mainWindowRedirectUri: "/",
-          });
-          navigate('/');
-        }]].map((button, index) => (
+        ['Sair', <LogoutIcon />, () => {navigate('/');}]
+        // Removido-24-01
+        // ['Sair', <LogoutIcon />, () => {
+        //   instance.logoutPopup({
+        //     postLogoutRedirectUri: "/",
+        //     mainWindowRedirectUri: "/",
+        //   });
+        //   navigate('/');
+        // }]
+        ].map((button, index) => (
           <ListItem key={button[0]} disablePadding>
             <ListItemButton onClick={typeof button[2] === 'function' ? button[2] : () => {}}>
               <ListItemIcon>

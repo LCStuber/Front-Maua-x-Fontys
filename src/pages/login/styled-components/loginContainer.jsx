@@ -88,12 +88,14 @@ const LogoMS365 = styled.img`
 const Text = styled.p`
 @media (max-aspect-ratio: 1/1) and (orientation: portrait){
     display: inline;
-    padding-right: 15px;
+    // Removido-24-01
+    // padding-right: 15px;
     font-size: 20px;
 }
 @media (orientation: landscape) {
     display: inline;
-    padding-right: 15px;
+    // Removido-24-01
+    // padding-right: 15px;
     font-size: 20px;
 }
 `

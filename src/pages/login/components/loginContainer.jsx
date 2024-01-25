@@ -16,8 +16,9 @@ export const SignInButton = () => {
                 {// Removido-24-01
                 /* <LoginButton as="button" onClick={() => instance.loginRedirect(loginRequest)}> */}
                 <LoginButton as="button" onClick={() => navigate('/homepage')}>
-                    <Text>Login</Text>
-                    <LogoMS365 src="https://d1135f49d6br9m.cloudfront.net/microsoft-365-logo.png" alt="MS365"></LogoMS365>
+                    <Text>Acessar</Text>
+                    {// Removido-24-01
+                    /* <LogoMS365 src="https://d1135f49d6br9m.cloudfront.net/microsoft-365-logo.png" alt="MS365"></LogoMS365> */}
                 </LoginButton>
             </Container>
         </>

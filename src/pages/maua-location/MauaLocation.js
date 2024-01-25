@@ -49,16 +49,16 @@ const MauaLocation = () => {
     }, [isLoaded]);
     
     if (loadError) {
-        return <div>Error loading maps</div>;
+        return <div>Erro ao carregar mapa</div>;
     };
     
     if (!isLoaded) {
-        return <div>Loading maps</div>;
+        return <div>Carregando Mapa</div>;
     };
     
     return (
     <div className="google-maps">
-      <h1>Where is Mauá?</h1>
+      <h1>Onde é a Mauá?</h1>
       <div className="location-container">
         <GoogleMap
           mapContainerClassName="map-container"
@@ -75,11 +75,12 @@ const MauaLocation = () => {
         </GoogleMap>
         <div className="left-container">
           <div className="address-box">
-            <h2>Address: </h2>
+            <h2>Endereço: </h2>
             <p>Praça Mauá, 1 - Mauá, São Caetano do Sul - SP, 09580-900, Brazil</p>
           </div>
           <div className="path-button-container">
-            <button className="path-button" onClick={getUserLocation}>Display Route</button>
+            {// Removido-24-01
+            /* <button className="path-button" onClick={getUserLocation}>Mostrar Rota</button> */}
           </div>
         </div>
       </div>

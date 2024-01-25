@@ -9,7 +9,7 @@ const Activities = styled.div`
     width: 90%;
     margin: auto;
     margin-top: 20px;
-    background-color: #001C35;
+    background-color: gray;
     text-align: center;
     color: #f6f6f6;
     padding: 10px 0;

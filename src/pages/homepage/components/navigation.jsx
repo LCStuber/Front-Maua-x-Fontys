@@ -14,7 +14,7 @@ export default function NavigationComponent() {
             {/* // Removido-24-01 */}
             <Grid xs={12}>          
                 <Anchor href="#">
-                    <Activities>Em Desenvolvimento</Activities>
+                    <Activities>Atividades (Em Desenvolvimento)</Activities>
                 </Anchor>
                 <Header style={{marginTop: "12px", marginBottom: "12px"}}>Informações Gerais: </Header>
             </Grid>
