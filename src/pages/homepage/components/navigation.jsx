@@ -11,9 +11,10 @@ export default function NavigationComponent() {
     return(
         <>
         <Grid container>
-            <Grid xs={12}>            
-                <Anchor href="/interactive-map">
-                    <Activities>Ver todas as atividades</Activities>
+            {/* // Removido-24-01 */}
+            <Grid xs={12}>          
+                <Anchor href="#">
+                    <Activities>Em Desenvolvimento</Activities>
                 </Anchor>
                 <Header style={{marginTop: "12px", marginBottom: "12px"}}>Informações Gerais: </Header>
             </Grid>
