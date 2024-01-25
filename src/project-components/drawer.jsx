@@ -45,7 +45,8 @@ export default function Drawer({ anchor, open, onClose, onOpen }) {
       onKeyDown={onClose}
     >
       <List>
-        {[['My activities', <LocalActivityIcon />, () => {navigate('/activities');}],
+        {[// Removido-24-01
+          //['My activities', <LocalActivityIcon />, () => {navigate('/activities');}],
         ["Mauá's Location", <SchoolIcon />, () => {navigate('/maua-location');}],
         // ["Announcements", <Announcement/>, () => {navigate('/stuannouncement');}],
         // ["Announcements", <Announcement/>, () => {navigate('/announcement');}],

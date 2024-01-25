@@ -7,25 +7,25 @@ import { useNavigate } from 'react-router-dom';
 import Cloud from './components/clouds';
 
 function Login() {
-  const { instance } = useMsal();
-  const isAuthenticated = useIsAuthenticated();
+  // const { instance } = useMsal();
+  // const isAuthenticated = useIsAuthenticated();
   const navigate = useNavigate();
 
-  const handleSignIn = () => {
-    instance.loginRedirect();
-  };
+  // const handleSignIn = () => {
+  //   instance.loginRedirect();
+  // };
 
-  useEffect(() => {
-    if (isAuthenticated) {
-      navigate('/homepage');
-    }
-  }, [isAuthenticated, navigate]);
+  // useEffect(() => {
+  //   if (isAuthenticated) {
+  //     navigate('/homepage');
+  //   }
+  // }, [isAuthenticated, navigate]);
 
   return (
 
     <Body>
       <Container>
-        <SignInButton onClick={handleSignIn}></SignInButton>
+        <SignInButton onClick={navigate('/homepage')}></SignInButton>
       </Container>
       <Cloud></Cloud>
     </Body>

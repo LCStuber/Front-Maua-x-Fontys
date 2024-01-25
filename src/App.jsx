@@ -32,7 +32,9 @@ const ProtectedRoute = ({ element }) => {
           {element}
         </AuthenticatedTemplate>
         <UnauthenticatedTemplate>
-          <Navigate to="/" replace />
+          {// Removido-24-01
+          /* <Navigate to="/" replace /> */}
+          {element}
         </UnauthenticatedTemplate>
       </div>
     );
@@ -52,14 +54,15 @@ function App() {
       <main className="content">
         <Routes>
           <Route index path="/" element={<Login />} />
-          <Route
+          {// Removido-24-01
+          /* <Route
             path="/activities"
             element={<ProtectedRoute element={<><Navbar openDrawer={toggleDrawer} /><Activities /></>} />}
           />
           <Route
             path="/activity/:id"
             element={<ProtectedRoute element={<><Navbar openDrawer={toggleDrawer} /><ActivityDetail /></>} />}
-          />
+          /> */}
           <Route
             path="/homepage"
             element={<ProtectedRoute element={<><Navbar openDrawer={toggleDrawer} /><HomePage /></>} />}
@@ -72,10 +75,11 @@ function App() {
             path="/stuorgs"
             element={<ProtectedRoute element={<><Navbar openDrawer={toggleDrawer} /><StuOrgs /></>} />}
           />
-          <Route
+          {// Removido-24-01
+          /* <Route
             path="/interactive-map"
             element={<ProtectedRoute element={<><Navbar openDrawer={toggleDrawer} /><InteractiveMap /></>} />}
-          />
+          /> */}
           <Route
             path="/maua-location"
             element={<ProtectedRoute element={<><Navbar openDrawer={toggleDrawer} /><MauaLocation /></>} />}
@@ -84,14 +88,15 @@ function App() {
             path="/college-info"
             element={<ProtectedRoute element={<><Navbar openDrawer={toggleDrawer} /><CollegeInfo /></>} />}
           />
-          <Route
+          {// Removido-24-01
+          /* <Route
             path="/stuannouncement"
             element={<ProtectedRoute element={<><Navbar openDrawer={toggleDrawer} /><StuAnnouncement /></>} />}
           />
           <Route
             path="/announcement"
             element={<ProtectedRoute element={<><Navbar openDrawer={toggleDrawer} /><Announcement /></>} />}
-          />
+          /> */}
         </Routes>
       </main>
     </Router>
