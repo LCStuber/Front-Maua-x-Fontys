@@ -7,6 +7,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Drawer from './drawer';
 import Image from '../styled-components/Navbar';
+import { Button } from '@mui/material';
 
 
 export default function Navbar({openDrawer}){

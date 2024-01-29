@@ -1,13 +1,23 @@
 import axios from "axios";
 import React from "react";
-import {Activities, Header,Card, CardText, Anchor, Group} from '../styled-components/navigation'
+import {Activities, Header,Card, CardText, Anchor, Group,} from '../styled-components/navigation'
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import CloseIcon from '@mui/icons-material/Close';
 import SchoolIcon from '@mui/icons-material/School';
 import CollectionsBookmarkIcon from '@mui/icons-material/CollectionsBookmark';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
+import DownloadIcon from '@mui/icons-material/Download';
 import Grid from '@mui/material/Unstable_Grid2';
-
+import { Button } from "@mui/material";
+import { BorderBottom, Padding } from "@mui/icons-material";
+import { text } from "@fortawesome/fontawesome-svg-core";
 
 export default function NavigationComponent() {
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
     return(
         <>
         <Grid container>
